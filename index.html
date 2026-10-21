@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>C'alma Home Spa · Spa ao domicílio em Maputo</title>
+<meta name="description" content="Bem-estar e cuidados pessoais ao domicílio em Maputo. Massagens, rosto, mãos, pés e depilação, com equipa profissional e preparação cuidada. Marque o seu momento.">
+<meta property="og:title" content="C'alma Home Spa · Maputo">
+<meta property="og:description" content="O cuidado de um spa, no conforto da sua casa.">
+<meta property="og:image" content="assets/photos/hero.jpg">
+<meta property="og:locale" content="pt_PT">
+<link rel="icon" href="assets/logos/vertical-chestnut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Regular.ttf') format('truetype');font-weight:400;font-display:swap;}
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Bold.ttf') format('truetype');font-weight:700;font-display:swap;}
+
+/* Layout: secções largas em Alabaster, uma banda Olive (equipa) e uma Blush (zonas); a fotografia real faz a cor. */
+:root{
+  --alabaster:#EEEBE4;
+  --blush:#FFEDE5;
+  --chestnut:#9C5839;
+  --olive:#454127;
+  --sage:#B2C07A;
+  --white:#FFFFFF;
+  --line:rgba(69,65,39,.16);
+  --display:'Black Mango','Jost',Georgia,serif;
+  --sans:'Jost','Futura','Avenir Next','Helvetica Neue',Arial,sans-serif;
+  --gutter:max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+[hidden]{display:none!important;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.6;color:var(--olive);background:var(--alabaster);overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;}
+:focus-visible{outline:2px solid var(--chestnut);outline-offset:3px;}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r);}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.08;text-wrap:balance;}
+h2{font-size:clamp(28px,3.4vw,40px);}
+h3{font-weight:500;font-size:19px;line-height:1.3;}
+.eyebrow{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--chestnut);margin-bottom:14px;}
+.lead{font-size:17px;font-weight:300;max-width:560px;}
+section{padding-block:96px;}
+section[id]{scroll-margin-top:84px;}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:4px;font-size:15px;font-weight:500;border:0;cursor:pointer;transition:opacity .2s,transform .3s;}
+.btn-solid{background:var(--chestnut);color:var(--white);}
+.btn-solid:hover{transform:translateY(-1px);opacity:.92;}
+.btn-line{background:transparent;color:var(--chestnut);box-shadow:inset 0 0 0 1.5px var(--chestnut);}
+.btn-line:hover{background:var(--chestnut);color:var(--white);}
+.btn-light{background:var(--white);color:var(--olive);}
+.arrow{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;}
+.arrow svg{width:16px;height:16px;transition:transform .2s;}
+.arrow:hover svg{transform:translateX(3px);}
+
+/* Lugar de fotografia: mostra a legenda até a fotografia real ser colocada em assets/photos */
+.ph{position:relative;overflow:hidden;background:var(--blush);margin:0;}
+.ph img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.ph figcaption{position:absolute;left:14px;right:14px;bottom:14px;font-size:12px;line-height:1.4;color:var(--olive);opacity:.7;}
+.ph figcaption::before{content:'Fotografia · ';font-weight:600;}
+
+/* Faixa de anúncio */
+.announce .hours{}
+@media (max-width:760px){.announce .hours{display:none;}}
+.announce{background:var(--olive);color:var(--alabaster);text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:9px var(--gutter-r) 9px var(--gutter);}
+
+/* Cabeçalho */
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);z-index:60;background:var(--alabaster);}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(238,235,228,.96);backdrop-filter:blur(6px);transition:box-shadow .3s;}
+header.scrolled{box-shadow:0 6px 24px rgba(69,65,39,.08);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1200px;margin:0 auto;padding:14px var(--gutter-r) 14px var(--gutter);}
+.nav .logo{height:44px;width:auto;}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:500;}
+.nav-links a:hover{color:var(--chestnut);}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.nav-right .wa svg{width:22px;height:22px;display:block;}
+@media (max-width:980px){.nav-links{display:none;}}
+@media (max-width:520px){.nav .logo{height:36px;}.nav .btn{padding:11px 16px;font-size:14px;}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;min-height:min(80vh,720px);padding:0;}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:22px;padding-block:72px;padding-left:max(var(--gutter),calc((100vw - 1200px)/2 + 20px));padding-right:48px;}
+.hero h1{font-size:clamp(38px,4.6vw,62px);}
+.hero .lead{max-width:440px;}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:6px;}
+.hero .ph{min-height:420px;}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;margin-top:8px;opacity:.8;}
+.facts span{display:inline-flex;align-items:center;gap:8px;}
+.facts span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sage);}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero .ph{min-height:360px;order:-1;}
+  .hero-copy{padding:44px var(--gutter-r) 56px var(--gutter);}
+}
+
+/* Como funciona */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;}
+.step{background:var(--white);border-radius:6px;padding:32px 30px 34px;display:flex;flex-direction:column;gap:10px;min-width:0;}
+.step .n{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;margin-bottom:26px;color:var(--chestnut);}
+.step p{font-size:15px;opacity:.85;}
+@media (max-width:860px){.steps{grid-template-columns:1fr;}.step .n{margin-bottom:14px;}}
+
+/* Serviços */
+.services{padding-bottom:110px;}
+.services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;}
+.price-note{font-size:14px;max-width:420px;opacity:.8;}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:44px 0 48px;}
+.tab{position:relative;height:300px;border:0;padding:0;cursor:pointer;background:none;text-align:left;}
+.tab .ph{position:absolute;top:0;left:0;right:0;bottom:50px;}
+.tab .label{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;background:var(--alabaster);font-family:var(--display);font-size:18px;display:flex;justify-content:space-between;align-items:center;border-top:3px solid transparent;transition:border-color .2s,background .2s;}
+.tab .label small{font-family:var(--sans);font-size:12px;opacity:.6;}
+.tab:hover .label{background:var(--white);}
+.tab[aria-selected="true"] .label{border-top-color:var(--chestnut);background:var(--white);}
+@media (max-width:900px){.tabs{grid-template-columns:repeat(3,1fr);}.tab{height:220px;}}
+@media (max-width:560px){.tabs{grid-template-columns:repeat(2,1fr);}.tab{height:180px;}.tab:last-child{grid-column:1/-1;}.tab .ph figcaption{display:none;}}
+.panel[hidden]{display:none;}
+.panel-intro{font-size:15px;opacity:.8;max-width:620px;margin-bottom:34px;}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:44px 48px;}
+.item{display:flex;flex-direction:column;gap:10px;min-width:0;}
+.item h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.tag{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--chestnut);background:var(--blush);padding:3px 8px;border-radius:2px;}
+.item p{font-size:14.5px;opacity:.78;}
+.rows{list-style:none;font-size:15px;font-variant-numeric:tabular-nums;}
+.rows li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);}
+.rows li span:first-child{flex:1;}
+.rows li b{font-weight:500;color:var(--chestnut);white-space:nowrap;}
+.item .note{font-size:13px;opacity:.7;}
+.item .btn{align-self:flex-start;margin-top:6px;padding:11px 20px;font-size:14px;}
+.wax{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:0 48px;}
+
+/* Preparado com C'alma */
+.prep-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.prep-photos{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:240px 240px;gap:8px;}
+.prep-photos .ph:first-child{grid-row:1/3;}
+.proof{list-style:none;display:grid;gap:18px;margin-top:30px;}
+.proof li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:15.5px;}
+.proof li svg{width:22px;height:22px;color:var(--chestnut);margin-top:2px;}
+.proof b{font-weight:500;display:block;}
+@media (max-width:900px){.prep-grid{grid-template-columns:1fr;gap:40px;}.prep-photos{grid-template-rows:200px 200px;}}
+
+/* Equipa (banda Olive) */
+.team{background:var(--olive);color:var(--alabaster);}
+.team .eyebrow{color:var(--sage);}
+.team .lead{opacity:.85;}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px;}
+.person{display:flex;flex-direction:column;gap:12px;min-width:0;}
+.person .ph{min-height:300px;height:100%;max-width:100%;background:rgba(255,237,229,.12);}
+.person .ph figcaption{color:var(--alabaster);}
+.person h3{font-family:var(--display);font-weight:700;font-size:22px;}
+.person p{font-size:14px;opacity:.82;}
+@media (max-width:900px){.people{grid-template-columns:repeat(2,1fr);}}
+
+/* Faixa de assinatura: texto sobre Olive, fotografia vertical ao lado */
+.band{display:grid;grid-template-columns:1.1fr .9fr;padding:0;background:var(--olive);color:var(--white);}
+.band .band-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding-block:96px;padding-left:max(var(--gutter),calc((100vw - 1200px)/2 + 20px));padding-right:48px;}
+.band h2{font-size:clamp(30px,3.8vw,48px);max-width:520px;}
+.band p{max-width:420px;opacity:.85;font-weight:300;font-size:17px;}
+.band .ph{min-height:460px;background:#5b5638;}
+.band .ph figcaption{color:var(--alabaster);}
+@media (max-width:860px){.band{grid-template-columns:1fr;}.band .ph{min-height:360px;}.band .band-copy{padding:64px var(--gutter-r) 64px var(--gutter);}}
+
+/* Zonas: cartões por zona sobre Alabaster */
+.zones{background:var(--alabaster);}
+.zones-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 56px;flex-wrap:wrap;margin-bottom:40px;}
+.zones-head .lead{max-width:460px;}
+.zone-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.zone{background:var(--white);border-radius:6px;padding:28px 26px 26px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:3px solid var(--sage);}
+.zone:nth-child(2){border-top-color:var(--chestnut);}
+.zone:nth-child(3){border-top-color:var(--olive);}
+.zone-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.zone h3{font-family:var(--display);font-weight:700;font-size:26px;}
+.zone .fee{font-family:var(--display);font-weight:700;font-size:30px;color:var(--chestnut);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.zone .fee small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--olive);opacity:.6;margin-left:4px;}
+.zone .meta{display:flex;flex-wrap:wrap;gap:6px;}
+.zone .meta span{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--alabaster);}
+.zone p{font-size:14px;opacity:.78;line-height:1.55;}
+.zone-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;list-style:none;}
+.zone-notes li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:14px;align-items:start;}
+.zone-notes svg{width:20px;height:20px;color:var(--chestnut);margin-top:1px;}
+@media (max-width:900px){.zone-cards,.zone-notes{grid-template-columns:1fr;}}
+
+/* Testemunhos */
+.quotes{text-align:center;}
+.quote-stage{display:grid;max-width:760px;margin:26px auto 0;}
+.quote{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .6s;}
+.quote.on{opacity:1;visibility:visible;}
+.qmark{display:block;font-family:var(--display);font-weight:700;font-size:88px;line-height:.5;height:34px;margin-top:18px;color:var(--sage);}
+.quote blockquote{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.35;}
+.quote cite{display:block;margin-top:18px;font-style:normal;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--chestnut);}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:28px;}
+.dots button{width:28px;height:3px;border:0;background:var(--line);cursor:pointer;padding:0;}
+.dots button[aria-selected="true"]{background:var(--chestnut);width:44px;}
+
+/* Perguntas */
+.faq-aside{font-size:15px;opacity:.8;margin:18px 0 14px;max-width:340px;}
+.faq .arrow{color:var(--chestnut);}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;}
+.faq details{border-top:1px solid var(--line);}
+.faq details:last-child{border-bottom:1px solid var(--line);}
+.faq summary{list-style:none;cursor:pointer;padding:20px 36px 20px 0;font-weight:500;font-size:17px;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'';position:absolute;right:6px;top:50%;width:10px;height:10px;border-right:1.5px solid var(--chestnut);border-bottom:1.5px solid var(--chestnut);transform:translateY(-70%) rotate(45deg);transition:transform .25s;}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+.faq details p{padding:0 0 22px;font-size:15px;opacity:.85;max-width:620px;}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:24px;}}
+
+/* Marcações */
+.booking{text-align:center;padding-top:20px;}
+.book-box{background:var(--white);max-width:680px;margin:0 auto;padding:52px 40px;border-radius:6px;box-shadow:0 26px 56px rgba(69,65,39,.08);display:flex;flex-direction:column;align-items:center;gap:20px;}
+.book-box .lead{margin:0 auto;}
+.book-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.wa-number{font-size:14px;opacity:.75;font-variant-numeric:tabular-nums;}
+.policy{list-style:none;text-align:left;display:grid;gap:10px;font-size:14px;max-width:520px;padding-top:22px;border-top:1px solid var(--line);width:100%;}
+.policy li{padding-left:18px;position:relative;}
+.policy li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--sage);}
+@media (max-width:560px){.book-box{padding:40px 22px;}.book-actions .btn{width:100%;}}
+
+/* Rodapé */
+footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;margin-top:96px;}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.foot .logo{height:70px;width:auto;margin-bottom:18px;}
+.foot p,.foot a,.foot span{font-size:14px;opacity:.82;display:block;}
+.foot a{margin-bottom:9px;}
+.foot a:hover{opacity:1;}
+.social{display:flex;gap:10px;margin-top:20px;}
+.social a{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(238,235,228,.3);border-radius:50%;margin:0;opacity:.9;transition:background .2s,color .2s;}
+.social a:hover{background:var(--alabaster);color:var(--olive);opacity:1;}
+.social svg{width:18px;height:18px;}
+.foot h4{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+.foot-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(238,235,228,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;opacity:.6;}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.foot{grid-template-columns:1fr;}}
+
+/* Barra de total no telemóvel, durante a marcação */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:56;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--olive);color:var(--alabaster);padding:12px max(16px, env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));box-shadow:0 -10px 24px rgba(30,27,16,.18);}
+.mbar small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;}
+.mbar b{font-weight:500;font-size:18px;font-variant-numeric:tabular-nums;}
+.mbar .btn{padding:11px 18px;font-size:14px;}
+@media (min-width:901px){.mbar{display:none!important;}}
+
+/* Botão flutuante de WhatsApp */
+.float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;align-items:center;gap:9px;padding:13px 20px;border-radius:999px;background:var(--chestnut);color:var(--white);font-size:14px;font-weight:500;box-shadow:0 12px 28px rgba(69,65,39,.26);transition:opacity .4s,transform .4s;}
+.float svg{width:19px;height:19px;}
+.float.hide{opacity:0;transform:translateY(14px);pointer-events:none;}
+@media (max-width:560px){.float span{display:none;}.float{padding:14px;}}
+
+
+/* Equipa: cartões horizontais, crescem com a equipa */
+.team-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 56px;flex-wrap:wrap;}
+.team-head .lead{max-width:440px;opacity:.85;}
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:44px;}
+.person{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);background:rgba(255,237,229,.06);min-width:0;}
+.person .ph{aspect-ratio:4/5;max-width:100%;background:rgba(255,237,229,.12);}
+.person-copy{padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;min-width:0;}
+.person h3{font-family:var(--display);font-weight:700;font-size:26px;}
+.person .role{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);}
+.person p{font-size:14.5px;opacity:.85;}
+.person blockquote{font-family:var(--display);font-size:17px;line-height:1.4;opacity:.9;}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px;}
+.chips li{font-size:12px;padding:4px 10px;border:1px solid rgba(238,235,228,.3);border-radius:999px;}
+@media (max-width:1000px){.people{grid-template-columns:1fr;}}
+@media (max-width:560px){.person{grid-template-columns:1fr;}.person .ph{min-height:0;height:auto;aspect-ratio:4/3;}}
+
+/* Planeador de marcação */
+.booking{padding-top:96px;text-align:left;}
+.book-head{max-width:640px;margin-bottom:40px;}
+.book-head .lead{margin-top:14px;}
+.planner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start;}
+#plan{display:flex;flex-direction:column;gap:18px;min-width:0;}
+#plan fieldset{border:0;background:var(--white);padding:26px 26px 22px;border-radius:6px;min-width:0;}
+#plan legend{float:left;width:100%;display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:22px;margin-bottom:16px;}
+#plan legend span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blush);color:var(--chestnut);font-family:var(--sans);font-size:14px;font-weight:600;}
+#plan fieldset > *:not(legend){clear:both;}
+.cat{border-top:1px solid var(--line);}
+.cat:first-child{border-top:0;}
+.cat summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;font-weight:500;}
+.cat summary::-webkit-details-marker{display:none;}
+.cat summary .count{font-size:12px;font-weight:500;color:var(--white);background:var(--chestnut);border-radius:999px;padding:2px 9px;}
+.cat summary .count:empty{display:none;}
+.cat summary::after{content:'';width:9px;height:9px;border-right:1.5px solid var(--chestnut);border-bottom:1.5px solid var(--chestnut);transform:rotate(45deg);margin-left:auto;transition:transform .2s;}
+.cat[open] summary::after{transform:rotate(-135deg);}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:8px;padding-bottom:16px;}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:4px;cursor:pointer;font-size:14.5px;font-variant-numeric:tabular-nums;transition:border-color .2s,background .2s;}
+.opt:hover{border-color:var(--chestnut);}
+.opt input{accent-color:var(--chestnut);width:17px;height:17px;flex:none;}
+.opt span{flex:1;min-width:0;}
+.opt small{display:block;font-size:12px;opacity:.65;}
+.opt b{font-weight:500;color:var(--chestnut);white-space:nowrap;}
+.opt:has(input:checked){border-color:var(--chestnut);background:var(--blush);}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fields label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:500;min-width:0;}
+.fields .wide{grid-column:1/-1;}
+.fields input,.fields select{font:inherit;font-size:15px;font-weight:400;color:var(--olive);background:var(--alabaster);border:1px solid transparent;border-radius:4px;padding:11px 12px;width:100%;min-width:0;}
+.fields input:focus,.fields select:focus{outline:none;border-color:var(--chestnut);background:var(--white);}
+.hint{font-size:13px;opacity:.7;margin-top:12px;}
+@media (max-width:560px){.fields{grid-template-columns:1fr;}#plan fieldset{padding:22px 18px;}}
+.summary{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));background:var(--olive);color:var(--alabaster);border-radius:6px;padding:28px 26px;display:flex;flex-direction:column;gap:16px;min-width:0;}
+.summary h3{font-family:var(--display);font-weight:700;font-size:24px;}
+.sum-list{list-style:none;display:grid;gap:8px;font-size:14px;}
+.sum-list li{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums;}
+.sum-list li.empty{opacity:.7;}
+.totals{display:grid;gap:6px;border-top:1px solid rgba(238,235,228,.18);padding-top:14px;font-variant-numeric:tabular-nums;}
+.totals div{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;}
+.totals .total{font-size:20px;font-weight:500;margin-top:4px;}
+.totals .total dd{color:var(--white);}
+.totals dd{white-space:nowrap;}
+.warn{list-style:none;display:grid;gap:8px;font-size:13.5px;}
+.warn:empty{display:none;}
+.warn li{background:rgba(255,237,229,.1);border-left:3px solid var(--sage);padding:9px 12px;}
+.summary .btn{width:100%;}
+.summary .btn[aria-disabled="true"]{opacity:.45;pointer-events:none;}
+.summary .arrow{color:var(--sage);font-size:14px;}
+.summary .wa-number{font-size:13.5px;opacity:.8;}
+.summary .policy{border-top:1px solid rgba(238,235,228,.18);font-size:13px;max-width:none;padding-top:16px;}
+@media (max-width:900px){.planner{grid-template-columns:1fr;}.summary{position:static;}}
+
+/* Menu móvel */
+.menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px;}
+.menu-btn svg{width:24px;height:24px;display:block;}
+@media (max-width:980px){
+  .menu-btn{display:block;}
+  .nav-links.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--alabaster);padding:6px var(--gutter-r) 14px var(--gutter);box-shadow:0 14px 24px rgba(69,65,39,.1);}
+  .nav-links.open a{display:block;padding:12px 0;border-bottom:1px solid var(--line);}
+}
+/* Menu no telemóvel: atalhos por categoria e todos os serviços visíveis */
+.cat-jump{display:none;}
+@media (max-width:700px){
+  .tabs{display:none;}
+  .cat-jump{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 8px;}
+  .cat-jump a{font-size:14px;font-weight:500;padding:9px 14px;border-radius:999px;background:var(--white);border:1px solid var(--line);}
+  .panel[hidden]{display:block!important;}
+  .panel{padding-top:36px;scroll-margin-top:84px;}
+  .panel::before{content:attr(data-title);display:block;font-family:var(--display);font-weight:700;font-size:26px;margin-bottom:18px;padding-top:18px;border-top:1px solid var(--line);}
+}
+
+@media (max-width:640px){section{padding-block:68px;}.band{padding-block:0;}footer{margin-top:68px;}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}
+.hero h1,.hero .lead,.hero-actions{animation:rise .9s cubic-bezier(.22,.61,.36,1) both;}
+.hero .lead{animation-delay:.12s;}.hero-actions{animation-delay:.24s;}
+@keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<div class="announce">Bem-estar e cuidados pessoais ao domicílio · Maputo, por zonas<span class="hours"> · Todos os dias, 07:00–20:00</span></div>
+
+<header id="top">
+  <nav class="nav" aria-label="Principal">
+    <a href="#inicio"><img class="logo" src="assets/logos/horizontal-chestnut.png" alt="C'alma Home Spa" width="886" height="378"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#servicos">Serviços e preços</a></li>
+      <li><a href="#equipa">Equipa</a></li>
+      <li><a href="#zonas">Zonas</a></li>
+      <li><a href="#perguntas">Perguntas</a></li>
+      <li><a href="#marcar">Marcações</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <a class="wa" data-link="whatsapp" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener" aria-label="Falar por WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.6 1.8 6.5L3 29l7.2-2.2c1.8 1 3.9 1.6 6 1.6 6.9 0 12.3-5.6 12.3-12.5C28.5 8.6 22.9 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.3 1.3 1.3-4.2-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3s10.6 4.6 10.6 10.3S22 26.1 16 26.1zm5.8-7.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-2.5-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.6l.4-.5.3-.4c.1-.1.1-.3 0-.4-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.4z"/></svg>
+      </a>
+      <a class="btn btn-solid" href="#marcar">Marcar</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <span class="eyebrow">Home spa · Maputo</span>
+    <h1>O cuidado de um spa, no conforto da sua casa.</h1>
+    <p class="lead">Massagens, rosto, mãos, pés e depilação. A profissional chega com tudo o que é preciso, prepara o espaço e, no fim, deixa tudo arrumado.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#marcar">Marcar o seu momento</a>
+      <a class="arrow" href="#servicos">Ver serviços e preços <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="facts"><span>Todos os dias, das 7h às 20h</span><span>Levamos maca, toalhas e produtos</span><span>Sem trânsito antes nem depois</span></div>
+  </div>
+  <figure class="ph"><img src="assets/photos/hero.jpg" alt="Profissional da C'alma a preparar a maca numa sala com luz natural" onerror="this.remove()"><figcaption>profissional de farda a estender a toalha na maca, sala com luz natural (cenário 2).</figcaption></figure>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <span class="eyebrow">Como funciona</span>
+    <h2>Da marcação à sua casa</h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Escolha o serviço, o dia e a hora</h3><p>Reserve online ou por WhatsApp. Indique a morada e envie a localização.</p></div>
+      <div class="step"><span class="n">2</span><h3>Confirmamos tudo antes de sair</h3><p>Recebe a confirmação com a profissional, a duração e o valor total, já com a deslocação.</p></div>
+      <div class="step"><span class="n">3</span><h3>A C'alma chega até si</h3><p>Montamos o espaço, cuidamos de si e, no fim, deixamos tudo como estava. Paga no fim, sem numerário.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="services-head">
+      <div><span class="eyebrow">Serviços e preços</span><h2>O nosso menu</h2></div>
+      <p class="price-note">Preços por pessoa, em meticais. A deslocação está incluída a partir de <span data-cfg="ticket">2.500</span> MZN por visita. Abaixo deste valor, aplica-se a taxa da sua zona.</p>
+    </div>
+
+    <nav class="cat-jump" aria-label="Categorias"><a href="#massagens">Massagens</a><a href="#partilhar">A dois</a><a href="#rosto">Rosto</a><a href="#maos">Mãos e pés</a><a href="#depilacao">Depilação</a></nav>
+
+    <div class="tabs" role="tablist" aria-label="Categorias de serviços">
+      <button class="tab" role="tab" id="t-massagens" aria-controls="massagens" aria-selected="true"><figure class="ph"><img src="assets/photos/cat-massagens.jpg" alt="" onerror="this.remove()"><figcaption>massagem de costas, toalha a cobrir o corpo.</figcaption></figure><span class="label">Massagens <small>desde 1.500</small></span></button>
+      <button class="tab" role="tab" id="t-partilhar" aria-controls="partilhar" aria-selected="false"><figure class="ph"><img src="assets/photos/cat-partilhar.jpg" alt="" onerror="this.remove()"><figcaption>duas macas lado a lado, duas profissionais (cenário 10).</figcaption></figure><span class="label">A dois <small>desde 4.800</small></span></button>
+      <button class="tab" role="tab" id="t-rosto" aria-controls="rosto" aria-selected="false"><figure class="ph"><img src="assets/photos/cat-rosto.jpg" alt="" onerror="this.remove()"><figcaption>máscara aplicada com pincel, cliente de roupão.</figcaption></figure><span class="label">Rosto <small>desde 1.800</small></span></button>
+      <button class="tab" role="tab" id="t-maos" aria-controls="maos" aria-selected="false"><figure class="ph"><img src="assets/photos/cat-maos.jpg" alt="" onerror="this.remove()"><figcaption>manicure em pormenor, mesa arrumada.</figcaption></figure><span class="label">Mãos e pés <small>desde 500</small></span></button>
+      <button class="tab" role="tab" id="t-depilacao" aria-controls="depilacao" aria-selected="false"><figure class="ph"><img src="assets/photos/cat-depilacao.jpg" alt="" onerror="this.remove()"><figcaption>kit de depilação organizado (sem exposição do corpo).</figcaption></figure><span class="label">Depilação <small>desde 400</small></span></button>
+    </div>
+
+    <div class="panel" id="massagens" data-title="Massagens" role="tabpanel" aria-labelledby="t-massagens">
+      <div class="items">
+        <div class="item">
+          <h3>Massagem relaxante</h3>
+          <p>Massagem de corpo inteiro, com pressão suave a média, para aliviar a tensão acumulada.</p>
+          <ul class="rows"><li><span>30 min</span><b>1.500 MZN</b></li><li><span>60 min</span><b>2.600 MZN</b></li><li><span>90 min</span><b>3.600 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="m60">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Ombros, costas e cabeça</h3>
+          <p>Uma massagem concentrada nas zonas onde o dia mais pesa. Indicada depois de muitas horas sentada.</p>
+          <ul class="rows"><li><span>45 min</span><b>1.800 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="m45">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Drenagem linfática</h3>
+          <p>Movimentos leves e ritmados, em todo o corpo, que deixam uma sensação de leveza.</p>
+          <ul class="rows"><li><span>60 min</span><b>2.800 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="dren">Marcar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="partilhar" data-title="A dois" role="tabpanel" aria-labelledby="t-partilhar" hidden>
+      <p class="panel-intro">Serviços com duas profissionais ou preparação especial. Pedem um sinal de 30% no momento da marcação.</p>
+      <div class="items">
+        <div class="item">
+          <h3>Massagem a dois</h3>
+          <p>Duas macas, duas profissionais, o mesmo momento. Para partilhar com o seu par, uma amiga ou alguém da família.</p>
+          <ul class="rows"><li><span>60 min · 2 pessoas</span><b>5.200 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="dois">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Massagem a quatro mãos</h3>
+          <p>Duas profissionais em sintonia, ao mesmo ritmo, numa massagem de corpo inteiro.</p>
+          <ul class="rows"><li><span>60 min · 2 profissionais</span><b>4.800 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="qm">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Ritual da Lua <span class="tag">Em breve</span></h3>
+          <p>Um ritual de massagem dedicado ao ventre, para desacelerar e reencontrar o equilíbrio.</p>
+          <ul class="rows"><li><span>60 min</span><b>3.000 MZN</b></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="rosto" data-title="Rosto" role="tabpanel" aria-labelledby="t-rosto" hidden>
+      <div class="items">
+        <div class="item">
+          <h3>Limpeza de pele</h3>
+          <p>Limpeza, esfoliação e hidratação, para uma pele cuidada e confortável.</p>
+          <ul class="rows"><li><span>45 min</span><b>1.800 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="r1">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Limpeza com massagem facial</h3>
+          <p>A limpeza completa, com massagem e drenagem do rosto, para um aspeto mais descansado.</p>
+          <ul class="rows"><li><span>45 min</span><b>2.300 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="r2">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Limpeza com vapor e óleos</h3>
+          <p>Uma sessão mais demorada, com vapor e óleos essenciais, para devolver luminosidade à pele.</p>
+          <ul class="rows"><li><span>60 min</span><b>2.600 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="r3">Marcar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="maos" data-title="Mãos e pés" role="tabpanel" aria-labelledby="t-maos" hidden>
+      <p class="panel-intro">Se tiver gelinho ou gel nas unhas, indique-o na marcação para reservarmos tempo para a remoção.</p>
+      <div class="items">
+        <div class="item">
+          <h3>Manicure e pedicure</h3>
+          <p>Cuidado completo de unhas, cutículas e pele.</p>
+          <ul class="rows"><li><span>Manicure · 45 min</span><b>900 MZN</b></li><li><span>Pedicure · 60 min</span><b>1.100 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="mani">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Gelinho</h3>
+          <p>Cor com acabamento brilhante, que se mantém durante mais tempo.</p>
+          <ul class="rows"><li><span>Mãos · 60 min</span><b>1.200 MZN</b></li><li><span>Pés · 60 min</span><b>1.450 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="glm">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Gel</h3>
+          <p>Unhas estruturadas, com forma e resistência.</p>
+          <ul class="rows"><li><span>Mãos · 90 min</span><b>1.700 MZN</b></li><li><span>Pés · 90 min</span><b>1.800 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="gem">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Verniz</h3>
+          <p>Forma e pintura com verniz tradicional. Marca-se com outro serviço ou com várias pessoas na mesma morada.</p>
+          <ul class="rows"><li><span>Mãos · 20 min</span><b>500 MZN</b></li><li><span>Pés · 20 min</span><b>500 MZN</b></li></ul>
+          <a class="btn btn-solid" href="#marcar" data-pick="vm">Marcar</a>
+        </div>
+        <div class="item">
+          <h3>Extras</h3>
+          <p>Acrescentam-se a um serviço de unhas.</p>
+          <ul class="rows"><li><span>Remoção de gelinho ou gel · +30 min</span><b>450 MZN</b></li><li><span>Reparação de 1 unha · +15 min</span><b>250 MZN</b></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="depilacao" data-title="Depilação" role="tabpanel" aria-labelledby="t-depilacao" hidden>
+      <p class="panel-intro">Depilação com cera, por zona. Pode juntar várias zonas na mesma visita. Cada visita tem um valor mínimo de <span data-cfg="minimo">1.000</span> MZN em serviços.</p>
+      <div class="item">
+        <ul class="rows wax">
+          <li><span>Buço</span><b>400 MZN</b></li>
+          <li><span>Sobrancelhas</span><b>400 MZN</b></li>
+          <li><span>Axilas</span><b>550 MZN</b></li>
+          <li><span>Linha alba</span><b>650 MZN</b></li>
+          <li><span>Virilha</span><b>800 MZN</b></li>
+          <li><span>Braços</span><b>850 MZN</b></li>
+          <li><span>Meia perna</span><b>900 MZN</b></li>
+          <li><span>Virilha completa</span><b>1.150 MZN</b></li>
+          <li><span>Perna inteira</span><b>1.300 MZN</b></li>
+        </ul>
+        <a class="btn btn-solid" href="#marcar" data-pick="dep">Marcar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="preparado">
+  <div class="wrap prep-grid">
+    <div class="prep-photos">
+      <figure class="ph"><img src="assets/photos/prep-kit.jpg" alt="Kit da C'alma aberto, com os materiais organizados" onerror="this.remove()"><figcaption>mala aberta com os materiais organizados (V4).</figcaption></figure>
+      <figure class="ph"><img src="assets/photos/prep-higiene.jpg" alt="Profissional a higienizar as mãos" onerror="this.remove()"><figcaption>higiene das mãos e da superfície.</figcaption></figure>
+      <figure class="ph"><img src="assets/photos/prep-arrumar.jpg" alt="Toalhas dobradas no fim da sessão" onerror="this.remove()"><figcaption>toalhas dobradas, espaço arrumado no fim.</figcaption></figure>
+    </div>
+    <div>
+      <span class="eyebrow">Preparado com C'alma</span>
+      <h2>Uma sessão começa antes de chegarmos</h2>
+      <ul class="proof">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5"/></svg><span><b>Equipa profissional e identificada</b>Cada profissional trabalha na sua especialidade. Sabe quem vai à sua casa antes da visita.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/></svg><span><b>Materiais higienizados</b>Toalhas lavadas para cada sessão e utensílios esterilizados.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M9 7V5h6v2M3.5 12h17"/></svg><span><b>Tudo o que é preciso</b>Maca, toalhas, produtos e luz. Do seu lado, basta um espaço de cerca de 2 × 3 m perto de uma tomada.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Arrumado no fim</b>Quando a sessão termina, a sua casa fica como estava e não precisa de voltar ao trânsito.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipa">
+  <div class="wrap">
+    <div class="team-head">
+      <div><span class="eyebrow">A equipa</span><h2>Quem leva a C'alma até si</h2></div>
+      <p class="lead">Na confirmação, fica a saber qual das nossas profissionais vai à sua casa. Cada uma trabalha nas áreas em que é especialista.</p>
+    </div>
+    <div class="people">
+      <article class="person">
+        <figure class="ph"><img src="assets/photos/equipa-florencia.jpg" alt="Florência, profissional da C'alma, de farda" onerror="this.remove()"><figcaption>retrato da Florência de farda (cenário 7).</figcaption></figure>
+        <div class="person-copy">
+          <h3>Florência</h3>
+          <span class="role">Massagens e rosto</span>
+          <p>Faz massagens de corpo inteiro, drenagem linfática e limpezas de pele, e também pedicure. Integra as sessões a quatro mãos e a dois.</p>
+          <blockquote>“[Frase da Florência, gravada a 24 out]”</blockquote>
+          <ul class="chips"><li>Massagens</li><li>Drenagem</li><li>Rosto</li><li>Pedicure</li></ul>
+        </div>
+      </article>
+      <article class="person">
+        <figure class="ph"><img src="assets/photos/equipa-precilia.jpg" alt="Precília, profissional da C'alma, de farda" onerror="this.remove()"><figcaption>retrato da Precília de farda (cenário 7).</figcaption></figure>
+        <div class="person-copy">
+          <h3>Precília</h3>
+          <span class="role">Massagens e rosto</span>
+          <p>Faz massagens de corpo inteiro, drenagem linfática e limpezas de pele. Trabalha em dupla nas massagens a quatro mãos e a dois.</p>
+          <blockquote>“[Frase da Precília, gravada a 24 out]”</blockquote>
+          <ul class="chips"><li>Massagens</li><li>Drenagem</li><li>Rosto</li></ul>
+        </div>
+      </article>
+      <article class="person">
+        <figure class="ph"><img src="assets/photos/equipa-angelica.jpg" alt="Angélica, profissional da C'alma, de farda" onerror="this.remove()"><figcaption>retrato da Angélica de farda (cenário 7).</figcaption></figure>
+        <div class="person-copy">
+          <h3>Angélica</h3>
+          <span class="role">Mãos e pés</span>
+          <p>Cuida de mãos e pés, do tratamento das cutículas ao acabamento: manicure, pedicure, gelinho e gel.</p>
+          <blockquote>“[Frase da Angélica, gravada a 24 out]”</blockquote>
+          <ul class="chips"><li>Manicure</li><li>Pedicure</li><li>Gelinho</li><li>Gel</li></ul>
+        </div>
+      </article>
+      <article class="person">
+        <figure class="ph"><img src="assets/photos/equipa-cardosia.jpg" alt="Cardósia, profissional da C'alma, de farda" onerror="this.remove()"><figcaption>retrato da Cardósia de farda (cenário 7).</figcaption></figure>
+        <div class="person-copy">
+          <h3>Cardósia</h3>
+          <span class="role">Rosto, mãos e pés, depilação</span>
+          <p>Junta limpezas de pele, cuidados de mãos e pés e depilação com cera. É a profissional da depilação.</p>
+          <blockquote>“[Frase da Cardósia, gravada a 24 out]”</blockquote>
+          <ul class="chips"><li>Rosto</li><li>Manicure</li><li>Pedicure</li><li>Gel</li><li>Depilação</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="quotes" id="testemunhos">
+  <div class="wrap">
+    <span class="eyebrow">Quem já experimentou</span>
+    <!-- Publicar só com autorização escrita de cada cliente (nome e texto). -->
+    <span class="qmark" aria-hidden="true">“</span>
+    <div class="quote-stage" aria-live="polite">
+      <figure class="quote on"><blockquote>Gostei da prontidão, da simpatia e da simplicidade do serviço. Recomendo.</blockquote><cite>Natália Mendonça</cite></figure>
+      <figure class="quote"><blockquote>Este era o serviço que faltava. As minhas unhas ficaram incríveis, muito obrigada!</blockquote><cite>Rita Fernandes</cite></figure>
+    </div>
+    <div class="dots" role="tablist" aria-label="Escolher testemunho"></div>
+  </div>
+</section>
+
+<section class="zones" id="zonas">
+  <div class="wrap">
+    <div class="zones-head">
+      <div><span class="eyebrow">Zonas e deslocação</span><h2>Onde chegamos</h2></div>
+      <p class="lead">A deslocação está incluída a partir de <span data-cfg="ticket">2.500</span> MZN por visita. Abaixo deste valor, aplica-se a taxa da sua zona.</p>
+    </div>
+    <div class="zone-cards">
+      <article class="zone">
+        <div class="zone-top"><h3>Zona 1</h3><span class="fee"><span data-cfg="z1">300</span><small>MZN</small></span></div>
+        <div class="meta"><span>Marque com 3 h de antecedência</span></div>
+        <p>Baixa, Alto Maé, Polana Cimento, Sommerschield, Coop, Malhangalene, Malanga, Munhuana, Mafalala, Maxaquene A e B.</p>
+      </article>
+      <article class="zone">
+        <div class="zone-top"><h3>Zona 2</h3><span class="fee"><span data-cfg="z2">500</span><small>MZN</small></span></div>
+        <div class="meta"><span>Marque com 4 h de antecedência</span></div>
+        <p>Maxaquene C e D, Urbanização, Polana Caniço, Aeroporto, Mavalane, FPLM, Ferroviário, Chamanculo, Xipamanine, Unidade 7, Hulene A.</p>
+      </article>
+      <article class="zone">
+        <div class="zone-top"><h3>Zona 3</h3><span class="fee"><span data-cfg="z3">700</span><small>MZN</small></span></div>
+        <div class="meta"><span>Marque com 24 h de antecedência</span><span>Mínimo 60 min de serviço</span></div>
+        <p>Costa do Sol, Triunfo, Laulane, Mahotas, Hulene B, Albazine, Magoanine, Malhazine. Zimpeto, conforme a localização.</p>
+      </article>
+    </div>
+    <ul class="zone-notes">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>A zona é confirmada pela localização que nos envia.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M14.5 15c2.4-.3 4.6.9 5.5 3.5"/></svg><span>Várias pessoas na mesma morada somam para o valor da deslocação incluída.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg><span>Matola, KaTembe e KaNyaka ainda não fazem parte da área de atendimento.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq" id="perguntas">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2>Antes de marcar</h2>
+      <p class="faq-aside">Não encontra a resposta? Fale connosco, respondemos dentro do horário de atendimento.</p>
+      <a class="arrow" data-link="whatsapp" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener">Falar por WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div>
+      <details><summary>Preciso de preparar alguma coisa?</summary><p>Só um espaço de cerca de 2 × 3 m para a maca, ou uma cadeira e uma mesa para mãos e pés, perto de uma tomada. Levamos tudo o resto. Se tiver animais de estimação, pedimos que fiquem noutra divisão.</p></details>
+      <details><summary>Como pago?</summary><p>No fim do serviço, por POS, M-Pesa, e-Mola ou transferência. Não aceitamos numerário. Antes da visita, enviamos sempre o valor total.</p></details>
+      <details><summary>Quando é pedido um sinal?</summary><p>Nas reservas de mais de 2 h, com duas profissionais, para várias pessoas na mesma morada e no Ritual da Lua. O sinal é de 30% e o restante paga-se no fim.</p></details>
+      <details><summary>Posso cancelar ou mudar a hora?</summary><p>Sim, sem custo até 12 h antes. Nas reservas com sinal, até 24 h antes. Em caso de falta, é cobrada a taxa de deslocação da zona.</p></details>
+      <details><summary>Atendem casais ou amigas?</summary><p>Sim. A massagem a dois é feita por duas profissionais, em duas macas, ao mesmo tempo. Os nossos serviços são para mulheres. A massagem a dois está disponível desde que pelo menos uma das pessoas seja mulher.</p></details>
+      <details><summary>A que horas atendem?</summary><p>Todos os dias, das 07:00 às 20:00, por marcação.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-copy">
+    <h2>O seu momento de C'alma chegou.</h2>
+    <p>Quando a sessão termina, continua em casa. Sem trânsito, sem pressa, no seu espaço.</p>
+    <a class="btn btn-light" href="#marcar">Marcar o seu momento</a>
+  </div>
+  <figure class="ph"><img src="assets/photos/assinatura.jpg" alt="Cliente à janela com um copo de água, depois da sessão" onerror="this.remove()"><figcaption>cliente à janela com um copo de água, depois da sessão (cenário 4).</figcaption></figure>
+</section>
+
+<section class="booking" id="marcar">
+  <div class="wrap">
+    <div class="book-head">
+      <span class="eyebrow">Marcações</span>
+      <h2>Marque o seu momento</h2>
+      <p class="lead">Escolha os serviços e a zona e veja o valor total antes de enviar o pedido. Confirmamos a disponibilidade por WhatsApp.</p>
+    </div>
+    <div class="planner">
+      <form id="plan" novalidate>
+        <fieldset>
+          <legend><span>1</span> Serviços</legend>
+          <div id="svc-list">
+<details class="cat" open><summary><span>Massagens</span><span class="count"></span></summary><div class="opts">
+<label class="opt" for="svc-m30"><input type="checkbox" id="svc-m30" value="m30"><span>Massagem relaxante<small>30 min</small></span><b>1.500 MZN</b></label>
+<label class="opt" for="svc-m60"><input type="checkbox" id="svc-m60" value="m60"><span>Massagem relaxante<small>60 min</small></span><b>2.600 MZN</b></label>
+<label class="opt" for="svc-m90"><input type="checkbox" id="svc-m90" value="m90"><span>Massagem relaxante<small>90 min</small></span><b>3.600 MZN</b></label>
+<label class="opt" for="svc-m45"><input type="checkbox" id="svc-m45" value="m45"><span>Ombros, costas e cabeça<small>45 min</small></span><b>1.800 MZN</b></label>
+<label class="opt" for="svc-dren"><input type="checkbox" id="svc-dren" value="dren"><span>Drenagem linfática<small>60 min</small></span><b>2.800 MZN</b></label>
+</div></details>
+<details class="cat"><summary><span>A dois</span><span class="count"></span></summary><div class="opts">
+<label class="opt" for="svc-dois"><input type="checkbox" id="svc-dois" value="dois"><span>Massagem a dois<small>60 min · 2 pessoas</small></span><b>5.200 MZN</b></label>
+<label class="opt" for="svc-qm"><input type="checkbox" id="svc-qm" value="qm"><span>Massagem a quatro mãos<small>60 min</small></span><b>4.800 MZN</b></label>
+</div></details>
+<details class="cat"><summary><span>Rosto</span><span class="count"></span></summary><div class="opts">
+<label class="opt" for="svc-r1"><input type="checkbox" id="svc-r1" value="r1"><span>Limpeza de pele<small>45 min</small></span><b>1.800 MZN</b></label>
+<label class="opt" for="svc-r2"><input type="checkbox" id="svc-r2" value="r2"><span>Limpeza com massagem facial<small>45 min</small></span><b>2.300 MZN</b></label>
+<label class="opt" for="svc-r3"><input type="checkbox" id="svc-r3" value="r3"><span>Limpeza com vapor e óleos<small>60 min</small></span><b>2.600 MZN</b></label>
+</div></details>
+<details class="cat"><summary><span>Mãos e pés</span><span class="count"></span></summary><div class="opts">
+<label class="opt" for="svc-mani"><input type="checkbox" id="svc-mani" value="mani"><span>Manicure<small>45 min</small></span><b>900 MZN</b></label>
+<label class="opt" for="svc-pedi"><input type="checkbox" id="svc-pedi" value="pedi"><span>Pedicure<small>60 min</small></span><b>1.100 MZN</b></label>
+<label class="opt" for="svc-glm"><input type="checkbox" id="svc-glm" value="glm"><span>Gelinho mãos<small>60 min</small></span><b>1.200 MZN</b></label>
+<label class="opt" for="svc-glp"><input type="checkbox" id="svc-glp" value="glp"><span>Gelinho pés<small>60 min</small></span><b>1.450 MZN</b></label>
+<label class="opt" for="svc-gem"><input type="checkbox" id="svc-gem" value="gem"><span>Gel mãos<small>90 min</small></span><b>1.700 MZN</b></label>
+<label class="opt" for="svc-gep"><input type="checkbox" id="svc-gep" value="gep"><span>Gel pés<small>90 min</small></span><b>1.800 MZN</b></label>
+<label class="opt" for="svc-vm"><input type="checkbox" id="svc-vm" value="vm"><span>Verniz mãos<small>20 min</small></span><b>500 MZN</b></label>
+<label class="opt" for="svc-vp"><input type="checkbox" id="svc-vp" value="vp"><span>Verniz pés<small>20 min</small></span><b>500 MZN</b></label>
+<label class="opt" for="svc-rem"><input type="checkbox" id="svc-rem" value="rem"><span>Extra: remoção de gelinho ou gel<small>30 min</small></span><b>450 MZN</b></label>
+<label class="opt" for="svc-rep"><input type="checkbox" id="svc-rep" value="rep"><span>Extra: reparação de 1 unha<small>15 min</small></span><b>250 MZN</b></label>
+</div></details>
+<details class="cat"><summary><span>Depilação</span><span class="count"></span></summary><div class="opts">
+<label class="opt" for="svc-d-buco"><input type="checkbox" id="svc-d-buco" value="d-buco"><span>Buço</span><b>400 MZN</b></label>
+<label class="opt" for="svc-d-sobr"><input type="checkbox" id="svc-d-sobr" value="d-sobr"><span>Sobrancelhas</span><b>400 MZN</b></label>
+<label class="opt" for="svc-d-axi"><input type="checkbox" id="svc-d-axi" value="d-axi"><span>Axilas</span><b>550 MZN</b></label>
+<label class="opt" for="svc-d-alba"><input type="checkbox" id="svc-d-alba" value="d-alba"><span>Linha alba</span><b>650 MZN</b></label>
+<label class="opt" for="svc-d-vir"><input type="checkbox" id="svc-d-vir" value="d-vir"><span>Virilha</span><b>800 MZN</b></label>
+<label class="opt" for="svc-d-bra"><input type="checkbox" id="svc-d-bra" value="d-bra"><span>Braços</span><b>850 MZN</b></label>
+<label class="opt" for="svc-d-mp"><input type="checkbox" id="svc-d-mp" value="d-mp"><span>Meia perna</span><b>900 MZN</b></label>
+<label class="opt" for="svc-d-vc"><input type="checkbox" id="svc-d-vc" value="d-vc"><span>Virilha completa</span><b>1.150 MZN</b></label>
+<label class="opt" for="svc-d-pi"><input type="checkbox" id="svc-d-pi" value="d-pi"><span>Perna inteira</span><b>1.300 MZN</b></label>
+</div></details>
+</div>
+        </fieldset>
+        <fieldset>
+          <legend><span>2</span> Pessoas e zona</legend>
+          <div class="fields">
+            <label for="f-pessoas">Pessoas na mesma morada
+              <select id="f-pessoas"><option value="1">1 pessoa</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option></select>
+            </label>
+            <label for="f-zona">Zona
+              <select id="f-zona"><option value="">Escolha a zona</option><option value="1">Zona 1 · Centro</option><option value="2">Zona 2</option><option value="3">Zona 3</option><option value="0">Não sei a minha zona</option></select>
+            </label>
+            <label for="f-bairro" class="wide">Bairro ou ponto de referência
+              <input id="f-bairro" type="text" autocomplete="address-level3" placeholder="Ex.: Sommerschield, perto do Parque dos Continuadores">
+            </label>
+          </div>
+          <p class="hint">Não sabe a sua zona? Escreva o bairro: confirmamos pela localização que nos enviar.</p>
+        </fieldset>
+        <fieldset>
+          <legend><span>3</span> Quando</legend>
+          <div class="fields">
+            <label for="f-data">Dia<input id="f-data" type="date"></label>
+            <label for="f-hora">Hora
+              <select id="f-hora"><option value="">Escolha a hora</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option></select>
+            </label>
+            <label for="f-nome" class="wide">O seu nome<input id="f-nome" type="text" autocomplete="name"></label>
+          </div>
+        </fieldset>
+      </form>
+      <aside class="summary" aria-live="polite">
+        <h3>O seu pedido</h3>
+        <ul id="sum-list" class="sum-list"><li class="empty">Ainda não escolheu nenhum serviço.</li></ul>
+        <dl class="totals">
+          <div><dt>Serviços</dt><dd id="sum-sub">—</dd></div>
+          <div><dt>Deslocação</dt><dd id="sum-fee">—</dd></div>
+          <div class="total"><dt>Total</dt><dd id="sum-total">—</dd></div>
+          <div id="sum-sinal-row" hidden><dt>Sinal na marcação (30%)</dt><dd id="sum-sinal">—</dd></div>
+        </dl>
+        <ul id="sum-warn" class="warn"></ul>
+        <a id="send" class="btn btn-solid" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+        <a id="send-fresha" class="arrow" data-link="fresha" href="#marcar" hidden>Prefere reservar online? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="wa-number">Ou fale connosco: <span data-cfg="whatsappDisplay">+258 85 329 9721</span></p>
+        <ul class="policy">
+          <li>Paga no fim, por POS, M-Pesa, e-Mola ou transferência. Não aceitamos numerário.</li>
+          <li>Valor mínimo por visita: <span data-cfg="minimo">1.000</span> MZN em serviços.</li>
+          <li>Deslocação incluída a partir de <span data-cfg="ticket">2.500</span> MZN. Abaixo deste valor, aplica-se a taxa da zona.</li>
+          <li>Sinal de 30% nas reservas de mais de 2 h, com duas profissionais ou para várias pessoas.</li>
+          <li>Cancelamento sem custo até 12 h antes (24 h nas reservas com sinal). Em caso de falta, é cobrada a taxa da zona.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="logo" src="assets/logos/horizontal-white.png" alt="C'alma Home Spa" width="878" height="341">
+        <p>Bem-estar e cuidados pessoais ao domicílio, em Maputo.</p>
+        <div class="social"><a href="https://www.instagram.com/calmahomespa.mz/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><a data-link="facebook" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21h3z"/></svg></a><a data-link="whatsapp" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.6 1.8 6.5L3 29l7.2-2.2c1.8 1 3.9 1.6 6 1.6 6.9 0 12.3-5.6 12.3-12.5C28.5 8.6 22.9 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.3 1.3 1.3-4.2-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3s10.6 4.6 10.6 10.3S22 26.1 16 26.1z"/></svg></a></div>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <a href="#servicos" data-tab="massagens">Massagens</a>
+        <a href="#servicos" data-tab="partilhar">A dois</a>
+        <a href="#servicos" data-tab="rosto">Rosto</a>
+        <a href="#servicos" data-tab="maos">Mãos e pés</a>
+        <a href="#servicos" data-tab="depilacao">Depilação</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a data-link="whatsapp" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener">WhatsApp · <span data-cfg="whatsappDisplay">+258 85 329 9721</span></a>
+        <a href="https://www.instagram.com/calmahomespa.mz/" target="_blank" rel="noopener">Instagram · @calmahomespa.mz</a>
+        <a data-link="facebook" href="#">Facebook · C'alma Home Spa</a>
+        <a href="mailto:c.almahome.mkt@gmail.com">c.almahome.mkt@gmail.com</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <span>Todos os dias, 07:00–20:00</span>
+        <span>Maputo, por zonas</span>
+        <span>Só por marcação</span>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 C'alma Home Spa</span><span>Logótipo e tipografia: Fridaymood Brand</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar" hidden><span><small>Total</small><b id="mbar-total">—</b></span><a class="btn btn-solid" href="#sum-list" id="mbar-go">Ver pedido</a></div>
+
+<a class="float hide" data-link="whatsapp" href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20momento%20C%27alma." target="_blank" rel="noopener" aria-label="Falar por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.7 4.6 1.8 6.5L3 29l7.2-2.2c1.8 1 3.9 1.6 6 1.6 6.9 0 12.3-5.6 12.3-12.5C28.5 8.6 22.9 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.3 1.3 1.3-4.2-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.7 4.6-10.3 10.3-10.3s10.6 4.6 10.6 10.3S22 26.1 16 26.1zm5.8-7.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-2.5-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.6l.4-.5.3-.4c.1-.1.1-.3 0-.4-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span>Marcar por WhatsApp</span>
+</a>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — rever antes de publicar
+   fresha: link direto da página de marcações da C'alma na Fresha
+           (enquanto estiver vazio, "Reservar" abre o WhatsApp)
+   whatsapp: número em formato internacional, só dígitos
+   ticket, z1, z2, z3: valores do P&L (MZN)
+   ========================================================= */
+var CALMA = {
+  fresha: '',
+  facebook: '',   /* link da página de Facebook, quando estiver criada */
+  whatsapp: '258853299721',
+  whatsappDisplay: '+258 85 329 9721',
+  ticket: '2.500',
+  minimo: '1.000',
+  z1: '300',
+  z2: '500',
+  z3: '700'
+};
+
+(function(){
+  var waBase = CALMA.whatsapp ? 'https://wa.me/' + CALMA.whatsapp : '';
+  window.CALMA_WA = function(text){ return waBase ? waBase + '?text=' + encodeURIComponent(text) : '#marcar'; };
+  function setLink(a, url){ if(!url || url.charAt(0) === '#') return; a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+  document.querySelectorAll('[data-link="whatsapp"]').forEach(function(a){ setLink(a, CALMA_WA('Olá, gostaria de marcar um momento C\'alma.')); });
+  document.querySelectorAll('[data-link="facebook"]').forEach(function(a){ setLink(a, CALMA.facebook); });
+  document.querySelectorAll('[data-link="fresha"]').forEach(function(a){ if(CALMA.fresha){ setLink(a, CALMA.fresha); a.hidden = false; } });
+  document.querySelectorAll('[data-cfg]').forEach(function(el){ var v = CALMA[el.getAttribute('data-cfg')]; if(v) el.textContent = v; });
+})();
+
+/* =========================================================
+   SERVIÇOS DO PLANEADOR — mesmos preços do menu (P&L v6)
+   p: preço por pessoa · d: duração (min) · pro: profissionais
+   par: preço já inclui 2 pessoas · menor: só como complemento
+   ========================================================= */
+var SERVICOS = [
+  {cat:'Massagens', itens:[
+    {id:'m30', n:'Massagem relaxante · 30 min', p:1500, d:30},
+    {id:'m60', n:'Massagem relaxante · 60 min', p:2600, d:60},
+    {id:'m90', n:'Massagem relaxante · 90 min', p:3600, d:90},
+    {id:'m45', n:'Ombros, costas e cabeça · 45 min', p:1800, d:45},
+    {id:'dren', n:'Drenagem linfática · 60 min', p:2800, d:60}]},
+  {cat:'A dois', itens:[
+    {id:'dois', n:'Massagem a dois · 60 min', p:5200, d:60, pro:2, par:true},
+    {id:'qm', n:'Massagem a quatro mãos · 60 min', p:4800, d:60, pro:2}]},
+  {cat:'Rosto', itens:[
+    {id:'r1', n:'Limpeza de pele · 45 min', p:1800, d:45},
+    {id:'r2', n:'Limpeza com massagem facial · 45 min', p:2300, d:45},
+    {id:'r3', n:'Limpeza com vapor e óleos · 60 min', p:2600, d:60}]},
+  {cat:'Mãos e pés', itens:[
+    {id:'mani', n:'Manicure · 45 min', p:900, d:45},
+    {id:'pedi', n:'Pedicure · 60 min', p:1100, d:60},
+    {id:'glm', n:'Gelinho mãos · 60 min', p:1200, d:60},
+    {id:'glp', n:'Gelinho pés · 60 min', p:1450, d:60},
+    {id:'gem', n:'Gel mãos · 90 min', p:1700, d:90},
+    {id:'gep', n:'Gel pés · 90 min', p:1800, d:90},
+    {id:'vm', n:'Verniz mãos · 20 min', p:500, d:20},
+    {id:'vp', n:'Verniz pés · 20 min', p:500, d:20},
+    {id:'rem', n:'Extra: remoção de gelinho ou gel · 30 min', p:450, d:30},
+    {id:'rep', n:'Extra: reparação de 1 unha · 15 min', p:250, d:15}]},
+  {cat:'Depilação', itens:[
+    {id:'d-buco', n:'Buço', p:400, d:5}, {id:'d-sobr', n:'Sobrancelhas', p:400, d:15},
+    {id:'d-axi', n:'Axilas', p:550, d:10}, {id:'d-alba', n:'Linha alba', p:650, d:5},
+    {id:'d-vir', n:'Virilha', p:800, d:15}, {id:'d-bra', n:'Braços', p:850, d:20},
+    {id:'d-mp', n:'Meia perna', p:900, d:20}, {id:'d-vc', n:'Virilha completa', p:1150, d:30},
+    {id:'d-pi', n:'Perna inteira', p:1300, d:40}]}
+];
+var PICK_DEP = 'd-mp';
+
+(function(){
+  var list = document.getElementById('svc-list'); if(!list) return;
+  var num = function(v){ return v.toLocaleString('pt-PT').replace(/\s/g,'.') ; };
+  var fmt = function(v){ return String(v).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ' MZN'; };
+  var byId = {};
+  SERVICOS.forEach(function(g){ g.itens.forEach(function(it){ byId[it.id] = it; it.cat = g.cat; }); });
+  var hora = document.getElementById('f-hora');
+  var data = document.getElementById('f-data');
+  var today = new Date(); data.min = today.toISOString().slice(0,10);
+  var max = new Date(); max.setDate(max.getDate() + 30); data.max = max.toISOString().slice(0,10);
+
+  var ZF = {1: +CALMA.z1, 2: +CALMA.z2, 3: +CALMA.z3};
+  var TICKET = +String(CALMA.ticket).replace(/\./g,''), MINIMO = +String(CALMA.minimo).replace(/\./g,'');
+  var ANTEC = {1:3, 2:4, 3:24};
+  var el = function(id){ return document.getElementById(id); };
+
+  function calc(){
+    var sel = [].slice.call(list.querySelectorAll('input:checked')).map(function(i){ return byId[i.value]; });
+    var pessoas = +el('f-pessoas').value, zona = el('f-zona').value;
+    list.querySelectorAll('details.cat').forEach(function(d){ d.querySelector('.count').textContent = d.querySelectorAll('input:checked').length || ''; });
+    var sub = 0, dur = 0, dois = false, duasPro = false, gel = false, rem = false;
+    sel.forEach(function(it){
+      if(it.par){ sub += it.p; dois = true; } else { sub += it.p * pessoas; }
+      dur += it.d; if(it.pro === 2) duasPro = true;
+      if(/^(glm|glp|gem|gep)$/.test(it.id)) gel = true; if(it.id === 'rem') rem = true;
+    });
+    var nPessoas = dois ? Math.max(pessoas, 2) : pessoas;
+    var fee = null;
+    if(sel.length && zona && zona !== '0') fee = sub >= TICKET ? 0 : ZF[zona];
+    var total = sub + (fee || 0);
+    var sinal = sel.length && (nPessoas > 1 || duasPro || dur * (duasPro ? 1 : pessoas) > 120);
+    var warn = [], block = !sel.length;
+
+    var ul = el('sum-list'); ul.innerHTML = '';
+    if(!sel.length){ ul.innerHTML = '<li class="empty">Ainda não escolheu nenhum serviço.</li>'; }
+    sel.forEach(function(it){ var q = it.par ? '' : (pessoas > 1 ? ' × ' + pessoas : ''); ul.insertAdjacentHTML('beforeend', '<li><span>' + it.n.split(' · ')[0] + q + '</span><span>' + fmt(it.par ? it.p : it.p * pessoas) + '</span></li>'); });
+
+    el('sum-sub').textContent = sel.length ? fmt(sub) : '—';
+    el('sum-fee').textContent = !sel.length ? '—' : (fee === null ? (zona === '0' ? 'a confirmar' : 'escolha a zona') : (fee === 0 ? 'incluída' : fmt(fee)));
+    el('sum-total').textContent = sel.length ? fmt(total) + (fee === null ? ' + deslocação' : '') : '—';
+    el('sum-sinal-row').hidden = !sinal;
+    if(sinal) el('sum-sinal').textContent = fmt(Math.round(total * 0.3 / 10) * 10);
+
+    if(sel.length && sub < MINIMO){ warn.push('O valor mínimo por visita é de ' + fmt(MINIMO) + ' em serviços. Junte outro serviço ou outra pessoa.'); block = true; }
+    if(sel.length && sub < TICKET && fee !== null && fee > 0){ warn.push('Faltam ' + fmt(TICKET - sub) + ' para a deslocação ficar incluída.'); }
+    if(zona === '3' && sel.length && dur < 60 && nPessoas < 2){ warn.push('Na Zona 3, cada visita tem pelo menos 60 min de serviço ou 2 pessoas.'); block = true; }
+    if(gel && !rem){ warn.push('Tem gelinho ou gel nas unhas? Junte o extra de remoção para reservarmos tempo.'); }
+    if(sinal){ warn.push('Esta reserva pede um sinal de 30%, pago no momento da marcação.'); }
+    var d = el('f-data').value, h = el('f-hora').value;
+    if(d && h && ANTEC[zona]){
+      var quando = new Date(d + 'T' + h + ':00'), horas = (quando - new Date()) / 36e5;
+      if(horas < ANTEC[zona]){ warn.push('Na Zona ' + zona + ', marque com pelo menos ' + ANTEC[zona] + ' h de antecedência. Escolha outra hora.'); block = true; }
+    }
+    el('sum-warn').innerHTML = warn.map(function(w){ return '<li>' + w + '</li>'; }).join('');
+
+    var send = el('send');
+    send.setAttribute('aria-disabled', block ? 'true' : 'false');
+    var linhas = ['Olá, gostaria de pedir uma marcação C\'alma.'];
+    if(el('f-nome').value) linhas.push('Nome: ' + el('f-nome').value);
+    if(sel.length) linhas.push('Serviços: ' + sel.map(function(it){ return it.n; }).join('; '));
+    linhas.push('Pessoas: ' + nPessoas);
+    linhas.push('Zona: ' + (zona === '' ? 'por indicar' : zona === '0' ? 'não sei' : 'Zona ' + zona) + (el('f-bairro').value ? ' · ' + el('f-bairro').value : ''));
+    if(d || h){ var dd = d ? d.split('-').reverse().join('/') : 'dia por indicar'; linhas.push('Quando: ' + dd + (h ? ' às ' + h : '')); }
+    if(sel.length) linhas.push('Valor estimado: ' + fmt(total) + (fee === null ? ' + deslocação' : fee ? ' (inclui deslocação de ' + fmt(fee) + ')' : ' (deslocação incluída)'));
+    linhas.push('Envio a localização a seguir.');
+    send.href = CALMA_WA(linhas.join('\n'));
+    if(send.href.indexOf('http') === 0){ send.target = '_blank'; send.rel = 'noopener'; }
+  }
+  document.getElementById('plan').addEventListener('input', calc);
+  document.getElementById('plan').addEventListener('change', calc);
+  document.getElementById('plan').addEventListener('submit', function(e){ e.preventDefault(); });
+
+  document.querySelectorAll('[data-pick]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var id = a.getAttribute('data-pick'); if(id === 'dep') id = PICK_DEP;
+      var box = document.getElementById('svc-' + id); if(!box) return;
+      box.checked = true; box.closest('details').open = true; calc();
+    });
+  });
+  calc();
+})();
+
+/* Separadores do menu */
+(function(){
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  function show(id){
+    tabs.forEach(function(t){ var on = t.getAttribute('aria-controls') === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    document.querySelectorAll('.panel').forEach(function(p){ p.hidden = p.id !== id; });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ show(t.getAttribute('aria-controls')); });
+    t.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if(!d) return;
+      var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); show(n.getAttribute('aria-controls'));
+    });
+  });
+  document.querySelectorAll('[data-tab]').forEach(function(a){ a.addEventListener('click', function(){ show(a.getAttribute('data-tab')); }); });
+})();
+
+/* Testemunhos */
+(function(){
+  var q = [].slice.call(document.querySelectorAll('.quote')), dots = document.querySelector('.dots'), cur = 0, timer;
+  if(q.length < 2){ if(dots) dots.hidden = true; return; }
+  q.forEach(function(_, i){ var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Testemunho ' + (i+1)); b.setAttribute('aria-selected', i === 0); b.addEventListener('click', function(){ go(i); restart(); }); dots.appendChild(b); });
+  function go(n){ q[cur].classList.remove('on'); dots.children[cur].setAttribute('aria-selected', false); cur = n; q[cur].classList.add('on'); dots.children[cur].setAttribute('aria-selected', true); }
+  function restart(){ clearInterval(timer); if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function(){ go((cur + 1) % q.length); }, 8000); }
+  restart();
+})();
+
+/* Menu móvel */
+(function(){
+  var b = document.querySelector('.menu-btn'), m = document.getElementById('nav-links'); if(!b || !m) return;
+  b.addEventListener('click', function(){ var o = m.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ m.classList.remove('open'); b.setAttribute('aria-expanded', false); }); });
+})();
+
+/* Barra de total no telemóvel */
+(function(){
+  var bar = document.getElementById('mbar'), plan = document.getElementById('plan'), sum = document.querySelector('.summary'), f = document.querySelector('.float');
+  if(!bar || !plan || !sum) return;
+  function upd(){
+    var h = window.innerHeight, p = plan.getBoundingClientRect(), q = sum.getBoundingClientRect();
+    var show = p.top < h * 0.6 && p.bottom > 0 && q.top > h - 40;
+    bar.hidden = !show; if(f) f.style.visibility = show ? 'hidden' : '';
+    document.getElementById('mbar-total').textContent = document.getElementById('sum-total').textContent;
+  }
+  window.addEventListener('scroll', upd, {passive:true}); window.addEventListener('resize', upd);
+  plan.addEventListener('change', upd); plan.addEventListener('input', upd); upd();
+})();
+
+/* Cabeçalho e botão flutuante */
+(function(){
+  var h = document.querySelector('header'), f = document.querySelector('.float');
+  function onScroll(){ var y = window.pageYOffset; h.classList.toggle('scrolled', y > 10); f.classList.toggle('hide', y < 500); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
