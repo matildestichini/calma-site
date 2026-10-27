@@ -1,4 +1,4 @@
-# Fonte única dos serviços do site (menu v12, 27 out 2026).
+# Fonte única dos serviços do site (menu v13, 27 out 2026).
 # Cada serviço: id, nome (pt, en), descrição (pt, en), opções [(id, duração min, preço MZN)],
 # quem executa (A=Angélica, C=Cardósia, F=Florência, P=Precília; None = complemento, não restringe),
 # extras: pro=2 (duas profissionais), unit='nail' (preço por unha), addon=True, note (pt, en)
@@ -26,13 +26,13 @@ FP = ['F', 'P']; AC = ['A', 'C']; ACF = ['A', 'C', 'F']; FPC = ['F', 'P', 'C']
 
 CATS = [
  {'id': 'massagens', 'nome': ('Massagens', 'Massages'), 'foto': 'cat-massagens.jpg',
-  'intro': ('Movimentos ao seu ritmo, com óleo e maca levados até si.', 'At your own pace, with oils and a massage table brought to you.'),
+  'intro': ('Movimentos ao seu ritmo, com óleo e marquesa de massagem levados até si.', 'At your own pace, with oils and a massage table brought to you.'),
   'itens': [
    {'id': 'relax', 'nome': ('Massagem relaxante', 'Relaxing massage'), 'desc': ('Movimentos suaves e contínuos para soltar a tensão do dia.', 'Slow, flowing movements to release the tension of the day.'), 'opts': [('m30', 30, 1500), ('m60', 60, 2600), ('m90', 90, 3600)], 'who': FP},
    {'id': 'ombros', 'nome': ('Ombros, costas e cabeça', 'Shoulders, back and head'), 'desc': ('Foco no pescoço, nos ombros, nas costas e no couro cabeludo.', 'Focused on the neck, shoulders, back and scalp.'), 'opts': [('m-obc', 30, 1800)], 'who': FP},
    {'id': 'dren', 'nome': ('Drenagem linfática', 'Lymphatic drainage'), 'desc': ('Movimentos lentos e rítmicos, com pressão leve, para uma sensação de leveza.', 'Slow, rhythmic movements with light pressure, for a feeling of lightness.'), 'opts': [('dren', 60, 2800)], 'who': FP},
    {'id': 'hibrida', 'nome': ('Massagem híbrida', 'Hybrid massage'), 'desc': ('Começa com drenagem e termina com massagem relaxante.', 'Starts with lymphatic drainage and ends with a relaxing massage.'), 'opts': [('hib', 90, 3200)], 'who': FP},
-   {'id': 'lua', 'nome': ('Ritual da Lua', 'Moon Ritual'), 'desc': ('Uma massagem pensada para os dias do ciclo menstrual. Óleos essenciais e uma manta quente sobre o ventre criam um momento de calma e conforto.', 'A massage designed for the days of your menstrual cycle. Essential oils and a warm wrap over the abdomen create a moment of calm and comfort.'), 'opts': [('lua60', 60, 3000), ('lua90', 90, 3800)], 'who': FP,
+   {'id': 'lua', 'nome': ('Ritual da Lua', 'Moon Ritual'), 'desc': ('Pensada para quem sente desconforto antes ou durante o período (TPM e menstruação). Óleos essenciais e uma manta quente sobre o ventre ajudam a aliviar a tensão e trazem conforto.', 'Designed for anyone who feels discomfort before or during their period (PMS and menstruation). Essential oils and a warm wrap over the abdomen help ease tension and bring comfort.'), 'opts': [('lua60', 60, 3000), ('lua90', 90, 3800)], 'who': FP,
     'note': ('Informe-nos se estiver grávida ou tiver alergia a óleos essenciais.', 'Please let us know if you are pregnant or allergic to essential oils.')},
    {'id': 'qm', 'nome': ('Massagem a quatro mãos', 'Four-hand massage'), 'desc': ('Duas profissionais, ao mesmo ritmo. Sujeita a confirmação de disponibilidade.', 'Two therapists, in perfect rhythm. Subject to availability.'), 'opts': [('qm', 60, 4800)], 'who': FP, 'pro': 2},
   ]},
@@ -46,28 +46,27 @@ CATS = [
   'intro': ('Limpeza, massagem e hidratação, com material preparado para cada visita.', 'Cleansing, massage and hydration, with products prepared for each visit.'),
   'itens': [
    {'id': 'limp', 'nome': ('Limpeza de pele', 'Facial cleanse'), 'desc': ('Limpeza, esfoliação, tónico e hidratação.', 'Cleanse, exfoliation, toner and moisturiser.'), 'opts': [('r1', 30, 1800)], 'who': FPC},
-   {'id': 'limplift', 'nome': ('Limpeza de pele com lifting', 'Cleanse with lifting massage'), 'desc': ('Limpeza de pele com massagem facial lifting.', 'A facial cleanse with a lifting facial massage.'), 'opts': [('r2', 45, 3400)], 'who': FPC},
-   {'id': 'lift', 'nome': ('Lifting facial', 'Lifting facial'), 'desc': ('Massagem facial lifting mais longa, com limpeza e hidratação.', 'A longer lifting facial massage, with cleansing and hydration.'), 'opts': [('r4', 60, 3800)], 'who': FPC},
+   {'id': 'lift', 'nome': ('Lifting facial', 'Lifting facial'), 'desc': ('Limpeza suave, esfoliação, massagem lifting e hidratação.', 'Gentle cleanse, exfoliation, lifting massage and hydration.'), 'opts': [('r4', 45, 3800)], 'who': FPC},
    {'id': 'brilho', 'nome': ('Brilho natural', 'Natural glow'), 'desc': ('Limpeza com vapor e óleos, para uma pele com aspeto luminoso.', 'Cleansing with steam and oils, for radiant-looking skin.'), 'opts': [('r3', 60, 2600)], 'who': FPC},
   ]},
  {'id': 'maos', 'nome': ('Mãos e pés', 'Hands and feet'), 'foto': 'cat-maos.jpg',
-  'intro': ('Se tiver gelish ou gel nas unhas, junte a remoção para reservarmos o tempo certo.', 'If you are wearing gel polish or gel nails, add removal so we can book the right amount of time.'),
+  'intro': ('Cuidado de mãos e pés. A esfoliação e a massagem juntam-se como complemento.', 'Hand and foot care. Exfoliation and massage can be added on.'),
   'itens': [
    {'id': 'mani', 'nome': ('Manicure', 'Manicure'), 'desc': ('Unhas limadas, cutículas tratadas e hidratação.', 'Shaping, cuticle care and hydration.'), 'opts': [('mani', 45, 800)], 'who': AC},
-   {'id': 'pedi', 'nome': ('Pedicure', 'Pedicure'), 'desc': ('Banho de pés, esfoliação, cutículas, calosidades e hidratação.', 'Foot soak, exfoliation, cuticles, hard skin and hydration.'), 'opts': [('pedi', 60, 1100)], 'who': ACF},
-   {'id': 'glm', 'nome': ('Gelish — mãos', 'Gel polish — hands'), 'desc': ('Cor de longa duração, com manicure incluída.', 'Long-lasting colour, manicure included.'), 'opts': [('glm', 60, 1300)], 'who': AC},
-   {'id': 'glp', 'nome': ('Gelish — pés', 'Gel polish — feet'), 'desc': ('Cor de longa duração, com pedicure incluída.', 'Long-lasting colour, pedicure included.'), 'opts': [('glp', 60, 1600)], 'who': ACF},
-   {'id': 'vm', 'nome': ('Verniz normal — mãos', 'Regular polish — hands'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vm', 20, 500)], 'who': AC},
-   {'id': 'vp', 'nome': ('Verniz normal — pés', 'Regular polish — feet'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vp', 20, 500)], 'who': ACF},
+   {'id': 'pedi', 'nome': ('Pedicure', 'Pedicure'), 'desc': ('Banho de pés, cutículas, calosidades e hidratação.', 'Foot soak, cuticles, hard skin and hydration.'), 'opts': [('pedi', 60, 1100)], 'who': ACF},
   ]},
- {'id': 'gel', 'nome': ('Gel e nail art', 'Gel and nail art'), 'foto': 'cat-gel.jpg',
-  'intro': ('Unhas reforçadas com gel, com manicure incluída. Alongamento com tip ou molde.', 'Gel-reinforced nails, manicure included. Extensions with tips or forms.'),
+ {'id': 'gel', 'nome': ('Unhas', 'Nails'), 'foto': 'cat-gel.jpg',
+  'intro': ('Verniz, gelish, gel e nail art. Se tiver gelish ou gel nas unhas, junte a remoção para reservarmos o tempo certo.', 'Polish, gel polish, gel nails and nail art. If you are wearing gel polish or gel nails, add removal so we can book the right amount of time.'),
   'gel': True,
   'itens': [
-   {'id': 'bg-nat', 'nome': ('Builder gel — unha natural', 'Builder gel — natural nail'), 'opts': [('bg-nat', 90, 2000)], 'who': AC},
+   {'id': 'glm', 'nome': ('Gelish — mãos', 'Gel polish — hands'), 'desc': ('Cor de longa duração, com manicure incluída.', 'Long-lasting colour, manicure included.'), 'opts': [('glm', 60, 1300)], 'card': True, 'who': AC},
+   {'id': 'glp', 'nome': ('Gelish — pés', 'Gel polish — feet'), 'desc': ('Cor de longa duração, com pedicure incluída.', 'Long-lasting colour, pedicure included.'), 'opts': [('glp', 60, 1600)], 'card': True, 'who': ACF},
+   {'id': 'vm', 'nome': ('Verniz normal — mãos', 'Regular polish — hands'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vm', 20, 500)], 'card': True, 'who': AC},
+   {'id': 'vp', 'nome': ('Verniz normal — pés', 'Regular polish — feet'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vp', 20, 500)], 'card': True, 'who': ACF},
+   {'id': 'bg-nat', 'nome': ('Builder gel — overlay', 'Builder gel — overlay'), 'opts': [('bg-nat', 90, 2000)], 'who': AC},
    {'id': 'bg-alo', 'nome': ('Builder gel — alongamento', 'Builder gel — extensions'), 'opts': [('bg-alo', 120, 2300)], 'who': AC},
    {'id': 'bg-man', 'nome': ('Builder gel — manutenção', 'Builder gel — infill'), 'opts': [('bg-man', 75, 1800)], 'who': AC},
-   {'id': 'pg-nat', 'nome': ('Polygel — unha natural', 'Polygel — natural nail'), 'opts': [('pg-nat', 100, 2200)], 'who': AC},
+   {'id': 'pg-nat', 'nome': ('Polygel — overlay', 'Polygel — overlay'), 'opts': [('pg-nat', 100, 2200)], 'who': AC},
    {'id': 'pg-alo', 'nome': ('Polygel — alongamento', 'Polygel — extensions'), 'opts': [('pg-alo', 130, 2500)], 'who': AC},
    {'id': 'pg-man', 'nome': ('Polygel — manutenção', 'Polygel — infill'), 'opts': [('pg-man', 85, 2000)], 'who': AC},
    {'id': 'sg', 'nome': ('Soft gel com tips', 'Soft gel tips'), 'desc': ('Aplicação de tips em soft gel.', 'Soft gel tip application.'), 'opts': [('sg', 100, 2300)], 'who': AC},
@@ -80,6 +79,8 @@ CATS = [
  {'id': 'extras', 'nome': ('Complementos', 'Add-ons'), 'foto': None,
   'intro': ('Juntam-se a um serviço de mãos ou pés.', 'Added to a hand or foot treatment.'),
   'itens': [
+   {'id': 'esm', 'nome': ('Esfoliação de mãos', 'Hand exfoliation'), 'opts': [('esm', 10, 300)], 'who': None, 'addon': True},
+   {'id': 'esp', 'nome': ('Esfoliação de pés', 'Foot exfoliation'), 'opts': [('esp', 15, 300)], 'who': None, 'addon': True},
    {'id': 'mpes', 'nome': ('Massagem aos pés', 'Foot massage'), 'opts': [('mpes', 10, 300)], 'who': None, 'addon': True},
    {'id': 'mobc', 'nome': ('Massagem de ombros e cabeça', 'Shoulder and head massage'), 'desc': ('Depois da manicure.', 'After your manicure.'), 'opts': [('mobc', 15, 450)], 'who': None, 'addon': True},
    {'id': 'remgl', 'nome': ('Remoção de gelish', 'Gel polish removal'), 'opts': [('remgl', 30, 250)], 'who': None, 'addon': True},
@@ -98,5 +99,10 @@ CATS = [
    {'id': 'd-bra', 'nome': ('Braços', 'Arms'), 'opts': [('d-bra', 20, 850)], 'who': ['C']},
    {'id': 'd-mp', 'nome': ('Meia perna', 'Half leg'), 'opts': [('d-mp', 20, 900)], 'who': ['C']},
    {'id': 'd-pi', 'nome': ('Perna inteira', 'Full leg'), 'opts': [('d-pi', 40, 1300)], 'who': ['C']},
+   {'id': 'd-dec', 'nome': ('Decote', 'Chest'), 'opts': [('d-dec', 10, 600)], 'who': ['C']},
+   {'id': 'd-lom', 'nome': ('Zona lombar', 'Lower back'), 'opts': [('d-lom', 10, 500)], 'who': ['C']},
+   {'id': 'd-abd', 'nome': ('Abdómen completo', 'Full abdomen'), 'opts': [('d-abd', 15, 800)], 'who': ['C']},
+   {'id': 'd-cos', 'nome': ('Costas completas', 'Full back'), 'opts': [('d-cos', 30, 1200)], 'who': ['C']},
+   {'id': 'd-ros', 'nome': ('Rosto completo', 'Full face'), 'opts': [('d-ros', 20, 900)], 'who': ['C']},
   ]},
 ]

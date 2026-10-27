@@ -44,16 +44,21 @@ def menu_panels():
             continue
         body = []
         if c.get('gel'):
-            gel = [i for i in c['itens'] if not i.get('unit')]
+            cards = [i for i in c['itens'] if i.get('card')]
+            gel = [i for i in c['itens'] if not i.get('unit') and not i.get('card')]
+            for i in cards:
+                body.append(f'<div class="item"><h3>{t(*i["nome"])}</h3><p>{t(*i["desc"])}</p>{price_rows(i)}'
+                            f'<a class="btn btn-line sm" href="#marcar" data-pick="{i["opts"][0][0]}">{t("Marcar","Book")}</a></div>')
             art = [i for i in c['itens'] if i.get('unit')]
             def cell(code):
                 it = next(i for i in gel if i['id'] == code); oid, d, p = it['opts'][0]
                 return f'<td><b>{mzn(p)}</b><small>{dur(d)}</small></td>'
             body.append(
                 '<div class="gel-wrap"><table class="gel"><thead><tr><th></th>'
-                f'<th>{t("Unha natural","Natural nail")}</th><th>{t("Alongamento","Extensions")}</th><th>{t("Manutenção","Infill")}</th></tr></thead><tbody>'
+                f'<th>{t("Overlay","Overlay")}</th><th>{t("Alongamento","Extensions")}</th><th>{t("Manutenção","Infill")}</th></tr></thead><tbody>'
                 f'<tr><th>Builder gel</th>{cell("bg-nat")}{cell("bg-alo")}{cell("bg-man")}</tr>'
                 f'<tr><th>Polygel</th>{cell("pg-nat")}{cell("pg-alo")}{cell("pg-man")}</tr></tbody></table>'
+                f'<p class="note">{t("Overlay: uma ou duas camadas de gel sobre a unha natural, para a reforçar. Manutenção: preenchimento e acerto até 4 semanas depois da aplicação.","Overlay: one or two layers of gel over the natural nail to strengthen it. Infill: fill and rebalance up to 4 weeks after application.")}</p>'
                 f'<ul class="rows solo"><li><span>{t("Soft gel com tips","Soft gel tips")} · {dur(100)}</span><i></i><b>2.300</b></li></ul>'
                 f'<a class="btn btn-solid sm" href="#marcar" data-pick="bg-nat">{t("Marcar","Book")}</a></div>')
             body.append(f'<div class="item"><h3>{t("Nail art","Nail art")} <span class="tag">{t("por unha","per nail")}</span></h3>'
