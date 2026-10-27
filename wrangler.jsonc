@@ -1,0 +1,8 @@
+// Publicação na Cloudflare (Worker "calmahomespa", só ficheiros estáticos).
+{
+  "name": "calmahomespa",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "."
+  }
+}
