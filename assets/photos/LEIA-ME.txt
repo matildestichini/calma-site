@@ -1,13 +1,9 @@
 Fotografias do site (gravação de 24 out). Formato JPG, lado maior 2000 px, até 400 KB.
 hero.jpg             profissional de farda a estender a toalha na maca, sala com luz natural (horizontal)
-cat-massagens.jpg    massagem de costas, toalha a cobrir o corpo (vertical)
-cat-partilhar.jpg    duas macas lado a lado, duas profissionais (vertical)
-cat-rosto.jpg        máscara aplicada com pincel, cliente de roupão (vertical)
-cat-maos.jpg         manicure em pormenor (vertical)
-cat-depilacao.jpg    kit de depilação organizado, sem exposição do corpo (vertical)
 prep-kit.jpg         mala aberta com os materiais organizados (vertical)
 prep-higiene.jpg     higiene das mãos e da superfície
 prep-arrumar.jpg     toalhas dobradas, espaço arrumado no fim
 equipa-florencia.jpg / equipa-precilia.jpg / equipa-angelica.jpg / equipa-cardosia.jpg   retratos de farda, 4:5
 assinatura.jpg       cliente à janela com um copo de água, depois da sessão (horizontal, zona escura para o texto)
-Basta colocar cada ficheiro nesta pasta com este nome: o site substitui o bloco rosado automaticamente.
+Basta colocar cada ficheiro nesta pasta com este nome: o site substitui o bloco neutro automaticamente.
+Para ver no site onde entra cada fotografia, abra a página com ?fotos no fim do endereço.

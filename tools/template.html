@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>C'alma Home Spa · Spa ao domicílio em Maputo</title>
+<meta name="description" content="Spa ao domicílio em Maputo: massagens, corpo, rosto, mãos, pés, gel e depilação, com equipa profissional. Escolha a sua profissional e marque o seu momento.">
+<meta property="og:title" content="C'alma Home Spa · Maputo">
+<meta property="og:description" content="O cuidado de um spa, no conforto da sua casa.">
+<meta property="og:image" content="assets/photos/hero.jpg">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:locale:alternate" content="en_GB">
+<link rel="icon" href="assets/logos/vertical-chestnut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DaySpa","name":"C'alma Home Spa","description":"Spa ao domicílio em Maputo: massagens, corpo, rosto, mãos, pés, gel e depilação.","telephone":"+258853299721","email":"c.almahome.mkt@gmail.com","areaServed":{"@type":"City","name":"Maputo"},"priceRange":"400–4.800 MZN","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"06:00","closes":"20:00"},"sameAs":["https://www.instagram.com/calmahomespa.mz/","https://www.facebook.com/profile.php?id=61595531287477"],"knowsLanguage":["pt","en"]}
+</script>
+<style>
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Regular.ttf') format('truetype');font-weight:400;font-display:swap;}
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Bold.ttf') format('truetype');font-weight:700;font-display:swap;}
+
+/* Paleta do manual: Alabaster de base, Olive nas bandas, Chestnut nas ações, Sage nos detalhes. Blush só em pormenores. */
+:root{
+  --alabaster:#EEEBE4; --paper:#F6F4EF; --blush:#FFEDE5; --chestnut:#9C5839; --chestnut-d:#86492D;
+  --olive:#454127; --olive-2:#57522F; --sage:#B2C07A; --white:#FFFFFF; --muted:#6E6A55;
+  --line:rgba(69,65,39,.14);
+  --display:'Black Mango','Jost',Georgia,serif;
+  --sans:'Jost','Futura','Avenir Next','Helvetica Neue',Arial,sans-serif;
+  --gutter:max(20px, env(safe-area-inset-left, 0px)); --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+[hidden]{display:none!important;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-size:16px;line-height:1.6;color:var(--olive);background:var(--paper);overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;}
+:focus-visible{outline:2px solid var(--chestnut);outline-offset:3px;}
+/* Línguas */
+html:not([lang="en"]) .en{display:none!important;}
+html[lang="en"] .pt{display:none!important;}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r);}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance;letter-spacing:-.01em;}
+h2{font-size:clamp(30px,3.6vw,44px);}
+h3{font-weight:500;font-size:18px;line-height:1.3;}
+.eyebrow{display:block;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--chestnut);margin-bottom:14px;}
+.lead{font-size:17.5px;font-weight:300;max-width:560px;}
+section{padding-block:104px;}
+section[id]{scroll-margin-top:84px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500;border:0;cursor:pointer;transition:background .2s,color .2s,transform .3s,box-shadow .2s;}
+.btn-solid{background:var(--chestnut);color:var(--white);}
+.btn-solid:hover{background:var(--chestnut-d);transform:translateY(-1px);}
+.btn-line{background:transparent;color:var(--chestnut);box-shadow:inset 0 0 0 1.5px var(--chestnut);}
+.btn-line:hover{background:var(--chestnut);color:var(--white);}
+.btn-light{background:var(--white);color:var(--olive);}
+.btn.sm{padding:10px 20px;font-size:14px;}
+.arrow{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;color:var(--chestnut);}
+.arrow svg{width:16px;height:16px;transition:transform .2s;}
+.arrow:hover svg{transform:translateX(3px);}
+
+/* Lugar de fotografia: bloco neutro com o símbolo da marca até a fotografia real entrar em assets/photos */
+.ph{position:relative;overflow:hidden;margin:0;background:linear-gradient(150deg,#E6E1D5 0%,#DCD5C4 100%);}
+.ph::after{content:"";position:absolute;inset:0;background:url('assets/logos/vertical-chestnut.png') center/72px auto no-repeat;opacity:.16;}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.ph figcaption{display:none;position:absolute;left:14px;right:14px;bottom:14px;z-index:2;font-size:12px;line-height:1.4;color:var(--olive);background:rgba(255,255,255,.8);padding:6px 8px;border-radius:4px;}
+.show-captions .ph figcaption{display:block;}
+.show-captions .ph figcaption::before{content:'Fotografia · ';font-weight:600;}
+
+.announce{background:var(--olive);color:var(--alabaster);text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:9px var(--gutter-r) 9px var(--gutter);}
+@media (max-width:760px){.announce .hours{display:none;}}
+
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper);}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(246,244,239,.95);backdrop-filter:blur(8px);transition:box-shadow .3s;}
+header.scrolled{box-shadow:0 6px 24px rgba(69,65,39,.08);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1200px;margin:0 auto;padding:12px var(--gutter-r) 12px var(--gutter);}
+.nav .logo{height:44px;width:auto;}
+.nav-links{display:flex;gap:26px;list-style:none;font-size:15px;font-weight:500;}
+.nav-links a:hover{color:var(--chestnut);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.nav-right .wa svg{width:22px;height:22px;display:block;}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--white);}
+.lang button{border:0;background:none;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.08em;padding:5px 10px;border-radius:999px;color:var(--muted);}
+.lang button[aria-pressed="true"]{background:var(--olive);color:var(--white);}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px;}
+.menu-btn svg{width:24px;height:24px;display:block;}
+@media (max-width:1060px){
+  .nav-links{display:none;}.menu-btn{display:block;}
+  .nav-links.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);padding:6px var(--gutter-r) 14px var(--gutter);box-shadow:0 14px 24px rgba(69,65,39,.1);}
+  .nav-links.open a{display:block;padding:12px 0;border-bottom:1px solid var(--line);}
+}
+@media (max-width:560px){.nav .logo{height:34px;}.nav .btn{display:none;}.nav-right{gap:10px;}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:min(82vh,740px);padding:0;}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;gap:22px;padding-block:72px;padding-left:max(var(--gutter),calc((100vw - 1200px)/2 + 20px));padding-right:56px;}
+.hero h1{font-size:clamp(40px,5vw,68px);}
+.hero h1 em{font-style:normal;color:var(--chestnut);}
+.hero .lead{max-width:460px;}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:6px;}
+.hero .ph{min-height:440px;}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;margin-top:10px;color:var(--muted);}
+.facts > span{display:inline-flex;align-items:center;gap:8px;}
+.facts > span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sage);}
+@media (max-width:900px){.hero{grid-template-columns:1fr;}.hero .ph{min-height:340px;order:-1;}.hero-copy{padding:44px var(--gutter-r) 56px var(--gutter);}}
+
+/* Como funciona */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.step{background:var(--white);border-radius:10px;padding:28px 26px 30px;display:flex;flex-direction:column;gap:10px;min-width:0;}
+.step .n{font-family:var(--display);font-size:40px;line-height:1;margin-bottom:18px;color:var(--chestnut);}
+.step p{font-size:14.5px;color:var(--muted);}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.steps{grid-template-columns:1fr;}}
+
+/* Serviços */
+.services{background:var(--alabaster);}
+.services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;}
+.price-note{font-size:14px;max-width:440px;color:var(--muted);}
+.price-note a{color:var(--chestnut);font-weight:500;text-decoration:underline;text-underline-offset:3px;}
+.tabs{display:flex;gap:8px;margin:40px 0 36px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:12px 18px;cursor:pointer;text-align:left;font-family:var(--display);font-size:19px;line-height:1.15;transition:background .2s,border-color .2s,color .2s;}
+.tab small{font-family:var(--sans);font-size:12px;color:var(--muted);}
+.tab:hover{border-color:var(--chestnut);}
+.tab[aria-selected="true"]{background:var(--olive);border-color:var(--olive);color:var(--white);}
+.tab[aria-selected="true"] small{color:rgba(255,255,255,.7);}
+.panel-title{display:none;}
+.panel-intro{font-size:15px;color:var(--muted);max-width:640px;margin-bottom:30px;}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:18px;}
+.item{background:var(--white);border-radius:10px;padding:24px 24px 22px;display:flex;flex-direction:column;gap:10px;min-width:0;}
+.item.wide{grid-column:1/-1;}
+.item h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-family:var(--display);font-weight:400;font-size:22px;}
+.tag{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);background:var(--alabaster);padding:3px 8px;border-radius:999px;}
+.item p{font-size:14.5px;color:var(--muted);}
+.item .note{font-size:13px;}
+.rows{list-style:none;font-size:15px;font-variant-numeric:tabular-nums;}
+.rows li{display:flex;gap:8px;align-items:baseline;padding:6px 0;}
+.rows li i{flex:1;border-bottom:1px dotted rgba(69,65,39,.35);transform:translateY(-4px);}
+.rows li small{font-size:12.5px;color:var(--muted);margin-left:4px;}
+.rows li b{font-weight:500;color:var(--chestnut);white-space:nowrap;}
+.rows li b::after{content:' MZN';font-size:11px;font-weight:400;color:var(--muted);}
+.item .btn{align-self:flex-start;margin-top:auto;}
+.wax{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:0 44px;}
+.gel-wrap{grid-column:1/-1;background:var(--white);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px;}
+table.gel{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+table.gel th{font-weight:500;font-size:13px;color:var(--muted);text-align:center;padding:6px 8px;}
+table.gel tbody th{text-align:left;font-family:var(--display);font-weight:400;font-size:21px;color:var(--olive);}
+table.gel td{text-align:center;padding:10px 8px;border-top:1px solid var(--line);}
+table.gel tbody th{border-top:1px solid var(--line);}
+table.gel td b{display:block;color:var(--chestnut);font-weight:500;font-size:17px;}
+table.gel td small{font-size:12px;color:var(--muted);}
+.rows.solo{max-width:420px;}
+.gel-wrap .btn{align-self:flex-start;}
+@media (max-width:560px){table.gel th,table.gel td{padding:8px 4px;}table.gel tbody th{font-size:17px;}table.gel td b{font-size:15px;}}
+
+/* Preparado */
+.prep-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.prep-photos{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:240px 240px;gap:8px;}
+.prep-photos .ph{border-radius:10px;}
+.prep-photos .ph:first-child{grid-row:1/3;}
+.proof{list-style:none;display:grid;gap:18px;margin-top:30px;}
+.proof li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:15.5px;}
+.proof li svg{width:22px;height:22px;color:var(--chestnut);margin-top:2px;}
+.proof b{font-weight:500;display:block;}
+.proof span{color:var(--muted);}
+.proof b{color:var(--olive);}
+@media (max-width:900px){.prep-grid{grid-template-columns:1fr;gap:40px;}.prep-photos{grid-template-rows:200px 200px;}}
+
+/* Equipa */
+.team{background:var(--olive);color:var(--alabaster);}
+.team .eyebrow{color:var(--sage);}
+.team-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 56px;flex-wrap:wrap;}
+.team-head .lead{max-width:460px;opacity:.85;}
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;}
+.person{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);background:var(--olive-2);border-radius:12px;overflow:hidden;min-width:0;}
+.person .ph{aspect-ratio:4/5;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
+.person .ph::after{filter:brightness(4);}
+.person-copy{padding:26px 26px 26px;display:flex;flex-direction:column;gap:10px;min-width:0;}
+.person h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;}
+.person .role{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);}
+.person p{font-size:14.5px;opacity:.85;}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;}
+.chips li{font-size:12px;padding:4px 10px;border:1px solid rgba(238,235,228,.28);border-radius:999px;}
+.person .arrow{color:var(--sage);margin-top:auto;padding-top:6px;}
+@media (max-width:1000px){.people{grid-template-columns:1fr;}}
+@media (max-width:560px){.person{grid-template-columns:1fr;}.person .ph{aspect-ratio:4/3;}}
+
+/* Testemunhos */
+.quotes{text-align:center;}
+.quote-stage{display:grid;max-width:760px;margin:26px auto 0;}
+.quote{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .6s;}
+.quote.on{opacity:1;visibility:visible;}
+.qmark{display:block;font-family:var(--display);font-size:88px;line-height:.5;height:34px;margin-top:18px;color:var(--sage);}
+.quote blockquote{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.35;}
+.quote cite{display:block;margin-top:18px;font-style:normal;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--chestnut);}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:28px;}
+.dots button{width:28px;height:3px;border:0;background:var(--line);cursor:pointer;padding:0;}
+.dots button[aria-selected="true"]{background:var(--chestnut);width:44px;}
+
+/* Zonas */
+.zones{background:var(--alabaster);}
+.zones-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 56px;flex-wrap:wrap;margin-bottom:40px;}
+.zones-head .lead{max-width:470px;}
+.zone-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.zone{background:var(--white);border-radius:10px;padding:28px 26px 26px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:3px solid var(--sage);}
+.zone:nth-child(2){border-top-color:var(--chestnut);}
+.zone:nth-child(3){border-top-color:var(--olive);}
+.zone-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.zone h3{font-family:var(--display);font-weight:400;font-size:28px;}
+.zone .fee{font-family:var(--display);font-size:32px;color:var(--chestnut);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.zone .fee small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted);margin-left:4px;}
+.zone .rule{font-size:14px;font-weight:500;}
+.zone .meta{display:flex;flex-wrap:wrap;gap:6px;}
+.zone .meta span{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--alabaster);}
+.zone p{font-size:14px;color:var(--muted);line-height:1.55;}
+.zone-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;list-style:none;}
+.zone-notes li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:14px;align-items:start;}
+.zone-notes svg{width:20px;height:20px;color:var(--chestnut);margin-top:1px;}
+@media (max-width:900px){.zone-cards,.zone-notes{grid-template-columns:1fr;}}
+
+/* Perguntas */
+.faq-aside{font-size:15px;color:var(--muted);margin:18px 0 14px;max-width:340px;}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;}
+.faq details{border-top:1px solid var(--line);}
+.faq details:last-child{border-bottom:1px solid var(--line);}
+.faq summary{list-style:none;cursor:pointer;padding:20px 36px 20px 0;font-weight:500;font-size:17px;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'';position:absolute;right:6px;top:50%;width:10px;height:10px;border-right:1.5px solid var(--chestnut);border-bottom:1.5px solid var(--chestnut);transform:translateY(-70%) rotate(45deg);transition:transform .25s;}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+.faq details p{padding:0 0 22px;font-size:15px;color:var(--muted);max-width:620px;}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:24px;}}
+
+/* Faixa de assinatura */
+.band{display:grid;grid-template-columns:1.1fr .9fr;padding:0;background:var(--olive);color:var(--white);}
+.band .band-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding-block:96px;padding-left:max(var(--gutter),calc((100vw - 1200px)/2 + 20px));padding-right:48px;}
+.band h2{font-size:clamp(32px,4vw,52px);max-width:540px;}
+.band p{max-width:420px;opacity:.85;font-weight:300;font-size:17px;}
+.band .ph{min-height:460px;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
+.band .ph::after{filter:brightness(4);}
+@media (max-width:860px){.band{grid-template-columns:1fr;}.band .ph{min-height:320px;}.band .band-copy{padding:64px var(--gutter-r) 64px var(--gutter);}}
+
+/* Planeador */
+.booking{padding-top:104px;}
+.book-head{max-width:640px;margin-bottom:40px;}
+.book-head .lead{margin-top:14px;}
+.planner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start;}
+#plan{display:flex;flex-direction:column;gap:18px;min-width:0;}
+#plan fieldset{border:0;background:var(--white);padding:26px 26px 22px;border-radius:10px;min-width:0;}
+#plan legend{float:left;width:100%;display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:24px;margin-bottom:16px;}
+#plan legend .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--alabaster);color:var(--chestnut);font-family:var(--sans);font-size:14px;font-weight:600;flex:none;}
+#plan fieldset > *:not(legend){clear:both;}
+.cat{border-top:1px solid var(--line);}
+.cat:first-child{border-top:0;}
+.cat summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;font-weight:500;}
+.cat summary::-webkit-details-marker{display:none;}
+.cat summary .count{font-size:12px;font-weight:500;color:var(--white);background:var(--chestnut);border-radius:999px;padding:2px 9px;}
+.cat summary .count:empty{display:none;}
+.cat summary::after{content:'';width:9px;height:9px;border-right:1.5px solid var(--chestnut);border-bottom:1.5px solid var(--chestnut);transform:rotate(45deg);margin-left:auto;transition:transform .2s;}
+.cat[open] summary::after{transform:rotate(-135deg);}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:8px;padding-bottom:16px;}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;font-variant-numeric:tabular-nums;transition:border-color .2s,background .2s;}
+.opt:hover{border-color:var(--chestnut);}
+.opt input[type=checkbox]{accent-color:var(--chestnut);width:17px;height:17px;flex:none;}
+.opt > span{flex:1;min-width:0;}
+.opt small{display:block;font-size:12px;color:var(--muted);}
+.opt b{font-weight:500;color:var(--chestnut);white-space:nowrap;}
+.opt:has(input:checked){border-color:var(--chestnut);background:#FBF4EF;}
+.opt .qty{display:none;width:52px;font:inherit;font-size:14px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--white);}
+.opt:has(input:checked) .qty{display:block;}
+.pros{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(150px,100%),1fr));gap:8px;}
+.pro{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;font-weight:500;transition:border-color .2s,background .2s,opacity .2s;}
+.pro input{position:absolute;opacity:0;pointer-events:none;}
+.pro small{font-size:12px;font-weight:400;color:var(--muted);}
+.pro:has(input:checked){border-color:var(--olive);background:var(--olive);color:var(--white);}
+.pro:has(input:checked) small{color:rgba(255,255,255,.75);}
+.pro:has(input:disabled){opacity:.4;cursor:not-allowed;}
+.pro:has(input:focus-visible){outline:2px solid var(--chestnut);outline-offset:2px;}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fields label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:500;min-width:0;}
+.fields .wide{grid-column:1/-1;}
+.fields input,.fields select{font:inherit;font-size:15px;font-weight:400;color:var(--olive);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:11px 12px;width:100%;min-width:0;}
+.fields input:focus,.fields select:focus{outline:none;border-color:var(--chestnut);background:var(--white);}
+.hint{font-size:13px;color:var(--muted);margin-top:12px;}
+@media (max-width:560px){.fields{grid-template-columns:1fr;}#plan fieldset{padding:22px 18px;}}
+.summary{position:sticky;top:calc(88px + env(safe-area-inset-top,0px));background:var(--olive);color:var(--alabaster);border-radius:12px;padding:28px 26px;display:flex;flex-direction:column;gap:16px;min-width:0;}
+.summary h3{font-family:var(--display);font-weight:400;font-size:28px;}
+.sum-list{list-style:none;display:grid;gap:8px;font-size:14px;}
+.sum-list li{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums;}
+.sum-list li.empty{opacity:.7;}
+.sum-pro{font-size:14px;display:flex;justify-content:space-between;gap:12px;}
+.sum-pro span:first-child{opacity:.75;}
+.totals{display:grid;gap:6px;border-top:1px solid rgba(238,235,228,.18);padding-top:14px;font-variant-numeric:tabular-nums;}
+.totals div{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;}
+.totals .total{font-size:20px;font-weight:500;margin-top:4px;}
+.totals dd{white-space:nowrap;}
+.warn{list-style:none;display:grid;gap:8px;font-size:13.5px;}
+.warn:empty{display:none;}
+.warn li{background:rgba(255,237,229,.1);border-left:3px solid var(--sage);padding:9px 12px;border-radius:0 6px 6px 0;}
+.summary .btn{width:100%;}
+.summary .btn[aria-disabled="true"]{opacity:.45;pointer-events:none;}
+.summary .arrow{color:var(--sage);font-size:14px;}
+.wa-number{font-size:13.5px;opacity:.8;}
+.policy{list-style:none;display:grid;gap:9px;border-top:1px solid rgba(238,235,228,.18);font-size:13px;padding-top:16px;}
+.policy li{padding-left:16px;position:relative;}
+.policy li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--sage);}
+@media (max-width:900px){.planner{grid-template-columns:1fr;}.summary{position:static;}}
+
+/* Rodapé */
+footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.foot .logo{height:70px;width:auto;margin-bottom:18px;}
+.foot p,.foot a,.foot span{font-size:14px;opacity:.82;display:block;}
+.foot a{margin-bottom:9px;}
+.foot a:hover{opacity:1;}
+.social{display:flex;gap:10px;margin-top:20px;}
+.social a{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(238,235,228,.3);border-radius:50%;margin:0;opacity:.9;transition:background .2s,color .2s;}
+.social a:hover{background:var(--alabaster);color:var(--olive);opacity:1;}
+.social svg{width:18px;height:18px;}
+.foot h4{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+.foot-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(238,235,228,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;opacity:.6;}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.foot{grid-template-columns:1fr;}}
+
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:56;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--olive);color:var(--alabaster);padding:12px max(16px, env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));box-shadow:0 -10px 24px rgba(30,27,16,.18);}
+.mbar small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;}
+.mbar b{font-weight:500;font-size:18px;font-variant-numeric:tabular-nums;}
+@media (min-width:901px){.mbar{display:none!important;}}
+.float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;align-items:center;gap:9px;padding:13px 20px;border-radius:999px;background:var(--chestnut);color:var(--white);font-size:14px;font-weight:500;box-shadow:0 12px 28px rgba(69,65,39,.26);transition:opacity .4s,transform .4s;}
+.float svg{width:19px;height:19px;}
+.float.hide{opacity:0;transform:translateY(14px);pointer-events:none;}
+@media (max-width:560px){.float .lbl{display:none;}.float{padding:14px;}}
+
+@media (max-width:640px){section{padding-block:72px;}.band{padding-block:0;}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}
+.hero h1,.hero .lead,.hero-actions{animation:rise .9s cubic-bezier(.22,.61,.36,1) both;}
+.hero .lead{animation-delay:.12s;}.hero-actions{animation-delay:.24s;}
+@keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<div class="announce">{{T:Bem-estar ao domicílio · Maputo, por zonas|Home spa care · Maputo, by zone}}<span class="hours"> · {{T:Todos os dias, 06:00–20:00|Every day, 6 am–8 pm}}</span></div>
+
+<header id="top">
+  <nav class="nav" aria-label="Principal">
+    <a href="#inicio"><img class="logo" src="assets/logos/horizontal-chestnut.png" alt="C'alma Home Spa" width="886" height="378"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#como-funciona">{{T:Como funciona|How it works}}</a></li>
+      <li><a href="#servicos">{{T:Serviços e preços|Treatments and prices}}</a></li>
+      <li><a href="#equipa">{{T:Equipa|Our team}}</a></li>
+      <li><a href="#zonas">{{T:Zonas|Areas}}</a></li>
+      <li><a href="#perguntas">{{T:Perguntas|FAQ}}</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Língua / Language"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="wa" data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener" aria-label="WhatsApp">{{WA_ICON}}</a>
+      <a class="btn btn-solid sm" href="#marcar">{{T:Marcar|Book}}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <span class="eyebrow">{{T:Home spa · Maputo|Home spa · Maputo}}</span>
+    <h1>{{T:O cuidado de um spa, <em>no conforto da sua casa.</em>|Spa care, <em>in the comfort of your home.</em>}}</h1>
+    <p class="lead">{{T:Massagens, corpo, rosto, mãos, pés e depilação. A profissional chega com tudo o que é preciso, prepara o espaço e, no fim, deixa tudo arrumado.|Massage, body, facial, hand and foot care, and waxing. Your therapist arrives with everything needed, sets up the space and leaves it tidy when you are done.}}</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
+      <a class="arrow" href="#servicos">{{T:Ver serviços e preços|See treatments and prices}} {{ARROW}}</a>
+    </div>
+    <div class="facts"><span>{{T:Todos os dias, das 6h às 20h|Every day, 6 am to 8 pm}}</span><span>{{T:Escolha a sua profissional|Choose your therapist}}</span><span>{{T:Levamos maca, toalhas e produtos|We bring the table, towels and products}}</span></div>
+  </div>
+  {{PH:hero.jpg|Profissional da C’alma a preparar a maca numa sala com luz natural|C’alma therapist preparing the massage table in a naturally lit room|profissional de farda a estender a toalha na maca (horizontal)}}
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <span class="eyebrow">{{T:Como funciona|How it works}}</span>
+    <h2>{{T:Da marcação à sua casa|From booking to your door}}</h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>{{T:Escolha o serviço|Choose your treatment}}</h3><p>{{T:Veja o menu e o valor total, já com a deslocação.|Browse the menu and see the full price, travel included.}}</p></div>
+      <div class="step"><span class="n">2</span><h3>{{T:Escolha a profissional|Choose your therapist}}</h3><p>{{T:Tem uma preferida? Indique-a. Se não tiver, propomos o primeiro horário livre.|Have a favourite? Let us know. If not, we will offer the first available time.}}</p></div>
+      <div class="step"><span class="n">3</span><h3>{{T:Confirmamos antes de sair|We confirm before we leave}}</h3><p>{{T:Recebe a confirmação com a profissional, a duração e o valor total.|You receive a confirmation with your therapist, the duration and the total price.}}</p></div>
+      <div class="step"><span class="n">4</span><h3>{{T:A C’alma chega até si|C’alma comes to you}}</h3><p>{{T:Montamos o espaço, cuidamos de si e deixamos tudo como estava. Paga no fim, sem numerário.|We set up, take care of you and leave everything as we found it. Pay at the end, cashless.}}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="services-head">
+      <div><span class="eyebrow">{{T:Serviços e preços|Treatments and prices}}</span><h2>{{T:O nosso menu|Our menu}}</h2></div>
+      <p class="price-note">{{T:Preços por pessoa, em meticais (MZN). Deslocação: Zona 1, incluída a partir de 2.500 MZN; Zonas 2 e 3, taxa fixa. <a href="assets/menu-calma.pdf" target="_blank" rel="noopener">Descarregar o menu (PDF)</a>|Prices per person, in meticais (MZN). Travel: Zone 1, included from 2,500 MZN; Zones 2 and 3, fixed fee. <a href="assets/menu-calma.pdf" target="_blank" rel="noopener">Download the menu (PDF, Portuguese)</a>}}</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Categorias">{{TABS}}</div>
+    {{PANELS}}
+  </div>
+</section>
+
+<section id="preparado">
+  <div class="wrap prep-grid">
+    <div class="prep-photos">
+      {{PH:prep-kit.jpg|Kit da C’alma aberto, com os materiais organizados|C’alma kit open, with everything neatly organised|mala aberta com os materiais organizados (vertical)}}
+      {{PH:prep-higiene.jpg|Profissional a higienizar as mãos|Therapist sanitising her hands|higiene das mãos e da superfície}}
+      {{PH:prep-arrumar.jpg|Toalhas dobradas no fim da sessão|Folded towels at the end of the session|toalhas dobradas, espaço arrumado no fim}}
+    </div>
+    <div>
+      <span class="eyebrow">{{T:Preparado com C’alma|Prepared with C’alma}}</span>
+      <h2>{{T:Uma sessão começa antes de chegarmos|Every session starts before we arrive}}</h2>
+      <ul class="proof">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5"/></svg><span><b>{{T:Equipa profissional e identificada|A trained, identified team}}</b>{{T:Cada profissional trabalha na sua especialidade. Sabe quem vai à sua casa antes da visita.|Each therapist works in her own speciality. You know who is coming before the visit.}}</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/></svg><span><b>{{T:Materiais higienizados|Sanitised materials}}</b>{{T:Toalhas lavadas para cada sessão e utensílios esterilizados.|Freshly washed towels for every session and sterilised tools.}}</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M9 7V5h6v2M3.5 12h17"/></svg><span><b>{{T:Tudo o que é preciso|Everything we need}}</b>{{T:Maca, toalhas, produtos e luz. Do seu lado, basta um espaço de cerca de 2 × 3 m perto de uma tomada.|Table, towels, products and lighting. All you need is a space of about 2 × 3 m near a socket.}}</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>{{T:Arrumado no fim|Tidy when we leave}}</b>{{T:Quando a sessão termina, a sua casa fica como estava e não precisa de voltar ao trânsito.|When the session ends, your home is just as it was, and there is no traffic to face.}}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipa">
+  <div class="wrap">
+    <div class="team-head">
+      <div><span class="eyebrow">{{T:A equipa|Our team}}</span><h2>{{T:Escolha quem a recebe|Choose who looks after you}}</h2></div>
+      <p class="lead">{{T:Pode escolher a sua profissional na marcação. A escolha depende da disponibilidade: se não for possível, propomos outra hora ou outra profissional.|You can choose your therapist when booking. This depends on availability: if it is not possible, we will suggest another time or therapist.}}</p>
+    </div>
+    <div class="people">{{TEAM}}</div>
+  </div>
+</section>
+
+<section class="quotes" id="testemunhos">
+  <div class="wrap">
+    <span class="eyebrow">{{T:Quem já experimentou|What clients say}}</span>
+    <!-- Publicar só com autorização escrita de cada cliente (nome e texto). -->
+    <span class="qmark" aria-hidden="true">“</span>
+    <div class="quote-stage" aria-live="polite">
+      <figure class="quote on"><blockquote>{{T:Gostei da prontidão, da simpatia e da simplicidade do serviço. Recomendo.|I loved how prompt, friendly and simple the service was. I recommend it.}}</blockquote><cite>Natália Mendonça</cite></figure>
+      <figure class="quote"><blockquote>{{T:Este era o serviço que faltava. As minhas unhas ficaram incríveis, muito obrigada!|This was the service that was missing. My nails looked amazing, thank you so much!}}</blockquote><cite>Rita Fernandes</cite></figure>
+    </div>
+    <div class="dots" role="tablist" aria-label="Testemunhos"></div>
+  </div>
+</section>
+
+<section class="zones" id="zonas">
+  <div class="wrap">
+    <div class="zones-head">
+      <div><span class="eyebrow">{{T:Zonas e deslocação|Areas and travel}}</span><h2>{{T:Onde chegamos|Where we go}}</h2></div>
+      <p class="lead">{{T:Atendemos em Maputo, por zonas. A zona é confirmada pela localização que nos envia.|We cover Maputo, by zone. Your zone is confirmed by the location you send us.}}</p>
+    </div>
+    <div class="zone-cards">
+      <article class="zone">
+        <div class="zone-top"><h3>{{T:Zona 1|Zone 1}}</h3><span class="fee"><span data-cfg="z1">300</span><small>MZN</small></span></div>
+        <span class="rule">{{T:Incluída a partir de 2.500 MZN por visita|Included from 2,500 MZN per visit}}</span>
+        <div class="meta"><span>{{T:Marque com 3 h de antecedência|Book 3 h ahead}}</span></div>
+        <p>Baixa, Alto Maé, Polana Cimento, Sommerschield, Coop, Malhangalene, Malanga, Munhuana, Mafalala, Maxaquene A {{T:e|and}} B.</p>
+      </article>
+      <article class="zone">
+        <div class="zone-top"><h3>{{T:Zona 2|Zone 2}}</h3><span class="fee"><span data-cfg="z2">500</span><small>MZN</small></span></div>
+        <span class="rule">{{T:Taxa fixa em todas as visitas|Fixed fee on every visit}}</span>
+        <div class="meta"><span>{{T:Marque com 4 h de antecedência|Book 4 h ahead}}</span></div>
+        <p>Maxaquene C {{T:e|and}} D, Urbanização, Polana Caniço, {{T:Aeroporto|Airport}}, Mavalane, FPLM, Ferroviário, Chamanculo, Xipamanine, Unidade 7, Hulene A.</p>
+      </article>
+      <article class="zone">
+        <div class="zone-top"><h3>{{T:Zona 3|Zone 3}}</h3><span class="fee"><span data-cfg="z3">700</span><small>MZN</small></span></div>
+        <span class="rule">{{T:Taxa fixa · mínimo de 60 min de serviço|Fixed fee · minimum 60 min of treatment}}</span>
+        <div class="meta"><span>{{T:Marque com 24 h de antecedência|Book 24 h ahead}}</span></div>
+        <p>Costa do Sol, Triunfo, Laulane, Mahotas, Hulene B, Albazine, Magoanine, Malhazine. {{T:Zimpeto, conforme a localização.|Zimpeto, depending on the location.}}</p>
+      </article>
+    </div>
+    <ul class="zone-notes">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>{{T:Valor mínimo por visita: 1.000 MZN em serviços.|Minimum per visit: 1,000 MZN in treatments.}}</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M14.5 15c2.4-.3 4.6.9 5.5 3.5"/></svg><span>{{T:Na Zona 1, os serviços de várias pessoas na mesma morada somam para a deslocação incluída.|In Zone 1, treatments for several people at the same address count towards free travel.}}</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg><span>{{T:Matola, KaTembe e KaNyaka ainda não fazem parte da área de atendimento.|Matola, KaTembe and KaNyaka are not yet covered.}}</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq" id="perguntas">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">{{T:Perguntas frequentes|Frequently asked questions}}</span>
+      <h2>{{T:Antes de marcar|Before you book}}</h2>
+      <p class="faq-aside">{{T:Não encontra a resposta? Fale connosco: respondemos dentro do horário de atendimento.|Can’t find your answer? Message us: we reply during opening hours.}}</p>
+      <a class="arrow" data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener">{{T:Falar por WhatsApp|Message us on WhatsApp}} {{ARROW}}</a>
+    </div>
+    <div>
+      <details><summary>{{T:Preciso de preparar alguma coisa?|Do I need to prepare anything?}}</summary><p>{{T:Só um espaço de cerca de 2 × 3 m para a maca, ou uma cadeira e uma mesa para mãos e pés, perto de uma tomada. Levamos tudo o resto. Se tiver animais de estimação, pedimos que fiquem noutra divisão.|Just a space of about 2 × 3 m for the table, or a chair and a table for hands and feet, near a socket. We bring everything else. If you have pets, please keep them in another room.}}</p></details>
+      <details><summary>{{T:Posso escolher a profissional?|Can I choose my therapist?}}</summary><p>{{T:Sim. Na marcação, escolha a profissional da sua preferência ou deixe “Sem preferência” para ver todos os horários. A escolha depende da disponibilidade e da especialidade de cada uma.|Yes. When booking, choose your preferred therapist or leave “No preference” to see every available time. This depends on availability and each therapist’s speciality.}}</p></details>
+      <details><summary>{{T:Como pago?|How do I pay?}}</summary><p>{{T:No fim do serviço, por POS, M-Pesa, e-Mola ou transferência. Não aceitamos numerário. Antes da visita, enviamos sempre o valor total.|At the end of the session, by card (POS), M-Pesa, e-Mola or bank transfer. We do not accept cash. We always send you the total before the visit.}}</p></details>
+      <details><summary>{{T:Quando é pedido um sinal?|When is a deposit required?}}</summary><p>{{T:Nas reservas de mais de 2 h, com duas profissionais ou para mais de uma pessoa. O sinal é de 30% e o restante paga-se no fim.|For bookings over 2 hours, with two therapists or for more than one person. The deposit is 30% and the rest is paid at the end.}}</p></details>
+      <details><summary>{{T:Posso cancelar ou mudar a hora?|Can I cancel or reschedule?}}</summary><p>{{T:Sim, sem custo até 12 h antes. Nas reservas com sinal, até 24 h antes. Em caso de falta, é cobrada a taxa de deslocação da zona.|Yes, free of charge up to 12 hours before. For bookings with a deposit, up to 24 hours before. If you miss the appointment, the zone travel fee is charged.}}</p></details>
+      <details><summary>{{T:Posso marcar para mais pessoas?|Can I book for more than one person?}}</summary><p>{{T:Sim. Amigas ou família na mesma morada podem receber os seus cuidados seguidos ou, conforme a disponibilidade, ao mesmo tempo. Estas reservas pedem um sinal de 30%.|Yes. Friends or family at the same address can be treated one after another or, depending on availability, at the same time. These bookings require a 30% deposit.}}</p></details>
+      <details><summary>{{T:Como é feita a depilação?|How does waxing work?}}</summary><p>{{T:Com cera, por zona, no conforto da sua casa. A profissional leva tudo o que é preciso e trabalha sempre com luvas. Pode juntar várias zonas na mesma visita.|With wax, by area, in the comfort of your home. Your therapist brings everything needed and always wears gloves. You can combine several areas in one visit.}}</p></details>
+      <details><summary>{{T:A que horas atendem?|What are your hours?}}</summary><p>{{T:Todos os dias, das 06:00 às 20:00, por marcação.|Every day, from 6 am to 8 pm, by appointment.}}</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-copy">
+    <h2>{{T:O seu momento de C’alma chegou.|Your C’alma moment is here.}}</h2>
+    <p>{{T:Quando a sessão termina, continua em casa. Sem trânsito, sem pressa, no seu espaço.|When the session ends, you are already home. No traffic, no rush, in your own space.}}</p>
+    <a class="btn btn-light" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
+  </div>
+  {{PH:assinatura.jpg|Cliente à janela com um copo de água, depois da sessão|Client by the window with a glass of water after her session|cliente à janela com um copo de água (horizontal, zona escura para o texto)}}
+</section>
+
+<section class="booking" id="marcar">
+  <div class="wrap">
+    <div class="book-head">
+      <span class="eyebrow">{{T:Marcações|Bookings}}</span>
+      <h2>{{T:Marque o seu momento|Book your moment}}</h2>
+      <p class="lead">{{T:Escolha os serviços, a profissional e a zona, e veja o valor total antes de enviar o pedido. Confirmamos a disponibilidade por WhatsApp.|Choose your treatments, therapist and zone, and see the total before sending your request. We confirm availability on WhatsApp.}}</p>
+    </div>
+    <div class="planner">
+      <form id="plan" novalidate>
+        <fieldset>
+          <legend><span class="n">1</span> {{T:Serviços|Treatments}}</legend>
+          <div id="svc-list"></div>
+        </fieldset>
+        <fieldset>
+          <legend><span class="n">2</span> {{T:Profissional|Therapist}}</legend>
+          <div class="pros" id="pro-list"></div>
+          <p class="hint" id="pro-hint">{{T:A escolha depende da disponibilidade. Confirmamos antes da visita.|Your choice depends on availability. We confirm before the visit.}}</p>
+        </fieldset>
+        <fieldset>
+          <legend><span class="n">3</span> {{T:Pessoas e zona|People and zone}}</legend>
+          <div class="fields">
+            <label for="f-pessoas">{{T:Pessoas na mesma morada|People at the same address}}
+              <select id="f-pessoas"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
+            </label>
+            <label for="f-zona">{{T:Zona|Zone}}
+              <select id="f-zona"><option value="" data-pt="Escolha a zona" data-en="Choose your zone">Escolha a zona</option><option value="1" data-pt="Zona 1 · Centro" data-en="Zone 1 · Centre">Zona 1 · Centro</option><option value="2" data-pt="Zona 2" data-en="Zone 2">Zona 2</option><option value="3" data-pt="Zona 3" data-en="Zone 3">Zona 3</option><option value="0" data-pt="Não sei a minha zona" data-en="I don’t know my zone">Não sei a minha zona</option></select>
+            </label>
+            <label for="f-bairro" class="wide">{{T:Bairro ou ponto de referência|Neighbourhood or landmark}}
+              <input id="f-bairro" type="text" autocomplete="address-level3" data-ph-pt="Ex.: Sommerschield, perto do Parque dos Continuadores" data-ph-en="E.g. Sommerschield, near Parque dos Continuadores" placeholder="Ex.: Sommerschield, perto do Parque dos Continuadores">
+            </label>
+          </div>
+          <p class="hint">{{T:Não sabe a sua zona? Escreva o bairro: confirmamos pela localização que nos enviar.|Not sure of your zone? Type your neighbourhood: we confirm it from the location you send.}}</p>
+        </fieldset>
+        <fieldset>
+          <legend><span class="n">4</span> {{T:Quando|When}}</legend>
+          <div class="fields">
+            <label for="f-data">{{T:Dia|Date}}<input id="f-data" type="date"></label>
+            <label for="f-hora">{{T:Hora|Time}}<select id="f-hora"></select></label>
+            <label for="f-nome" class="wide">{{T:O seu nome|Your name}}<input id="f-nome" type="text" autocomplete="name"></label>
+          </div>
+        </fieldset>
+      </form>
+      <aside class="summary" aria-live="polite">
+        <h3>{{T:O seu pedido|Your request}}</h3>
+        <ul id="sum-list" class="sum-list"></ul>
+        <div class="sum-pro"><span>{{T:Profissional|Therapist}}</span><span id="sum-pro"></span></div>
+        <dl class="totals">
+          <div><dt>{{T:Serviços|Treatments}}</dt><dd id="sum-sub">—</dd></div>
+          <div><dt>{{T:Deslocação|Travel}}</dt><dd id="sum-fee">—</dd></div>
+          <div class="total"><dt>Total</dt><dd id="sum-total">—</dd></div>
+          <div id="sum-sinal-row" hidden><dt>{{T:Sinal na marcação (30%)|Deposit when booking (30%)}}</dt><dd id="sum-sinal">—</dd></div>
+        </dl>
+        <ul id="sum-warn" class="warn"></ul>
+        <a id="send" class="btn btn-solid" href="{{WA}}" target="_blank" rel="noopener">{{T:Enviar pedido por WhatsApp|Send request on WhatsApp}}</a>
+        <a class="arrow" data-link="fresha" href="#marcar" hidden>{{T:Prefere reservar online?|Prefer to book online?}} {{ARROW}}</a>
+        <p class="wa-number">{{T:Ou fale connosco:|Or contact us:}} <span data-cfg="whatsappDisplay">+258 85 329 9721</span></p>
+        <ul class="policy">
+          <li>{{T:Paga no fim, por POS, M-Pesa, e-Mola ou transferência. Não aceitamos numerário.|Pay at the end by card (POS), M-Pesa, e-Mola or transfer. No cash.}}</li>
+          <li>{{T:Valor mínimo por visita: 1.000 MZN em serviços.|Minimum per visit: 1,000 MZN in treatments.}}</li>
+          <li>{{T:Deslocação: Zona 1, 300 MZN, incluída a partir de 2.500 MZN; Zona 2, 500 MZN; Zona 3, 700 MZN.|Travel: Zone 1, 300 MZN, included from 2,500 MZN; Zone 2, 500 MZN; Zone 3, 700 MZN.}}</li>
+          <li>{{T:Sinal de 30% nas reservas de mais de 2 h, com duas profissionais ou para mais de uma pessoa.|30% deposit for bookings over 2 hours, with two therapists or for more than one person.}}</li>
+          <li>{{T:Cancelamento sem custo até 12 h antes (24 h nas reservas com sinal).|Free cancellation up to 12 hours before (24 hours for bookings with a deposit).}}</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="logo" src="assets/logos/horizontal-white.png" alt="C'alma Home Spa" width="878" height="341">
+        <p>{{T:Bem-estar e cuidados pessoais ao domicílio, em Maputo.|Wellbeing and personal care at home, in Maputo.}}</p>
+        <div class="social"><a href="https://www.instagram.com/calmahomespa.mz/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><a data-link="facebook" href="https://www.facebook.com/profile.php?id=61595531287477" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21h3z"/></svg></a><a data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener" aria-label="WhatsApp">{{WA_ICON}}</a></div>
+      </div>
+      <div>
+        <h4>{{T:Serviços|Treatments}}</h4>
+        <a href="#servicos" data-tab="massagens">{{T:Massagens|Massages}}</a>
+        <a href="#servicos" data-tab="corpo">{{T:Corpo|Body}}</a>
+        <a href="#servicos" data-tab="rosto">{{T:Rosto|Face}}</a>
+        <a href="#servicos" data-tab="maos">{{T:Mãos e pés|Hands and feet}}</a>
+        <a href="#servicos" data-tab="gel">{{T:Gel e nail art|Gel and nail art}}</a>
+        <a href="#servicos" data-tab="depilacao">{{T:Depilação|Waxing}}</a>
+      </div>
+      <div>
+        <h4>{{T:Contacto|Contact}}</h4>
+        <a data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener">WhatsApp · <span data-cfg="whatsappDisplay">+258 85 329 9721</span></a>
+        <a href="https://www.instagram.com/calmahomespa.mz/" target="_blank" rel="noopener">Instagram · @calmahomespa.mz</a>
+        <a data-link="facebook" href="https://www.facebook.com/profile.php?id=61595531287477" target="_blank" rel="noopener">Facebook · C'alma Home Spa</a>
+        <a href="mailto:c.almahome.mkt@gmail.com">c.almahome.mkt@gmail.com</a>
+      </div>
+      <div>
+        <h4>{{T:Atendimento|Opening hours}}</h4>
+        <span>{{T:Todos os dias, 06:00–20:00|Every day, 6 am–8 pm}}</span>
+        <span>{{T:Maputo, por zonas|Maputo, by zone}}</span>
+        <span>{{T:Só por marcação|By appointment only}}</span>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 C'alma Home Spa</span><span>{{T:Logótipo e tipografia: Fridaymood Brand|Logo and typography: Fridaymood Brand}}</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar" hidden><span><small>Total</small><b id="mbar-total">—</b></span><a class="btn btn-solid sm" href="#sum-list">{{T:Ver pedido|View request}}</a></div>
+
+<a class="float hide" data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener" aria-label="WhatsApp">{{WA_ICON}}<span class="lbl">{{T:Marcar por WhatsApp|Book on WhatsApp}}</span></a>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — rever antes de publicar
+   fresha: link direto da página de marcações da C'alma na Fresha (vazio = só WhatsApp)
+   ========================================================= */
+var CALMA = {
+  fresha: '',
+  facebook: 'https://www.facebook.com/profile.php?id=61595531287477',
+  whatsapp: '258853299721',
+  whatsappDisplay: '+258 85 329 9721',
+  ticket: 2500, minimo: 1000, z1: 300, z2: 500, z3: 700
+};
+/* Serviços: gerados a partir de tools/servicos.py (menu v12). Não editar aqui. */
+var SERVICOS = {{SERVICOS_JSON}};
+var PROS = {{PROS_JSON}};
+
+/* ---------- Língua ---------- */
+var LANG = 'pt';
+var META = {
+  pt: {title: "C'alma Home Spa · Spa ao domicílio em Maputo", desc: 'Spa ao domicílio em Maputo: massagens, corpo, rosto, mãos, pés, gel e depilação, com equipa profissional. Escolha a sua profissional e marque o seu momento.'},
+  en: {title: "C'alma Home Spa · Home spa in Maputo", desc: 'Home spa in Maputo: massage, body, facial, hand and foot care, gel nails and waxing, with a professional team. Choose your therapist and book your moment.'}
+};
+function L(pt, en){ return LANG === 'en' ? en : pt; }
+function setLang(l, save){
+  LANG = l === 'en' ? 'en' : 'pt';
+  document.documentElement.lang = LANG === 'en' ? 'en' : 'pt-PT';
+  document.title = META[LANG].title;
+  document.querySelector('meta[name="description"]').setAttribute('content', META[LANG].desc);
+  document.querySelectorAll('[data-alt-pt]').forEach(function(i){ i.alt = i.getAttribute('data-alt-' + LANG); });
+  document.querySelectorAll('[data-ph-pt]').forEach(function(i){ i.placeholder = i.getAttribute('data-ph-' + LANG); });
+  document.querySelectorAll('option[data-pt]').forEach(function(o){ o.textContent = o.getAttribute('data-' + LANG); });
+  document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang') === LANG); });
+  document.querySelectorAll('[data-p]').forEach(function(s){ s.textContent = String(s.getAttribute('data-p')).replace(/\B(?=(\d{3})+(?!\d))/g, LANG === 'en' ? ',' : '.'); });
+  if(save){ try{ localStorage.setItem('calma-lang', LANG); }catch(e){} }
+  if(window.CALMA_CALC) window.CALMA_CALC();
+  setWaLinks();
+}
+function waUrl(text){ return 'https://wa.me/' + CALMA.whatsapp + '?text=' + encodeURIComponent(text); }
+function setWaLinks(){
+  var msg = L('Olá, gostaria de marcar um momento C\'alma.', 'Hello, I would like to book a C\'alma session.');
+  document.querySelectorAll('[data-link="whatsapp"]').forEach(function(a){ a.href = waUrl(msg); });
+}
+(function(){
+  document.querySelectorAll('[data-link="facebook"]').forEach(function(a){ a.href = CALMA.facebook; });
+  document.querySelectorAll('[data-link="fresha"]').forEach(function(a){ if(CALMA.fresha){ a.href = CALMA.fresha; a.target = '_blank'; a.rel = 'noopener'; a.hidden = false; } });
+  var q = new URLSearchParams(location.search), l = q.get('lang'), s = null;
+  if(q.has('fotos')) document.body.classList.add('show-captions');
+  try{ s = localStorage.getItem('calma-lang'); }catch(e){}
+  if(!l) l = s || ((navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang'), true); }); });
+  setLang(l, false);
+})();
+
+/* ---------- Planeador ---------- */
+(function(){
+  var list = document.getElementById('svc-list'), proList = document.getElementById('pro-list');
+  var el = function(id){ return document.getElementById(id); };
+  var fmt = function(v){ return (LANG === 'en' ? String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : String(v).replace(/\B(?=(\d{3})+(?!\d))/g, '.')) + ' MZN'; };
+  var dur = function(d){ if(d < 60) return d + ' min'; var h = Math.floor(d/60), r = d % 60; return h + ' h' + (r ? ' ' + r : ''); };
+  var both = function(a, b){ return '<span class="pt">' + a + '</span><span class="en" lang="en">' + b + '</span>'; };
+  var byId = {};
+
+  /* Lista de serviços */
+  SERVICOS.forEach(function(g, gi){
+    var html = '<details class="cat"' + (gi === 0 ? ' open' : '') + '><summary><span>' + both(g.cat[0], g.cat[1]) + '</span><span class="count"></span></summary><div class="opts">';
+    g.itens.forEach(function(it){
+      byId[it.id] = it; it.cat = g.cat;
+      var sub = it.unit === 'nail' ? both('por unha', 'per nail') : (it.addon ? '+' + it.d + ' min' : dur(it.d));
+      html += '<label class="opt" for="svc-' + it.id + '"><input type="checkbox" id="svc-' + it.id + '" value="' + it.id + '"><span>' + both(it.b[0], it.b[1]) + '<small>' + sub + '</small></span>' +
+        (it.unit === 'nail' ? '<input class="qty" type="number" min="1" max="20" value="2" data-qty="' + it.id + '" aria-label="N.º de unhas / Number of nails">' : '') +
+        '<b><span data-p="' + it.p + '">' + it.p + '</span></b></label>';
+    });
+    list.insertAdjacentHTML('beforeend', html + '</div></details>');
+  });
+
+  /* Profissionais */
+  var proHtml = '<label class="pro"><input type="radio" name="pro" value="" checked><span>' + both('Sem preferência', 'No preference') + '</span><small>' + both('Primeiro horário livre', 'First available') + '</small></label>';
+  Object.keys(PROS).forEach(function(k){ proHtml += '<label class="pro"><input type="radio" name="pro" value="' + k + '"><span>' + PROS[k] + '</span><small data-proinfo="' + k + '"></small></label>'; });
+  proList.innerHTML = proHtml;
+
+  /* Horas */
+  var hora = el('f-hora'), h = '<option value="">—</option>';
+  for(var m = 6*60; m <= 19*60 + 30; m += 30){ var hh = ('0' + Math.floor(m/60)).slice(-2) + ':' + ('0' + m%60).slice(-2); h += '<option>' + hh + '</option>'; }
+  hora.innerHTML = h;
+  var data = el('f-data'), today = new Date(); data.min = today.toISOString().slice(0,10);
+  var max = new Date(); max.setDate(max.getDate() + 30); data.max = max.toISOString().slice(0,10);
+
+  var ZF = {1: CALMA.z1, 2: CALMA.z2, 3: CALMA.z3}, ANTEC = {1:3, 2:4, 3:24};
+
+  function calc(){
+    var sel = [].slice.call(list.querySelectorAll('input[type=checkbox]:checked')).map(function(i){
+      var it = byId[i.value], q = 1;
+      if(it.unit === 'nail'){ var qi = list.querySelector('[data-qty="' + it.id + '"]'); q = Math.max(1, Math.min(20, +qi.value || 1)); }
+      return {it: it, q: q};
+    });
+    var pessoas = +el('f-pessoas').value, zona = el('f-zona').value;
+    list.querySelectorAll('details.cat').forEach(function(d){ d.querySelector('.count').textContent = d.querySelectorAll('input[type=checkbox]:checked').length || ''; });
+
+    var sub = 0, dur = 0, duasPro = false, gel = false, remov = false, wax = false;
+    var allowed = ['A','C','F','P'], constrained = false;
+    sel.forEach(function(s){
+      var it = s.it; sub += it.p * s.q * pessoas; dur += it.d * s.q;
+      if(it.pro === 2) duasPro = true;
+      if(/^(glm|glp|bg-|pg-|sg)/.test(it.id)) gel = true;
+      if(/^rem/.test(it.id)) remov = true;
+      if(/^d-/.test(it.id)) wax = true;
+      if(it.who){ constrained = true; allowed = allowed.filter(function(k){ return it.who.indexOf(k) >= 0; }); }
+    });
+
+    /* Profissionais disponíveis para os serviços escolhidos */
+    var chosen = (proList.querySelector('input:checked') || {}).value || '';
+    proList.querySelectorAll('input[name=pro]').forEach(function(r){
+      if(!r.value) return;
+      var ok = !duasPro && (!constrained || allowed.indexOf(r.value) >= 0);
+      r.disabled = !ok;
+      var info = proList.querySelector('[data-proinfo="' + r.value + '"]');
+      info.textContent = ok ? '' : (duasPro ? L('Em dupla', 'In tandem') : L('Não faz este serviço', 'Does not offer this'));
+    });
+    if(chosen && (duasPro || (constrained && allowed.indexOf(chosen) < 0))){ proList.querySelector('input[value=""]').checked = true; chosen = ''; }
+    var proName = duasPro ? 'Florência + Precília' : (chosen ? PROS[chosen] : L('Sem preferência', 'No preference'));
+    el('sum-pro').textContent = proName;
+    var hint = el('pro-hint');
+    if(duasPro) hint.textContent = L('A massagem a quatro mãos é feita pela Florência e pela Precília, em dupla.', 'The four-hand massage is given by Florência and Precília together.');
+    else if(constrained && !allowed.length) hint.textContent = L('Os serviços escolhidos são feitos por profissionais diferentes. Deixe “Sem preferência” e organizamos a visita.', 'Your treatments are done by different therapists. Leave “No preference” and we will arrange the visit.');
+    else hint.textContent = L('A escolha depende da disponibilidade. Confirmamos antes da visita.', 'Your choice depends on availability. We confirm before the visit.');
+
+    var fee = null;
+    if(sel.length && zona && zona !== '0') fee = (zona === '1' && sub >= CALMA.ticket) ? 0 : ZF[zona];
+    var total = sub + (fee || 0);
+    var totalMin = dur * (duasPro ? 1 : pessoas);
+    var sinal = sel.length && (pessoas > 1 || duasPro || totalMin > 120);
+    var warn = [], block = !sel.length;
+
+    var ul = el('sum-list'); ul.innerHTML = '';
+    if(!sel.length) ul.innerHTML = '<li class="empty">' + L('Ainda não escolheu nenhum serviço.', 'No treatments selected yet.') + '</li>';
+    sel.forEach(function(s){
+      var nm = s.it.n[LANG === 'en' ? 1 : 0], q = (s.q > 1 ? ' × ' + s.q : '') + (pessoas > 1 ? ' × ' + pessoas + ' ' + L('pessoas', 'people') : '');
+      ul.insertAdjacentHTML('beforeend', '<li><span>' + nm + q + '</span><span>' + fmt(s.it.p * s.q * pessoas) + '</span></li>');
+    });
+    el('sum-sub').textContent = sel.length ? fmt(sub) : '—';
+    el('sum-fee').textContent = !sel.length ? '—' : (fee === null ? (zona === '0' ? L('a confirmar', 'to be confirmed') : L('escolha a zona', 'choose your zone')) : (fee === 0 ? L('incluída', 'included') : fmt(fee)));
+    el('sum-total').textContent = sel.length ? fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : '') : '—';
+    el('sum-sinal-row').hidden = !sinal;
+    if(sinal) el('sum-sinal').textContent = fmt(Math.round(total * 0.3 / 10) * 10);
+    el('mbar-total').textContent = el('sum-total').textContent;
+
+    if(sel.length && sub < CALMA.minimo){ warn.push(L('O valor mínimo por visita é de ' + fmt(CALMA.minimo) + ' em serviços. Junte outro serviço ou outra pessoa.', 'The minimum per visit is ' + fmt(CALMA.minimo) + ' in treatments. Add another treatment or person.')); block = true; }
+    if(sel.length && zona === '1' && fee > 0){ warn.push(L('Faltam ' + fmt(CALMA.ticket - sub) + ' para a deslocação ficar incluída.', 'Add ' + fmt(CALMA.ticket - sub) + ' more for free travel.')); }
+    if(zona === '3' && sel.length && dur < 60 && pessoas < 2){ warn.push(L('Na Zona 3, cada visita tem pelo menos 60 min de serviço ou 2 pessoas.', 'In Zone 3, each visit needs at least 60 min of treatment or 2 people.')); block = true; }
+    if(gel && !remov) warn.push(L('Tem gelish ou gel nas unhas? Junte a remoção para reservarmos o tempo certo.', 'Wearing gel polish or gel nails? Add removal so we book the right time.'));
+    if(duasPro) warn.push(L('A massagem a quatro mãos é confirmada manualmente.', 'Four-hand massages are confirmed manually.'));
+    if(sinal) warn.push(L('Esta reserva pede um sinal de 30%, pago na marcação.', 'This booking requires a 30% deposit when booking.'));
+    var d = el('f-data').value, hv = hora.value;
+    if(d && hv && ANTEC[zona]){
+      var horas = (new Date(d + 'T' + hv + ':00') - new Date()) / 36e5;
+      if(horas < ANTEC[zona]){ warn.push(L('Na Zona ' + zona + ', marque com pelo menos ' + ANTEC[zona] + ' h de antecedência.', 'In Zone ' + zona + ', please book at least ' + ANTEC[zona] + ' h ahead.')); block = true; }
+    }
+    el('sum-warn').innerHTML = warn.map(function(w){ return '<li>' + w + '</li>'; }).join('');
+
+    var send = el('send');
+    send.setAttribute('aria-disabled', block ? 'true' : 'false');
+    var lines = [L('Olá, gostaria de pedir uma marcação C\'alma.', 'Hello, I would like to request a C\'alma booking.')];
+    if(el('f-nome').value) lines.push(L('Nome: ', 'Name: ') + el('f-nome').value);
+    if(sel.length) lines.push(L('Serviços: ', 'Treatments: ') + sel.map(function(s){ return s.it.n[LANG === 'en' ? 1 : 0] + (s.q > 1 ? ' × ' + s.q : ''); }).join('; '));
+    lines.push(L('Profissional: ', 'Therapist: ') + proName);
+    lines.push(L('Pessoas: ', 'People: ') + pessoas);
+    lines.push(L('Zona: ', 'Zone: ') + (zona === '' ? L('por indicar', 'not specified') : zona === '0' ? L('não sei', 'not sure') : zona) + (el('f-bairro').value ? ' · ' + el('f-bairro').value : ''));
+    if(d || hv) lines.push(L('Quando: ', 'When: ') + (d ? d.split('-').reverse().join('/') : '') + (hv ? (L(' às ', ' at ')) + hv : ''));
+    if(sel.length) lines.push(L('Valor estimado: ', 'Estimated total: ') + fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : ''));
+    if(LANG === 'en') lines.push('Language: English');
+    lines.push(L('Envio a localização a seguir.', 'I will send my location next.'));
+    send.href = waUrl(lines.join('\n'));
+  }
+  window.CALMA_CALC = calc;
+  list.querySelectorAll('[data-p]').forEach(function(s){ s.textContent = String(s.getAttribute('data-p')).replace(/\B(?=(\d{3})+(?!\d))/g, LANG === 'en' ? ',' : '.'); });
+  ['input', 'change'].forEach(function(e){ el('plan').addEventListener(e, calc); });
+  el('plan').addEventListener('submit', function(e){ e.preventDefault(); });
+
+  document.querySelectorAll('[data-pick]').forEach(function(a){
+    a.addEventListener('click', function(){ var b = el('svc-' + a.getAttribute('data-pick')); if(!b) return; b.checked = true; b.closest('details').open = true; calc(); });
+  });
+  document.querySelectorAll('[data-pro]').forEach(function(a){
+    a.addEventListener('click', function(){ var r = proList.querySelector('input[value="' + a.getAttribute('data-pro') + '"]'); if(r && !r.disabled) r.checked = true; calc(); });
+  });
+  calc();
+})();
+
+/* ---------- Separadores do menu ---------- */
+(function(){
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  function show(id){
+    tabs.forEach(function(t){ var on = t.getAttribute('aria-controls') === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    document.querySelectorAll('.panel').forEach(function(p){ p.hidden = p.id !== id; });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ show(t.getAttribute('aria-controls')); });
+    t.addEventListener('keydown', function(e){ var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if(!d) return; var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); show(n.getAttribute('aria-controls')); });
+  });
+  document.querySelectorAll('[data-tab]').forEach(function(a){ a.addEventListener('click', function(){ show(a.getAttribute('data-tab')); }); });
+})();
+
+/* ---------- Testemunhos ---------- */
+(function(){
+  var q = [].slice.call(document.querySelectorAll('.quote')), dots = document.querySelector('.dots'), cur = 0, timer;
+  if(q.length < 2){ if(dots) dots.hidden = true; return; }
+  q.forEach(function(_, i){ var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role','tab'); b.setAttribute('aria-label', String(i+1)); b.setAttribute('aria-selected', i === 0); b.addEventListener('click', function(){ go(i); restart(); }); dots.appendChild(b); });
+  function go(n){ q[cur].classList.remove('on'); dots.children[cur].setAttribute('aria-selected', false); cur = n; q[cur].classList.add('on'); dots.children[cur].setAttribute('aria-selected', true); }
+  function restart(){ clearInterval(timer); if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function(){ go((cur + 1) % q.length); }, 8000); }
+  restart();
+})();
+
+/* ---------- Menu móvel, barra de total, cabeçalho ---------- */
+(function(){
+  var b = document.querySelector('.menu-btn'), m = document.getElementById('nav-links');
+  b.addEventListener('click', function(){ var o = m.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ m.classList.remove('open'); b.setAttribute('aria-expanded', false); }); });
+  var bar = document.getElementById('mbar'), plan = document.getElementById('plan'), sum = document.querySelector('.summary'), f = document.querySelector('.float'), h = document.querySelector('header');
+  function upd(){
+    var vh = window.innerHeight, p = plan.getBoundingClientRect(), q = sum.getBoundingClientRect();
+    var show = p.top < vh * 0.6 && p.bottom > 0 && q.top > vh - 40;
+    bar.hidden = !show; f.style.visibility = show ? 'hidden' : '';
+    var y = window.pageYOffset; h.classList.toggle('scrolled', y > 10); f.classList.toggle('hide', y < 500);
+  }
+  window.addEventListener('scroll', upd, {passive:true}); window.addEventListener('resize', upd); upd();
+})();
+</script>
+</body>
+</html>
