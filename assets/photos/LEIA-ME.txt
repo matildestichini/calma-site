@@ -1,9 +1,9 @@
 Fotografias do site (gravação de 24 out). Formato JPG, lado maior 2000 px, até 400 KB.
-hero.jpg             profissional de farda a estender a toalha na maca, sala com luz natural (horizontal)
-prep-kit.jpg         mala aberta com os materiais organizados (vertical)
-prep-higiene.jpg     higiene das mãos e da superfície
-prep-arrumar.jpg     toalhas dobradas, espaço arrumado no fim
-equipa-florencia.jpg / equipa-precilia.jpg / equipa-angelica.jpg / equipa-cardosia.jpg   retratos de farda, 4:5
-assinatura.jpg       cliente à janela com um copo de água, depois da sessão (horizontal, zona escura para o texto)
+hero.jpg             cliente na marquesa, tabuleiros de óleos e toalhas (16:9) · hero-telemovel-4x5.jpg no telemóvel
+prep-kit.jpg         checklist de preparação com o tabuleiro de óleos (vertical)
+prep-higiene.jpg     toalha lavada nas mãos da profissional
+prep-arrumar.jpg     toalhas C'alma dobradas na marquesa
+equipa-florencia.jpg / equipa-percilia.jpg / equipa-angelica.jpg / equipa-cardosia.jpg   retratos de farda, 4:5
+assinatura.jpg       massagem em contraluz com o mar (16:9)
 Basta colocar cada ficheiro nesta pasta com este nome: o site substitui o bloco neutro automaticamente.
 Para ver no site onde entra cada fotografia, abra a página com ?fotos no fim do endereço.

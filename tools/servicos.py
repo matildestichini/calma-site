@@ -1,6 +1,6 @@
-# Fonte única dos serviços do site (menu v13, 27 out 2026).
+# Fonte única dos serviços do site (menu v13, 29 out 2026: descrições da Carla, sem pó sereia, remoção de gelish 15 min).
 # Cada serviço: id, nome (pt, en), descrição (pt, en), opções [(id, duração min, preço MZN)],
-# quem executa (A=Angélica, C=Cardósia, F=Florência, P=Precília; None = complemento, não restringe),
+# quem executa (A=Angélica, C=Cardósia, F=Florência, P=Percília; None = complemento, não restringe),
 # extras: pro=2 (duas profissionais), unit='nail' (preço por unha), addon=True, note (pt, en)
 
 PROS = {
@@ -16,7 +16,7 @@ PROS = {
           'bio': ('Faz massagens, drenagem linfática, cuidados de corpo e de rosto, e também pedicure. Integra a massagem a quatro mãos.',
                   'Offers massage, lymphatic drainage, body and facial treatments, as well as pedicures. Part of our four-hand massage duo.'),
           'chips': (['Massagens', 'Drenagem', 'Corpo', 'Rosto', 'Pedicure'], ['Massage', 'Drainage', 'Body', 'Facials', 'Pedicure'])},
-    'P': {'nome': 'Precília', 'role': ('Massagens, corpo e rosto', 'Massage, body and face'),
+    'P': {'nome': 'Percília', 'role': ('Massagens, corpo e rosto', 'Massage, body and face'),
           'bio': ('Faz massagens, drenagem linfática e cuidados de corpo e de rosto. Trabalha em dupla na massagem a quatro mãos.',
                   'Offers massage, lymphatic drainage, body and facial treatments. Works in tandem on our four-hand massage.'),
           'chips': (['Massagens', 'Drenagem', 'Corpo', 'Rosto'], ['Massage', 'Drainage', 'Body', 'Facials'])},
@@ -28,11 +28,11 @@ CATS = [
  {'id': 'massagens', 'nome': ('Massagens', 'Massages'), 'foto': 'cat-massagens.jpg',
   'intro': ('Movimentos ao seu ritmo, com óleo e marquesa de massagem levados até si.', 'At your own pace, with oils and a massage table brought to you.'),
   'itens': [
-   {'id': 'relax', 'nome': ('Massagem relaxante', 'Relaxing massage'), 'desc': ('Movimentos suaves e contínuos para soltar a tensão do dia.', 'Slow, flowing movements to release the tension of the day.'), 'opts': [('m30', 30, 1500), ('m60', 60, 2600), ('m90', 90, 3600)], 'who': FP},
-   {'id': 'ombros', 'nome': ('Ombros, costas e cabeça', 'Shoulders, back and head'), 'desc': ('Foco no pescoço, nos ombros, nas costas e no couro cabeludo.', 'Focused on the neck, shoulders, back and scalp.'), 'opts': [('m-obc', 30, 1800)], 'who': FP},
-   {'id': 'dren', 'nome': ('Drenagem linfática', 'Lymphatic drainage'), 'desc': ('Movimentos lentos e rítmicos, com pressão leve, para uma sensação de leveza.', 'Slow, rhythmic movements with light pressure, for a feeling of lightness.'), 'opts': [('dren', 60, 2800)], 'who': FP},
-   {'id': 'hibrida', 'nome': ('Massagem híbrida', 'Hybrid massage'), 'desc': ('Começa com drenagem e termina com massagem relaxante.', 'Starts with lymphatic drainage and ends with a relaxing massage.'), 'opts': [('hib', 90, 3200)], 'who': FP},
-   {'id': 'lua', 'nome': ('Ritual da Lua', 'Moon Ritual'), 'desc': ('Pensada para quem sente desconforto antes ou durante o período (TPM e menstruação). Óleos essenciais e uma manta quente sobre o ventre ajudam a aliviar a tensão e trazem conforto.', 'Designed for anyone who feels discomfort before or during their period (PMS and menstruation). Essential oils and a warm wrap over the abdomen help ease tension and bring comfort.'), 'opts': [('lua60', 60, 3000), ('lua90', 90, 3800)], 'who': FP,
+   {'id': 'relax', 'nome': ('Massagem relaxante', 'Relaxing massage'), 'desc': ('Movimentos suaves e contínuos para relaxar o corpo e a mente, aliviar a tensão acumulada ou simplesmente preparar-se para o dia que vem.', 'Slow, flowing movements to relax body and mind, ease built-up tension or simply get ready for the day ahead.'), 'opts': [('m30', 30, 1500), ('m60', 60, 2600), ('m90', 90, 3600)], 'who': FP},
+   {'id': 'ombros', 'nome': ('Ombros, costas e cabeça', 'Shoulders, back and head'), 'desc': ('Dedicada à parte superior do corpo, com manobras focadas nas zonas onde a tensão se acumula.', 'Dedicated to the upper body, focusing on the areas where tension builds up.'), 'opts': [('m-obc', 30, 1800)], 'who': FP},
+   {'id': 'dren', 'nome': ('Drenagem linfática', 'Lymphatic drainage'), 'desc': ('Uma combinação de manobras rítmicas e técnicas específicas para ajudar a reduzir a sensação de inchaço e proporcionar leveza e bem-estar.', 'Rhythmic movements and specific techniques that help reduce the feeling of puffiness and leave you light and well.'), 'opts': [('dren', 60, 2800)], 'who': FP},
+   {'id': 'hibrida', 'nome': ('Massagem híbrida', 'Hybrid massage'), 'desc': ('Combina técnicas de drenagem linfática com uma massagem relaxante, numa experiência que alia uma sensação de leveza ao relaxamento profundo do corpo.', 'Combines lymphatic drainage techniques with a relaxing massage, bringing together a feeling of lightness and deep relaxation.'), 'opts': [('hib', 90, 3200)], 'who': FP},
+   {'id': 'lua', 'nome': ('Ritual da Lua', 'Moon Ritual'), 'desc': ('Uma combinação de massagem relaxante e aromaterapia, pensada para melhorar o seu conforto e bem-estar antes e durante a menstruação.', 'A blend of relaxing massage and aromatherapy, designed to support your comfort and wellbeing before and during your period.'), 'opts': [('lua60', 60, 3000), ('lua90', 90, 3800)], 'who': FP,
     'note': ('Informe-nos se estiver grávida ou tiver alergia a óleos essenciais.', 'Please let us know if you are pregnant or allergic to essential oils.')},
    {'id': 'qm', 'nome': ('Massagem a quatro mãos', 'Four-hand massage'), 'desc': ('Duas profissionais, ao mesmo ritmo. Sujeita a confirmação de disponibilidade.', 'Two therapists, in perfect rhythm. Subject to availability.'), 'opts': [('qm', 60, 4800)], 'who': FP, 'pro': 2},
   ]},
@@ -73,7 +73,6 @@ CATS = [
    {'id': 'na', 'nome': ('Nail art', 'Nail art'), 'desc': ('Desenhos com verniz, glitter ou autocolantes.', 'Designs with polish, glitter or stickers.'), 'opts': [('na', 5, 90)], 'who': ['A'], 'unit': 'nail', 'addon': True},
    {'id': 'n3d', 'nome': ('3D', '3D'), 'desc': ('Relevo aplicado sobre a unha.', 'Raised 3D detail.'), 'opts': [('n3d', 5, 120)], 'who': ['A'], 'unit': 'nail', 'addon': True},
    {'id': 'cat', 'nome': ('Cat eye', 'Cat eye'), 'desc': ('Efeito magnético.', 'Magnetic effect.'), 'opts': [('cat', 3, 80)], 'who': ['A'], 'unit': 'nail', 'addon': True},
-   {'id': 'ser', 'nome': ('Pó sereia', 'Mermaid powder'), 'desc': ('Acabamento perolado.', 'Pearlescent finish.'), 'opts': [('ser', 3, 50)], 'who': ['A'], 'unit': 'nail', 'addon': True},
    {'id': 'ped', 'nome': ('Pedras (cristais)', 'Crystals'), 'desc': ('Aplicação de cristais.', 'Crystal application.'), 'opts': [('ped', 3, 70)], 'who': ['A'], 'unit': 'nail', 'addon': True},
   ]},
  {'id': 'extras', 'nome': ('Complementos', 'Add-ons'), 'foto': None,
@@ -83,7 +82,7 @@ CATS = [
    {'id': 'esp', 'nome': ('Esfoliação de pés', 'Foot exfoliation'), 'opts': [('esp', 15, 300)], 'who': None, 'addon': True},
    {'id': 'mpes', 'nome': ('Massagem aos pés', 'Foot massage'), 'opts': [('mpes', 10, 300)], 'who': None, 'addon': True},
    {'id': 'mobc', 'nome': ('Massagem de ombros e cabeça', 'Shoulder and head massage'), 'desc': ('Depois da manicure.', 'After your manicure.'), 'opts': [('mobc', 15, 450)], 'who': None, 'addon': True},
-   {'id': 'remgl', 'nome': ('Remoção de gelish', 'Gel polish removal'), 'opts': [('remgl', 30, 250)], 'who': None, 'addon': True},
+   {'id': 'remgl', 'nome': ('Remoção de gelish', 'Gel polish removal'), 'opts': [('remgl', 15, 250)], 'who': None, 'addon': True},
    {'id': 'remge', 'nome': ('Remoção de gel', 'Gel removal'), 'opts': [('remge', 30, 500)], 'who': None, 'addon': True},
    {'id': 'rep', 'nome': ('Reparação de 1 unha', 'Single nail repair'), 'opts': [('rep', 15, 250)], 'who': None, 'addon': True},
   ]},

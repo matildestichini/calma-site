@@ -58,7 +58,7 @@ def menu_panels():
                 f'<th>{t("Overlay","Overlay")}</th><th>{t("Alongamento","Extensions")}</th><th>{t("Manutenção","Infill")}</th></tr></thead><tbody>'
                 f'<tr><th>Builder gel</th>{cell("bg-nat")}{cell("bg-alo")}{cell("bg-man")}</tr>'
                 f'<tr><th>Polygel</th>{cell("pg-nat")}{cell("pg-alo")}{cell("pg-man")}</tr></tbody></table>'
-                f'<p class="note">{t("Overlay: uma ou duas camadas de gel sobre a unha natural, para a reforçar. Manutenção: preenchimento e acerto até 4 semanas depois da aplicação.","Overlay: one or two layers of gel over the natural nail to strengthen it. Infill: fill and rebalance up to 4 weeks after application.")}</p>'
+                f'<p class="note">{t("Overlay: uma ou duas camadas de gel sobre a unha natural, para a reforçar. Manutenção: aproveita a base e repõe o gel onde a unha cresceu, até 4 semanas depois da aplicação.","Overlay: one or two layers of gel over the natural nail to strengthen it. Infill: keeps the base and refills the gel where the nail has grown, up to 4 weeks after application.")}</p>'
                 f'<ul class="rows solo"><li><span>{t("Soft gel com tips","Soft gel tips")} · {dur(100)}</span><i></i><b>2.300</b></li></ul>'
                 f'<a class="btn btn-solid sm" href="#marcar" data-pick="bg-nat">{t("Marcar","Book")}</a></div>')
             body.append(f'<div class="item"><h3>{t("Nail art","Nail art")} <span class="tag">{t("por unha","per nail")}</span></h3>'
@@ -117,7 +117,7 @@ def planner_data():
 def team():
     out = []
     for k in ['F', 'P', 'A', 'C']:
-        p = PROS[k]; n = p['nome']; slug = n.lower().replace('é', 'e').replace('í', 'i').replace('ó', 'o')
+        p = PROS[k]; n = p['nome']; slug = __import__('unicodedata').normalize('NFKD', n.lower()).encode('ascii', 'ignore').decode()
         chips_pt, chips_en = p['chips']
         chips = ''.join(f'<li>{t(a, b)}</li>' for a, b in zip(chips_pt, chips_en))
         out.append(f'<article class="person">{ph("equipa-" + slug + ".jpg", n + ", profissional da C’alma", n + ", C’alma therapist", "retrato da " + n + " de farda, 4:5")}'
