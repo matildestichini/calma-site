@@ -179,8 +179,10 @@ table.gel td small{font-size:12px;color:var(--muted);}
 .team-head .lead{max-width:460px;opacity:.85;}
 .people{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;}
 .person{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);background:var(--olive-2);border-radius:12px;overflow:hidden;min-width:0;}
-.person .ph{aspect-ratio:4/5;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
+.person .ph{aspect-ratio:auto;height:100%;min-height:280px;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
 .person .ph::after{filter:brightness(4);}
+.person .ph img{object-position:50% 12%;}
+.hero .ph img{object-position:62% 50%;}
 .person-copy{padding:26px 26px 26px;display:flex;flex-direction:column;gap:10px;min-width:0;}
 .person h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;}
 .person .role{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);}
@@ -189,7 +191,7 @@ table.gel td small{font-size:12px;color:var(--muted);}
 .chips li{font-size:12px;padding:4px 10px;border:1px solid rgba(238,235,228,.28);border-radius:999px;}
 .person .arrow{color:var(--sage);margin-top:auto;padding-top:6px;}
 @media (max-width:1000px){.people{grid-template-columns:1fr;}}
-@media (max-width:560px){.person{grid-template-columns:1fr;}.person .ph{aspect-ratio:4/3;}}
+@media (max-width:560px){.person{grid-template-columns:1fr;}.person .ph{aspect-ratio:4/5;max-height:520px;}}
 
 /* Testemunhos */
 .quotes{text-align:center;}
@@ -237,13 +239,13 @@ table.gel td small{font-size:12px;color:var(--muted);}
 @media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:24px;}}
 
 /* Faixa de assinatura */
-.band{display:grid;grid-template-columns:1.1fr .9fr;padding:0;background:var(--olive);color:var(--white);}
+.band{display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;padding:0;background:var(--olive);color:var(--white);}
 .band .band-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding-block:96px;padding-left:max(var(--gutter),calc((100vw - 1200px)/2 + 20px));padding-right:48px;}
 .band h2{font-size:clamp(32px,4vw,52px);max-width:540px;}
 .band p{max-width:420px;opacity:.85;font-weight:300;font-size:17px;}
-.band .ph{min-height:460px;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
+.band .ph{min-height:0;aspect-ratio:16/9;background:linear-gradient(150deg,#625D3A,#4E4A2C);}
 .band .ph::after{filter:brightness(4);}
-@media (max-width:860px){.band{grid-template-columns:1fr;}.band .ph{min-height:320px;}.band .band-copy{padding:64px var(--gutter-r) 64px var(--gutter);}}
+@media (max-width:860px){.band{grid-template-columns:1fr;}.band .ph{min-height:0;aspect-ratio:16/9;}.band .band-copy{padding:64px var(--gutter-r) 64px var(--gutter);}}
 
 /* Planeador */
 .booking{padding-top:104px;}
@@ -379,7 +381,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     </div>
     <div class="facts"><span>{{T:Todos os dias, das 6h às 20h|Every day, 6 am to 8 pm}}</span><span>{{T:Escolha a sua profissional|Choose your therapist}}</span><span>{{T:Levamos marquesa, toalhas e produtos|We bring the massage table, towels and products}}</span></div>
   </div>
-  <figure class="ph"><picture><source media="(max-width:900px)" srcset="assets/photos/hero-telemovel-4x5.jpg"><img src="assets/photos/hero.jpg" data-alt-pt="Cliente deitada na marquesa de massagem, numa sala com luz natural, com os óleos da C’alma ao lado" data-alt-en="Client lying on the massage table in a naturally lit room, with C’alma oils beside her" alt="Cliente deitada na marquesa de massagem, numa sala com luz natural, com os óleos da C’alma ao lado" fetchpriority="high" onerror="this.remove()"></picture><figcaption>hero</figcaption></figure>
+  <figure class="ph"><picture><source media="(max-width:900px)" srcset="assets/photos/hero-telemovel-4x5.jpg"><img src="assets/photos/hero.jpg" data-alt-pt="Massagem em contraluz, junto a uma janela com vista para o mar" data-alt-en="Backlit massage by a window overlooking the sea" alt="Massagem em contraluz, junto a uma janela com vista para o mar" fetchpriority="high" onerror="this.remove()"></picture><figcaption>hero</figcaption></figure>
 </section>
 
 <section id="como-funciona">
@@ -409,9 +411,9 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
 <section id="preparado">
   <div class="wrap prep-grid">
     <div class="prep-photos">
-      {{PH:prep-kit.jpg|Profissional a preencher a checklist de preparação, junto ao tabuleiro de óleos|Therapist completing the preparation checklist next to the oil tray|checklist de preparação (vertical)}}
+      {{PH:prep-kit.jpg|Massagem a quatro mãos, com duas profissionais da C’alma|Four-hand massage with two C’alma therapists|massagem a quatro mãos (vertical)}}
       {{PH:prep-higiene.jpg|Toalha lavada da C’alma, preparada para a sessão|Freshly washed C’alma towel, ready for the session|toalha lavada}}
-      {{PH:prep-arrumar.jpg|Toalhas da C’alma dobradas sobre a marquesa|C’alma towels folded on the massage table|toalhas dobradas na marquesa}}
+      {{PH:prep-arrumar.jpg|Cuidado de rosto, com máscara e massagem facial|Facial treatment with mask and facial massage|cuidado de rosto}}
     </div>
     <div>
       <span class="eyebrow">{{T:Preparado com C’alma|Prepared with C’alma}}</span>
@@ -513,7 +515,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     <p>{{T:Quando a sessão termina, continua em casa. Sem trânsito, sem pressa, no seu espaço.|When the session ends, you are already home. No traffic, no rush, in your own space.}}</p>
     <a class="btn btn-light" data-link="fresha-main" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
   </div>
-  {{PH:assinatura.jpg|Massagem em contraluz, junto a uma janela com vista para o mar|Backlit massage by a window overlooking the sea|massagem em contraluz com o mar}}
+  {{PH:assinatura.jpg|Cliente deitada na marquesa de massagem, com os óleos e as toalhas da C’alma ao lado|Client on the massage table, with C’alma oils and towels beside her|cliente na marquesa (16:9)}}
 </section>
 
 <section class="booking" id="marcar">
