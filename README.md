@@ -9,3 +9,8 @@ Site estático (uma página), em português e inglês (botão PT/EN; `?lang=en` 
 - Configuração (link da Fresha, WhatsApp, taxas) no bloco `CALMA` do `template.html`.
 - `assets/menu-calma.pdf` — menu para descarregar.
 - `assets/photos` — fotografias reais da gravação. Ver `LEIA-ME.txt`; `?fotos` mostra onde entra cada uma.
+
+## Avaliação pós-serviço
+
+- `avaliacao.html` — inquérito para as clientes: **calmahomespa.co.mz/avaliacao** (`?p=F|P|A|C` pré-seleciona a profissional; `?s=massagem` o serviço).
+- `src/worker.js` — guarda as respostas na base D1 `calma-avaliacoes` e mostra o painel em `/respostas?chave=…` (médias por profissional, critério do prémio, exportação CSV). A chave fica fora do repositório; aqui só está o SHA-256 (`RESPOSTAS_HASH` no `wrangler.jsonc`).

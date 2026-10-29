@@ -1,9 +1,19 @@
-// Publicação na Cloudflare (Worker "calmahomespa", só ficheiros estáticos).
+// Publicação na Cloudflare (Worker "calmahomespa"): ficheiros estáticos + avaliações pós-serviço (D1).
 {
   "name": "calmahomespa",
+  "main": "src/worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/respostas", "/respostas.csv"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "calma-avaliacoes", "database_id": "33b60293-9fc9-4053-865d-7d58d40eb9b9" }
+  ],
+  "vars": {
+    // SHA-256 da chave de acesso ao painel /respostas (a chave não está no repositório)
+    "RESPOSTAS_HASH": "74bae60c30dba3f8af86b83378de9577c6db01ddb444beb0007f38fcb4cb1750"
   },
   "routes": [
     { "pattern": "calmahomespa.co.mz", "custom_domain": true },

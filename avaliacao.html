@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>O seu momento C'alma · Avaliação</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Como foi o seu momento C'alma?">
+<meta property="og:description" content="Leva menos de um minuto. A sua opinião ajuda-nos a cuidar melhor.">
+<meta property="og:image" content="https://www.calmahomespa.co.mz/assets/photos/partilha.jpg">
+<link rel="icon" href="assets/logos/vertical-chestnut.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Regular.ttf') format('truetype');font-weight:400;font-display:swap;}
+@font-face{font-family:'Black Mango';src:url('assets/fonts/BlackMango-Bold.ttf') format('truetype');font-weight:700;font-display:swap;}
+:root{--alabaster:#EEEBE4;--blush:#FFEDE5;--chestnut:#9C5839;--olive:#454127;--sage:#B2C07A;--white:#fff;--line:rgba(69,65,39,.14);color-scheme:light;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',system-ui,sans-serif;font-size:17px;line-height:1.5;color:var(--olive);background:var(--alabaster);padding:0 16px 48px;}
+main{max-width:560px;margin:0 auto;}
+header{text-align:center;padding:28px 0 18px;}
+header img{height:56px;width:auto;margin:0 auto 18px;display:block;}
+h1{font-family:'Black Mango',Georgia,serif;font-weight:700;font-size:32px;line-height:1.1;margin-bottom:8px;}
+header p{opacity:.75;}
+.q{background:var(--white);border-radius:14px;padding:22px 18px 20px;margin-top:14px;border:0;}
+.q legend,.q .lbl{float:left;width:100%;font-weight:500;font-size:19px;line-height:1.3;margin-bottom:16px;}
+.q legend small,.q .lbl small{display:block;font-weight:400;font-size:14px;opacity:.6;margin-top:2px;}
+.q > *:not(legend){clear:both;}
+.n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blush);color:var(--chestnut);font-size:14px;font-weight:600;margin-right:8px;vertical-align:2px;}
+/* caras */
+.faces{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+.faces label,.chips label,.pros label{cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.faces input,.chips input,.pros input{position:absolute;opacity:0;pointer-events:none;}
+.face{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 2px 8px;border-radius:10px;border:2px solid transparent;transition:background .15s,border-color .15s;}
+.face svg{width:44px;height:44px;}
+.face span{font-size:12.5px;text-align:center;line-height:1.2;}
+.faces input:checked + .face{background:var(--blush);border-color:var(--chestnut);}
+.faces input:focus-visible + .face,.chips input:focus-visible + span,.pros input:focus-visible + .pro{outline:2px solid var(--chestnut);outline-offset:2px;}
+/* escolhas */
+.chips{display:grid;gap:8px;}
+.chips.row{grid-template-columns:repeat(3,1fr);}
+.chips span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);font-weight:500;text-align:center;}
+.chips input:checked + span{border-color:var(--chestnut);background:var(--blush);color:var(--chestnut);}
+.svc{grid-template-columns:repeat(3,1fr);}
+.svc span{font-size:15px;min-height:46px;}
+/* profissionais */
+.pros{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.pro{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px;border-radius:10px;border:2px solid transparent;}
+.pro img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 20%;border-radius:50%;background:var(--blush);}
+.pro span{font-size:14px;font-weight:500;}
+.pros input:checked + .pro{border-color:var(--chestnut);background:var(--blush);}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--olive);background:var(--alabaster);border:1.5px solid transparent;border-radius:10px;padding:12px 14px;}
+textarea{min-height:110px;resize:vertical;}
+textarea:focus,input[type=text]:focus{outline:none;border-color:var(--chestnut);background:var(--white);}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:15px;}
+.check input{width:22px;height:22px;accent-color:var(--chestnut);flex:none;margin-top:1px;}
+.hp{position:absolute;left:-9999px;}
+button{display:block;width:100%;margin-top:20px;padding:17px;border:0;border-radius:12px;background:var(--chestnut);color:var(--white);font:inherit;font-weight:500;font-size:18px;cursor:pointer;}
+button[disabled]{opacity:.5;cursor:default;}
+.err{color:var(--chestnut);font-size:15px;margin-top:12px;text-align:center;min-height:1em;}
+.done{text-align:center;padding:40px 8px;}
+.done svg{width:64px;height:64px;color:var(--sage);margin:0 auto 14px;display:block;}
+.done p{margin-top:10px;opacity:.8;}
+.done a{display:inline-block;margin-top:22px;padding:14px 22px;border-radius:12px;background:var(--olive);color:var(--white);text-decoration:none;font-weight:500;}
+footer{text-align:center;font-size:13px;opacity:.55;margin-top:26px;}
+@media (max-width:380px){.face svg{width:36px;height:36px}.face span{font-size:11.5px}.chips.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="assets/logos/horizontal-chestnut.png" alt="C'alma Home Spa" width="886" height="378">
+    <h1>Como foi o seu momento?</h1>
+    <p>Leva menos de um minuto. A sua opinião ajuda-nos a cuidar melhor.</p>
+  </header>
+
+  <form id="f" novalidate>
+    <fieldset class="q" id="q-pro">
+      <legend><span class="n">1</span>Quem a atendeu?<small>Toque na fotografia.</small></legend>
+      <div class="pros">
+        <label><input type="radio" name="profissional" value="F"><span class="pro"><img src="assets/photos/equipa-florencia.jpg" alt=""><span>Florência</span></span></label>
+        <label><input type="radio" name="profissional" value="P"><span class="pro"><img src="assets/photos/equipa-percilia.jpg" alt=""><span>Percília</span></span></label>
+        <label><input type="radio" name="profissional" value="A"><span class="pro"><img src="assets/photos/equipa-angelica.jpg" alt=""><span>Angélica</span></span></label>
+        <label><input type="radio" name="profissional" value="C"><span class="pro"><img src="assets/photos/equipa-cardosia.jpg" alt=""><span>Cardósia</span></span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q">
+      <legend><span class="n">2</span>Que serviço fez?</legend>
+      <div class="chips svc">
+        <label><input type="radio" name="servico" value="Massagem"><span>Massagem</span></label>
+        <label><input type="radio" name="servico" value="Corpo"><span>Corpo</span></label>
+        <label><input type="radio" name="servico" value="Rosto"><span>Rosto</span></label>
+        <label><input type="radio" name="servico" value="Mãos e pés"><span>Mãos e pés</span></label>
+        <label><input type="radio" name="servico" value="Unhas"><span>Unhas</span></label>
+        <label><input type="radio" name="servico" value="Depilação"><span>Depilação</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q" data-faces="geral">
+      <legend><span class="n">3</span>No geral, como correu?</legend>
+    </fieldset>
+
+    <fieldset class="q">
+      <legend><span class="n">4</span>A profissional chegou à hora?</legend>
+      <div class="chips row">
+        <label><input type="radio" name="pontualidade" value="sim"><span>Sim</span></label>
+        <label><input type="radio" name="pontualidade" value="pouco"><span>Um pouco atrasada</span></label>
+        <label><input type="radio" name="pontualidade" value="muito"><span>Muito atrasada</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="q" data-faces="cuidado">
+      <legend><span class="n">5</span>Como foi tratada pela profissional?<small>Simpatia, atenção e cuidado.</small></legend>
+    </fieldset>
+
+    <fieldset class="q" data-faces="higiene">
+      <legend><span class="n">6</span>Limpeza e arrumação<small>Material limpo e o espaço arrumado no fim.</small></legend>
+    </fieldset>
+
+    <fieldset class="q">
+      <legend><span class="n">7</span>Recomendaria a C'alma a uma amiga?</legend>
+      <div class="chips row">
+        <label><input type="radio" name="recomenda" value="sim"><span>Sim</span></label>
+        <label><input type="radio" name="recomenda" value="talvez"><span>Talvez</span></label>
+        <label><input type="radio" name="recomenda" value="nao"><span>Não</span></label>
+      </div>
+    </fieldset>
+
+    <div class="q">
+      <label class="lbl" for="comentario"><span class="n">8</span>Quer deixar-nos uma mensagem?<small>Opcional.</small></label>
+      <textarea id="comentario" name="comentario" maxlength="1000" placeholder="O que gostou mais? O que podemos melhorar?"></textarea>
+      <label class="lbl" for="nome" style="margin-top:16px;margin-bottom:8px;font-size:16px">O seu primeiro nome <small>Opcional.</small></label>
+      <input type="text" id="nome" name="nome" maxlength="80" autocomplete="given-name">
+      <label class="check"><input type="checkbox" name="autoriza" value="1"><span>Autorizo a C'alma a partilhar o meu comentário, só com o primeiro nome.</span></label>
+      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+    </div>
+
+    <button type="submit" id="go">Enviar</button>
+    <p class="err" id="err" role="alert"></p>
+  </form>
+
+  <div class="done" id="done" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+    <h1>Muito obrigada.</h1>
+    <p>Recebemos a sua avaliação. Quando a sua rotina pedir outra pausa, estamos aqui.</p>
+    <a href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20novo%20momento%20C%27alma.">Marcar outro momento</a>
+  </div>
+
+  <footer>C'alma Home Spa · Maputo</footer>
+</main>
+
+<script>
+(function(){
+  var FACES = [
+    ['Muito mal','M8 17c1.2-1.6 2.5-2.3 4-2.3s2.8.7 4 2.3'],
+    ['Mal','M8.5 16.3c1-.8 2.2-1.2 3.5-1.2s2.5.4 3.5 1.2'],
+    ['Razoável','M8.5 15.5h7'],
+    ['Bem','M8.5 14.6c1 .9 2.2 1.3 3.5 1.3s2.5-.4 3.5-1.3'],
+    ['Muito bem','M7.8 14c1.1 1.8 2.5 2.7 4.2 2.7s3.1-.9 4.2-2.7']
+  ];
+  document.querySelectorAll('[data-faces]').forEach(function(fs){
+    var name = fs.getAttribute('data-faces'), h = '<div class="faces">';
+    FACES.forEach(function(f, i){
+      var v = i + 1;
+      h += '<label><input type="radio" name="' + name + '" value="' + v + '"><span class="face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="' + (v >= 4 ? '#F3F5E6' : v === 3 ? '#F7F5F0' : '#FFEDE5') + '"/><circle cx="9" cy="10" r=".9" fill="currentColor"/><circle cx="15" cy="10" r=".9" fill="currentColor"/><path d="' + f[1] + '"/></svg><span>' + f[0] + '</span></span></label>';
+    });
+    fs.insertAdjacentHTML('beforeend', h + '</div>');
+  });
+
+  var qs = new URLSearchParams(location.search);
+  var p = (qs.get('p') || '').toUpperCase().charAt(0);
+  var map = {F:'F', P:'P', A:'A', C:'C'};
+  if(map[p]){ var r = document.querySelector('input[name=profissional][value=' + p + ']'); if(r) r.checked = true; }
+  var s = qs.get('s');
+  if(s){ document.querySelectorAll('input[name=servico]').forEach(function(i){ if(i.value.toLowerCase().indexOf(s.toLowerCase()) === 0) i.checked = true; }); }
+
+  var f = document.getElementById('f'), err = document.getElementById('err'), go = document.getElementById('go');
+  f.addEventListener('submit', function(e){
+    e.preventDefault(); err.textContent = '';
+    var fd = new FormData(f), d = {};
+    fd.forEach(function(v, k){ d[k] = v; });
+    if(!d.geral){ err.textContent = 'Falta só a pergunta 3: no geral, como correu?'; document.querySelector('[data-faces=geral]').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    d.autoriza = !!d.autoriza; d.origem = qs.get('o') || 'link';
+    go.disabled = true; go.textContent = 'A enviar…';
+    fetch('/api/avaliacao', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(d)})
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(!j.ok) throw 0;
+        f.hidden = true; document.getElementById('done').hidden = false; window.scrollTo(0, 0);
+      })
+      .catch(function(){ go.disabled = false; go.textContent = 'Enviar'; err.textContent = 'Não foi possível enviar. Verifique a ligação à internet e tente de novo.'; });
+  });
+})();
+</script>
+</body>
+</html>
