@@ -93,7 +93,7 @@ table.gel td b{display:block;font-weight:400;color:#9C5839;font-size:9pt}table.g
 .foot{text-align:center;font-size:7.6pt;opacity:.75;letter-spacing:.02em}'''
 
 top = ('<div class="top"><img src="logos/horizontal-chestnut.png" alt="C\'alma Home Spa"><h1>Menu</h1>'
-       '<div class="r">Bem-estar ao domicílio em Maputo<br>Todos os dias, 06:00–20:00<small>Preços em MZN, por pessoa</small></div></div>')
+       '<div class="r">Bem-estar ao domicílio em Maputo<br>Todos os dias, 06:00–20:00<small>Preços em MZN</small></div></div>')
 foot = '<div class="foot">calmahomespa.co.mz · WhatsApp +258 85 329 9721 · @calmahomespa.mz</div>'
 page = (f'<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><title>Menu C\'alma</title><style>{CSS}</style></head><body>'
         f'<div class="pg">{top}<div class="cols"><div>{c1}</div><div>{c2}</div></div>{foot}</div>'
