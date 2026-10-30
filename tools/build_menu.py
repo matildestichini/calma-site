@@ -70,16 +70,16 @@ CSS = '''@font-face{font-family:BM;src:url(fonts/BlackMango-Regular.ttf)}
 @page{size:A4;margin:0}*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Jost,sans-serif;color:#454127;font-size:8.6pt;line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{width:210mm;height:297mm;padding:14mm 15mm 10mm;background:#F3F1EC;display:flex;flex-direction:column;break-after:page;position:relative}
-.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-bottom:9mm}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-bottom:7mm}
 .top img{height:15mm}
 .top h1{font-family:BM;font-weight:400;font-size:27pt;color:#9C5839;letter-spacing:.01em}
 .top .r{text-align:right;font-size:8.4pt;line-height:1.45;align-self:start;padding-top:3mm}
 .top .r small{display:block;margin-top:3mm;font-size:7.6pt;opacity:.85}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm;flex:1}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm;flex:1;margin-bottom:7mm}
 section{margin-bottom:6mm}
 h2{font-family:BM;font-weight:400;font-size:17pt;color:#9C5839;padding-bottom:1.6mm;border-bottom:.8px solid #9C5839;margin-bottom:2mm}
 .intro{font-style:italic;font-size:7.8pt;opacity:.8;margin-bottom:3mm}
-.it{margin-bottom:2.6mm}.it p{font-size:7.6pt;opacity:.8;margin-top:.4mm}
+.it{margin-bottom:1.9mm}.it p{font-size:7.6pt;opacity:.8;margin-top:.4mm}
 .ln{display:flex;align-items:baseline;gap:1.6mm}
 .ln .nm,.nm.solo{font-weight:500;font-size:9pt}
 .ln small{font-size:7.6pt;opacity:.7}
@@ -92,8 +92,8 @@ table.gel thead th{font-size:7.6pt;text-align:center}
 table.gel td{text-align:center;padding:1.6mm 1mm;border-top:.6px solid rgba(69,65,39,.15)}
 table.gel tbody th{border-top:.6px solid rgba(69,65,39,.15)}
 table.gel td b{display:block;font-weight:400;color:#9C5839;font-size:9pt}table.gel td small{font-size:7pt;opacity:.7}
-.box{background:#fff;border-radius:3mm;padding:4mm 5mm}.box h3{font-family:BM;font-weight:400;font-size:13pt;margin-bottom:2.5mm}
-.box p{font-size:7.6pt;margin-bottom:1.6mm}.box p.z{font-size:7.2pt;padding-left:3mm;margin-bottom:1.1mm}.box p.z b{color:#9C5839;margin-right:1mm}.box b{font-weight:500}
+.box{background:#fff;border-radius:3mm;padding:4mm 5mm}.box h3{font-family:BM;font-weight:400;font-size:13pt;margin-bottom:2mm}
+.box p{font-size:7.4pt;margin-bottom:1.3mm}.box p.z{font-size:7.2pt;padding-left:3mm;margin-bottom:1.1mm}.box p.z b{color:#9C5839;margin-right:1mm}.box b{font-weight:500}
 .foot{text-align:center;font-size:7.6pt;opacity:.75;letter-spacing:.02em}'''
 
 top = ('<div class="top"><img src="logos/horizontal-chestnut.png" alt="C\'alma Home Spa"><h1>Menu</h1>'
