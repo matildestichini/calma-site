@@ -362,7 +362,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Língua / Language"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
       <a class="wa" data-link="whatsapp" href="{{WA}}" target="_blank" rel="noopener" aria-label="WhatsApp">{{WA_ICON}}</a>
-      <a class="btn btn-solid sm" data-link="fresha-main" href="#marcar">{{T:Marcar|Book}}</a>
+      <a class="btn btn-solid sm" href="#marcar">{{T:Marcar|Book}}</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </nav>
@@ -376,7 +376,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     <h1>{{T:O cuidado de um spa, <em>no conforto da sua casa.</em>|Spa care, <em>in the comfort of your home.</em>}}</h1>
     <p class="lead">{{T:Massagens, corpo, rosto, mãos, pés e depilação. A profissional chega com tudo o que é preciso, prepara o espaço e, no fim, deixa tudo arrumado.|Massage, body, facial, hand and foot care, and waxing. Your therapist arrives with everything needed, sets up the space and leaves it tidy when you are done.}}</p>
     <div class="hero-actions">
-      <a class="btn btn-solid" data-link="fresha-main" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
+      <a class="btn btn-solid" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
       <a class="arrow" href="#servicos">{{T:Ver serviços e preços|See treatments and prices}} {{ARROW}}</a>
     </div>
     <div class="facts"><span>{{T:Todos os dias, das 6h às 20h|Every day, 6 am to 8 pm}}</span><span>{{T:Escolha a sua profissional|Choose your therapist}}</span><span>{{T:Levamos marquesa, toalhas e produtos|We bring the massage table, towels and products}}</span></div>
@@ -513,7 +513,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
   <div class="band-copy">
     <h2>{{T:O seu momento de C’alma chegou.|Your C’alma moment is here.}}</h2>
     <p>{{T:Quando a sessão termina, continua em casa. Sem trânsito, sem pressa, no seu espaço.|When the session ends, you are already home. No traffic, no rush, in your own space.}}</p>
-    <a class="btn btn-light" data-link="fresha-main" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
+    <a class="btn btn-light" href="#marcar">{{T:Marcar o seu momento|Book your moment}}</a>
   </div>
   {{PH:assinatura.jpg|Cliente deitada na marquesa de massagem, com os óleos e as toalhas da C’alma ao lado|Client on the massage table, with C’alma oils and towels beside her|cliente na marquesa (16:9)}}
 </section>
@@ -523,8 +523,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     <div class="book-head">
       <span class="eyebrow">{{T:Marcações|Bookings}}</span>
       <h2>{{T:Marque o seu momento|Book your moment}}</h2>
-      <p class="lead">{{T:Marque online, com a profissional, o dia e a hora que preferir. Se quiser ver primeiro o valor total, use o simulador abaixo e envie o pedido por WhatsApp.|Book online, choosing your therapist, day and time. To see the total first, use the planner below and send your request on WhatsApp.}}</p>
-      <p style="margin-top:18px"><a class="btn btn-solid" data-link="fresha-main" href="#marcar" target="_blank" rel="noopener">{{T:Marcar online|Book online}}</a></p>
+      <p class="lead">{{T:Escolha os serviços, a profissional e a zona, e veja o valor total antes de enviar o pedido. Confirmamos a disponibilidade por WhatsApp.|Choose your treatments, therapist and zone, and see the total before sending your request. We confirm availability on WhatsApp.}}</p>
     </div>
     <div class="planner">
       <form id="plan" novalidate>
@@ -634,7 +633,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
    fresha: link direto da página de marcações da C'alma na Fresha (vazio = só WhatsApp)
    ========================================================= */
 var CALMA = {
-  fresha: 'https://l.fresha.com/3mvgh29bm',
+  fresha: '', // A Fresha é a agenda interna: o site marca sempre pelo planeador + WhatsApp
   facebook: 'https://www.facebook.com/profile.php?id=61595531287477',
   whatsapp: '258853299721',
   whatsappDisplay: '+258 85 329 9721',
