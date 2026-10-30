@@ -51,11 +51,15 @@ c3 = (sec('Gel', 'Mãos, com manicure incluída. Overlay: gel sobre a unha natur
       + sec('Complementos', by['extras']['intro'][0], ''.join(item(i) for i in by['extras']['itens'])))
 wax = ''.join(item(i, desc=False) for i in by['depilacao']['itens']) + '<p>Rosto completo: buço, queixo, maxilar e pescoço. Sem sobrancelhas.</p>'
 info = ('<div class="box"><h3>Como funciona</h3>'
-        '<p><b>Deslocação.</b> Zona 1: 300 MZN, incluída a partir de 2.500 MZN por visita. Zona 2: 500 MZN. Zona 3: 700 MZN, com mínimo de 60 min de serviço.</p>'
+        '<p><b>Deslocação.</b> Zona 1: incluída em visitas a partir de 2.500 MZN; abaixo deste valor, 300 MZN. Zona 2: 500 MZN. Zona 3: 700 MZN, com mínimo de 60 min de serviço. Confirmamos sempre a zona e o valor total antes de marcar.</p>'
+        '<p class="z"><b>Zona 1</b> Baixa, Alto Maé, Polana Cimento, Sommerschield, Coop, Malhangalene, Malanga, Munhuana, Mafalala, Maxaquene A e B.</p>'
+        '<p class="z"><b>Zona 2</b> Maxaquene C e D, Urbanização, Polana Caniço, Aeroporto, Mavalane, FPLM, Ferroviário, Chamanculo, Xipamanine, Unidade 7, Hulene A.</p>'
+        '<p class="z"><b>Zona 3</b> Costa do Sol, Triunfo, Laulane, Mahotas, Hulene B, Albazine, Magoanine, Malhazine. Zimpeto, conforme a localização.</p>'
+        '<p class="z">Matola, KaTembe e KaNyaka ainda não fazem parte da área de atendimento.</p>'
         '<p><b>Valor mínimo</b> por visita: 1.000 MZN em serviços.</p>'
         '<p><b>Pagamento</b> no fim, por POS, M-Pesa ou transferência. Não aceitamos numerário.</p>'
         '<p><b>Sinal de 30%</b> nas reservas com mais de 2 h, na massagem a quatro mãos e para duas ou mais clientes ao mesmo tempo.</p>'
-        '<p><b>Cancelamento</b> sem custo até 12 h antes (24 h nas reservas com sinal). Nas marcações da manhã, até às 20h do dia anterior.</p>'
+        '<p><b>Cancelamento</b> sem custo até 12 h antes (24 h nas reservas com sinal) ou até às 20h do dia anterior, no caso das marcações da manhã.</p>'
         '<p><b>Horário:</b> todos os dias, das 6h às 20h. Primeira marcação às 6h30. A profissional chega 10 min antes para preparar o espaço; o tempo indicado é o do serviço.</p></div>')
 c4 = sec('Depilação com cera', by['depilacao']['intro'][0], wax) + info
 
@@ -72,7 +76,7 @@ body{font-family:Jost,sans-serif;color:#454127;font-size:8.6pt;line-height:1.4;-
 .top .r{text-align:right;font-size:8.4pt;line-height:1.45;align-self:start;padding-top:3mm}
 .top .r small{display:block;margin-top:3mm;font-size:7.6pt;opacity:.85}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm;flex:1}
-section{margin-bottom:8mm}
+section{margin-bottom:6mm}
 h2{font-family:BM;font-weight:400;font-size:17pt;color:#9C5839;padding-bottom:1.6mm;border-bottom:.8px solid #9C5839;margin-bottom:2mm}
 .intro{font-style:italic;font-size:7.8pt;opacity:.8;margin-bottom:3mm}
 .it{margin-bottom:2.6mm}.it p{font-size:7.6pt;opacity:.8;margin-top:.4mm}
@@ -88,8 +92,8 @@ table.gel thead th{font-size:7.6pt;text-align:center}
 table.gel td{text-align:center;padding:1.6mm 1mm;border-top:.6px solid rgba(69,65,39,.15)}
 table.gel tbody th{border-top:.6px solid rgba(69,65,39,.15)}
 table.gel td b{display:block;font-weight:400;color:#9C5839;font-size:9pt}table.gel td small{font-size:7pt;opacity:.7}
-.box{background:#fff;border-radius:3mm;padding:5mm 5.5mm}.box h3{font-family:BM;font-weight:400;font-size:13pt;margin-bottom:2.5mm}
-.box p{font-size:7.6pt;margin-bottom:1.6mm}.box b{font-weight:500}
+.box{background:#fff;border-radius:3mm;padding:4mm 5mm}.box h3{font-family:BM;font-weight:400;font-size:13pt;margin-bottom:2.5mm}
+.box p{font-size:7.6pt;margin-bottom:1.6mm}.box p.z{font-size:7.2pt;padding-left:3mm;margin-bottom:1.1mm}.box p.z b{color:#9C5839;margin-right:1mm}.box b{font-weight:500}
 .foot{text-align:center;font-size:7.6pt;opacity:.75;letter-spacing:.02em}'''
 
 top = ('<div class="top"><img src="logos/horizontal-chestnut.png" alt="C\'alma Home Spa"><h1>Menu</h1>'
