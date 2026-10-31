@@ -65,8 +65,8 @@ def menu_panels():
                         '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])}</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in art) +
                         f'</ul><p class="note">{t("Sobre gelish ou gel. Feita pela Angélica.","On gel polish or gel nails. Done by Angélica.")}</p></div>')
             ex = next(x for x in CATS if x['id'] == 'extras')
-            body.append(f'<div class="item"><h3>{t(*ex["nome"])}</h3><p>{t(*ex["intro"])}</p>'
-                        '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])} · +{i["opts"][0][1]} min</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in ex['itens']) +
+            body.append(f'<div class="item"><h3>{t("Remoção e reparação","Removal and repair")}</h3><p>{t("Se tiver gelish ou gel nas unhas, junte a remoção para reservarmos o tempo certo.","If you are wearing gel polish or gel nails, add removal so we can book the right amount of time.")}</p>'
+                        '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])} · +{i["opts"][0][1]} min</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in ex['itens'] if i['id'] in ('remgl','remge','rep')) +
                         '</ul></div>')
             items = '<div class="items gel-items">' + ''.join(body) + '</div>'
         elif c.get('wax'):
@@ -86,7 +86,7 @@ def menu_panels():
             if c['id'] == 'maos':
                 ex = next(x for x in CATS if x['id'] == 'extras')
                 body.append(f'<div class="item"><h3>{t(*ex["nome"])}</h3><p>{t(*ex["intro"])}</p>'
-                            '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])} · +{i["opts"][0][1]} min</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in ex['itens']) +
+                            '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])} · +{i["opts"][0][1]} min</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in ex['itens'] if i['id'] not in ('remgl','remge','rep')) +
                             '</ul></div>')
             items = '<div class="items">' + ''.join(body) + '</div>'
         hidden = '' if c['id'] == 'massagens' else ' hidden'
