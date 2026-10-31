@@ -60,7 +60,7 @@ info = ('<div class="box"><h3>Como funciona</h3>'
         '<p><b>Pagamento</b> no fim, por POS, M-Pesa ou transferência. Não aceitamos numerário.</p>'
         '<p><b>Sinal de 30%</b> nas reservas com mais de 2 h, na massagem a quatro mãos e para duas ou mais clientes ao mesmo tempo.</p>'
         '<p><b>Cancelamento</b> sem custo até 12 h antes (24 h nas reservas com sinal) ou até às 20h do dia anterior, no caso das marcações da manhã.</p>'
-        '<p><b>Horário:</b> todos os dias, das 6h às 20h. Primeira marcação às 6h30. A profissional chega 10 min antes para preparar o espaço; o tempo indicado é o do serviço.</p></div>')
+        '<p><b>Horário:</b> de segunda a sábado, das 6h às 20h (primeira marcação às 6h30); ao domingo, das 7h às 18h (primeira marcação às 7h30). A profissional chega 10 min antes para preparar o espaço; o tempo indicado é o do serviço.</p></div>')
 c4 = sec('Depilação com cera', by['depilacao']['intro'][0], wax) + info
 
 CSS = '''@font-face{font-family:BM;src:url(fonts/BlackMango-Regular.ttf)}
@@ -97,7 +97,7 @@ table.gel td b{display:block;font-weight:400;color:#9C5839;font-size:9pt}table.g
 .foot{text-align:center;font-size:7.6pt;opacity:.75;letter-spacing:.02em}'''
 
 top = ('<div class="top"><img src="logos/horizontal-chestnut.png" alt="C\'alma Home Spa"><h1>Menu</h1>'
-       '<div class="r">Bem-estar ao domicílio em Maputo<br>Todos os dias, 06:00–20:00<small>Preços em MZN</small></div></div>')
+       '<div class="r">Bem-estar ao domicílio em Maputo<br>Seg–sáb 06:00–20:00 · dom 07:00–18:00<small>Preços em MZN</small></div></div>')
 foot = '<div class="foot">calmahomespa.co.mz · WhatsApp +258 85 329 9721 · @calmahomespa.mz</div>'
 page = (f'<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><title>Menu C\'alma</title><style>{CSS}</style></head><body>'
         f'<div class="pg">{top}<div class="cols"><div>{c1}</div><div>{c2}</div></div>{foot}</div>'

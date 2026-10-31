@@ -45,9 +45,9 @@ CATS = [
  {'id': 'rosto', 'nome': ('Rosto', 'Face'), 'foto': 'cat-rosto.jpg',
   'intro': ('Limpeza, massagem e hidratação, com material preparado para cada visita.', 'Cleansing, massage and hydration, with products prepared for each visit.'),
   'itens': [
-   {'id': 'limp', 'nome': ('Limpeza de pele', 'Facial cleanse'), 'desc': ('Limpeza, esfoliação, tónico e hidratação.', 'Cleanse, exfoliation, toner and moisturiser.'), 'opts': [('r1', 30, 1800)], 'who': FPC},
-   {'id': 'lift', 'nome': ('Lifting facial', 'Lifting facial'), 'desc': ('Limpeza suave, esfoliação, massagem lifting e hidratação.', 'Gentle cleanse, exfoliation, lifting massage and hydration.'), 'opts': [('r4', 45, 3800)], 'who': FPC},
-   {'id': 'brilho', 'nome': ('Brilho natural', 'Natural glow'), 'desc': ('Limpeza com vapor e óleos, para uma pele com aspeto luminoso.', 'Cleansing with steam and oils, for radiant-looking skin.'), 'opts': [('r3', 60, 2600)], 'who': FPC},
+   {'id': 'limp', 'nome': ('Limpeza de pele', 'Facial cleanse'), 'desc': ('Limpeza, esfoliação, tónico, hidratação e protetor solar.', 'Cleanse, exfoliation, toner, moisturiser and sunscreen.'), 'opts': [('r1', 30, 1600)], 'who': FPC},
+   {'id': 'lift', 'nome': ('Lifting facial', 'Lifting facial'), 'desc': ('Limpeza suave, esfoliação, massagem lifting, máscara rejuvenescedora, sérum vitamínico e protetor solar.', 'Gentle cleanse, exfoliation, lifting massage, rejuvenating mask, vitamin serum and sunscreen.'), 'opts': [('r4', 45, 3800)], 'who': FPC},
+   {'id': 'brilho', 'nome': ('Brilho natural', 'Natural glow'), 'desc': ('Vapor, extração de cravos e pontos negros, massagem relaxante, máscara de revitalização, sérum vitamínico e protetor solar.', 'Steam, blackhead extraction, relaxing massage, revitalising mask, vitamin serum and sunscreen.'), 'opts': [('r3', 60, 2600)], 'who': FPC},
   ]},
  {'id': 'maos', 'nome': ('Mãos e pés', 'Hands and feet'), 'foto': 'cat-maos.jpg',
   'intro': ('Cuidado de mãos e pés. A esfoliação e a massagem juntam-se como complemento.', 'Hand and foot care. Exfoliation and massage can be added on.'),
