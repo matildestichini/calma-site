@@ -709,6 +709,27 @@ function setWaLinks(){
   Object.keys(PROS).forEach(function(k){ proHtml += '<label class="pro"><input type="radio" name="pro" value="' + k + '"><span>' + PROS[k] + '</span><small data-proinfo="' + k + '"></small></label>'; });
   proList.innerHTML = proHtml;
 
+  /* Origem da visita (utm_source ou referrer), guardada na sessão */
+  var ORIGEM = (function(){
+    var o = '';
+    try { o = sessionStorage.getItem('calma-origem') || ''; } catch(e){}
+    if(!o){
+      var m = /[?&]utm_source=([^&#]+)/.exec(location.search);
+      if(m){ o = decodeURIComponent(m[1]).toLowerCase(); }
+      else {
+        var r = (document.referrer || '').toLowerCase();
+        if(!r || r.indexOf(location.hostname) > -1) o = 'direto';
+        else if(r.indexOf('instagram') > -1) o = 'instagram';
+        else if(r.indexOf('facebook') > -1 || r.indexOf('fb.') > -1) o = 'facebook';
+        else if(r.indexOf('google') > -1) o = 'google';
+        else if(r.indexOf('whatsapp') > -1 || r.indexOf('wa.me') > -1) o = 'whatsapp';
+        else { try { o = new URL(r).hostname.replace('www.', ''); } catch(e){ o = 'outro'; } }
+      }
+      try { sessionStorage.setItem('calma-origem', o); } catch(e){}
+    }
+    return o;
+  })();
+
   /* Horas */
   var hora = el('f-hora'), h = '<option value="">—</option>';
   for(var m = 6*60 + 30; m <= 19*60 + 30; m += 30){ var hh = ('0' + Math.floor(m/60)).slice(-2) + ':' + ('0' + m%60).slice(-2); h += '<option>' + hh + '</option>'; }
@@ -803,6 +824,7 @@ function setWaLinks(){
     if(sel.length) lines.push(L('Valor estimado: ', 'Estimated total: ') + fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : ''));
     if(LANG === 'en') lines.push('Language: English');
     lines.push(L('Envio a localização a seguir.', 'I will send my location next.'));
+    lines.push('Ref: ' + ORIGEM);
     send.href = waUrl(lines.join('\n'));
   }
   window.CALMA_CALC = calc;
