@@ -83,6 +83,11 @@ def menu_panels():
                 desc = f'<p>{t(*i["desc"])}</p>' if i.get('desc') else ''
                 body.append(f'<div class="item"><h3>{t(*i["nome"])}{tag}</h3>{desc}{price_rows(i)}{note}'
                             f'<a class="btn btn-line sm" href="#marcar" data-pick="{(i["opts"][1] if len(i["opts"])==3 else i["opts"][0])[0]}">{t("Marcar","Book")}</a></div>')
+            if c['id'] == 'maos':
+                ex = next(x for x in CATS if x['id'] == 'extras')
+                body.append(f'<div class="item"><h3>{t(*ex["nome"])}</h3><p>{t(*ex["intro"])}</p>'
+                            '<ul class="rows">' + ''.join(f'<li><span>{t(*i["nome"])} · +{i["opts"][0][1]} min</span><i></i><b>{mzn(i["opts"][0][2])}</b></li>' for i in ex['itens']) +
+                            '</ul></div>')
             items = '<div class="items">' + ''.join(body) + '</div>'
         hidden = '' if c['id'] == 'massagens' else ' hidden'
         out.append(f'<div class="panel" id="{c["id"]}" role="tabpanel" aria-labelledby="t-{c["id"]}"{hidden}>'
