@@ -80,6 +80,9 @@ CATS = [
   'itens': [
    {'id': 'esm', 'nome': ('Esfoliação de mãos', 'Hand exfoliation'), 'opts': [('esm', 10, 300)], 'who': None, 'addon': True},
    {'id': 'esp', 'nome': ('Esfoliação de pés', 'Foot exfoliation'), 'opts': [('esp', 15, 300)], 'who': None, 'addon': True},
+   {'id': 'espmp', 'nome': ('Esfoliação de pé e meia perna', 'Foot and lower-leg exfoliation'), 'desc': ('Com a pedicure.', 'With your pedicure.'), 'opts': [('espmp', 20, 500)], 'who': None, 'addon': True},
+   {'id': 'parm', 'nome': ('Hidratação com parafina — mãos', 'Paraffin hydration — hands'), 'opts': [('parm', 15, 450)], 'who': None, 'addon': True},
+   {'id': 'parp', 'nome': ('Hidratação com parafina — pés', 'Paraffin hydration — feet'), 'opts': [('parp', 15, 450)], 'who': None, 'addon': True},
    {'id': 'mpes', 'nome': ('Massagem aos pés', 'Foot massage'), 'opts': [('mpes', 10, 300)], 'who': None, 'addon': True},
    {'id': 'mobc', 'nome': ('Massagem de ombros e cabeça', 'Shoulder and head massage'), 'desc': ('Depois da manicure.', 'After your manicure.'), 'opts': [('mobc', 15, 450)], 'who': None, 'addon': True},
    {'id': 'remgl', 'nome': ('Remoção de gelish', 'Gel polish removal'), 'opts': [('remgl', 15, 250)], 'who': None, 'addon': True},
