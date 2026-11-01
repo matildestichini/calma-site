@@ -562,6 +562,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
             <label for="f-data"><span class="pt">Dia</span><span class="en" lang="en">Date</span><input id="f-data" type="date"></label>
             <label for="f-hora"><span class="pt">Hora</span><span class="en" lang="en">Time</span><select id="f-hora"></select></label>
             <label for="f-nome" class="wide"><span class="pt">O seu nome</span><span class="en" lang="en">Your name</span><input id="f-nome" type="text" autocomplete="name"></label>
+            <label for="f-origem" class="wide"><span class="pt">Onde ouviu falar de nós?</span><span class="en" lang="en">Where did you hear about us?</span><select id="f-origem"><option value="" data-pt="Escolha uma opção" data-en="Choose an option">Escolha uma opção</option><option value="Instagram" data-pt="Instagram" data-en="Instagram">Instagram</option><option value="Facebook" data-pt="Facebook" data-en="Facebook">Facebook</option><option value="Google" data-pt="Google" data-en="Google">Google</option><option value="Anúncio" data-pt="Anúncio" data-en="Ad">Anúncio</option><option value="Recomendação" data-pt="Recomendação de uma amiga" data-en="A friend’s recommendation">Recomendação de uma amiga</option><option value="Grupo" data-pt="Grupo de WhatsApp ou Facebook" data-en="WhatsApp or Facebook group">Grupo de WhatsApp ou Facebook</option><option value="Influencer" data-pt="Influencer" data-en="Influencer">Influencer</option><option value="Outro" data-pt="Outro" data-en="Other">Outro</option></select></label>
           </div>
         </fieldset>
       </form>
@@ -829,6 +830,7 @@ function setWaLinks(){
     if(sel.length) lines.push(L('Valor estimado: ', 'Estimated total: ') + fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : ''));
     if(LANG === 'en') lines.push('Language: English');
     lines.push(L('Envio a localização a seguir.', 'I will send my location next.'));
+    if(el('f-origem').value) lines.push(L('Conheceu-nos por: ', 'Heard about us via: ') + el('f-origem').value);
     lines.push('Ref: ' + ORIGEM);
     send.href = waUrl(lines.join('\n'));
   }
