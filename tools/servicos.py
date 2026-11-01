@@ -1,4 +1,4 @@
-# Fonte única dos serviços do site (menu v13, 29 out 2026: descrições da Carla, sem pó sereia, remoção de gelish 15 min).
+# Fonte única dos serviços do site (menu v13, 29 out 2026: descrições da Carla, sem pó sereia, remoção de gelish 15 min).  1 nov: verniz normal 300 MZN.
 # Cada serviço: id, nome (pt, en), descrição (pt, en), opções [(id, duração min, preço MZN)],
 # quem executa (A=Angélica, C=Cardósia, F=Florência, P=Percília; None = complemento, não restringe),
 # extras: pro=2 (duas profissionais), unit='nail' (preço por unha), addon=True, note (pt, en)
@@ -61,8 +61,8 @@ CATS = [
   'itens': [
    {'id': 'glm', 'nome': ('Gelish — mãos', 'Gel polish — hands'), 'desc': ('Cor de longa duração, com manicure incluída.', 'Long-lasting colour, manicure included.'), 'opts': [('glm', 60, 1300)], 'card': True, 'who': AC},
    {'id': 'glp', 'nome': ('Gelish — pés', 'Gel polish — feet'), 'desc': ('Cor de longa duração, com pedicure incluída.', 'Long-lasting colour, pedicure included.'), 'opts': [('glp', 60, 1600)], 'card': True, 'who': ACF},
-   {'id': 'vm', 'nome': ('Verniz normal — mãos', 'Regular polish — hands'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vm', 20, 500)], 'card': True, 'who': AC},
-   {'id': 'vp', 'nome': ('Verniz normal — pés', 'Regular polish — feet'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vp', 20, 500)], 'card': True, 'who': ACF},
+   {'id': 'vm', 'nome': ('Verniz normal — mãos', 'Regular polish — hands'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vm', 20, 300)], 'card': True, 'who': AC},
+   {'id': 'vp', 'nome': ('Verniz normal — pés', 'Regular polish — feet'), 'desc': ('Complemento a outro serviço.', 'Added to another service.'), 'opts': [('vp', 20, 300)], 'card': True, 'who': ACF},
    {'id': 'bg-nat', 'nome': ('Builder gel — overlay', 'Builder gel — overlay'), 'opts': [('bg-nat', 90, 2000)], 'who': AC},
    {'id': 'bg-alo', 'nome': ('Builder gel — alongamento', 'Builder gel — extensions'), 'opts': [('bg-alo', 120, 2300)], 'who': AC},
    {'id': 'bg-man', 'nome': ('Builder gel — manutenção', 'Builder gel — infill'), 'opts': [('bg-man', 75, 1800)], 'who': AC},
