@@ -63,89 +63,93 @@ button[disabled]{opacity:.5;cursor:default;}
 .done svg{width:64px;height:64px;color:var(--sage);margin:0 auto 14px;display:block;}
 .done p{margin-top:10px;opacity:.8;}
 .done a{display:inline-block;margin-top:22px;padding:14px 22px;border-radius:12px;background:var(--olive);color:var(--white);text-decoration:none;font-weight:500;}
+.lang{display:flex;justify-content:flex-end;gap:4px;padding-top:14px;}
+.lang button{width:auto;margin:0;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;background:transparent;color:var(--olive);border:1.5px solid var(--line);}
+.lang button[aria-pressed=true]{background:var(--olive);color:var(--white);border-color:var(--olive);}
 footer{text-align:center;font-size:13px;opacity:.55;margin-top:26px;}
 @media (max-width:380px){.face svg{width:36px;height:36px}.face span{font-size:11.5px}.chips.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
+  <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
   <header>
     <img src="assets/logos/horizontal-chestnut.png" alt="C'alma Home Spa" width="886" height="378">
-    <h1>Como foi o seu momento?</h1>
-    <p>Leva menos de um minuto. A sua opinião ajuda-nos a cuidar melhor.</p>
+    <h1 data-en="How was your moment?">Como foi o seu momento?</h1>
+    <p data-en="It takes less than a minute. Your feedback helps us care for you even better.">Leva menos de um minuto. A sua opinião ajuda-nos a cuidar melhor.</p>
   </header>
 
   <form id="f" novalidate>
     <fieldset class="q" id="q-pro">
-      <legend><span class="n">1</span>Quem a atendeu?<small>Toque na fotografia.</small></legend>
+      <legend><span class="n">1</span><span data-en="Who looked after you?">Quem a atendeu?</span><small data-en="Tap the photo. If two therapists came, choose both.">Toque na fotografia. Se vieram duas profissionais, escolha as duas.</small></legend>
       <div class="pros">
-        <label><input type="radio" name="profissional" value="F"><span class="pro"><img src="assets/photos/equipa-florencia.jpg" alt=""><span>Florência</span></span></label>
-        <label><input type="radio" name="profissional" value="P"><span class="pro"><img src="assets/photos/equipa-percilia.jpg" alt=""><span>Percília</span></span></label>
-        <label><input type="radio" name="profissional" value="A"><span class="pro"><img src="assets/photos/equipa-angelica.jpg" alt=""><span>Angélica</span></span></label>
-        <label><input type="radio" name="profissional" value="C"><span class="pro"><img src="assets/photos/equipa-cardosia.jpg" alt=""><span>Cardósia</span></span></label>
+        <label><input type="checkbox" name="profissional" value="F"><span class="pro"><img src="assets/photos/equipa-florencia.jpg" alt=""><span>Florência</span></span></label>
+        <label><input type="checkbox" name="profissional" value="P"><span class="pro"><img src="assets/photos/equipa-percilia.jpg" alt=""><span>Percília</span></span></label>
+        <label><input type="checkbox" name="profissional" value="A"><span class="pro"><img src="assets/photos/equipa-angelica.jpg" alt=""><span>Angélica</span></span></label>
+        <label><input type="checkbox" name="profissional" value="C"><span class="pro"><img src="assets/photos/equipa-cardosia.jpg" alt=""><span>Cardósia</span></span></label>
       </div>
     </fieldset>
 
     <fieldset class="q">
-      <legend><span class="n">2</span>Que serviço fez?</legend>
+      <legend><span class="n">2</span><span data-en="Which treatments did you have?">Que serviços fez?</span><small data-en="You can choose more than one.">Pode escolher mais do que um.</small></legend>
       <div class="chips svc">
-        <label><input type="radio" name="servico" value="Massagem"><span>Massagem</span></label>
-        <label><input type="radio" name="servico" value="Corpo"><span>Corpo</span></label>
-        <label><input type="radio" name="servico" value="Rosto"><span>Rosto</span></label>
-        <label><input type="radio" name="servico" value="Mãos e pés"><span>Mãos e pés</span></label>
-        <label><input type="radio" name="servico" value="Unhas"><span>Unhas</span></label>
-        <label><input type="radio" name="servico" value="Depilação"><span>Depilação</span></label>
+        <label><input type="checkbox" name="servico" value="Massagem"><span data-en="Massage">Massagem</span></label>
+        <label><input type="checkbox" name="servico" value="Corpo"><span data-en="Body">Corpo</span></label>
+        <label><input type="checkbox" name="servico" value="Rosto"><span data-en="Face">Rosto</span></label>
+        <label><input type="checkbox" name="servico" value="Mãos e pés"><span data-en="Hands and feet">Mãos e pés</span></label>
+        <label><input type="checkbox" name="servico" value="Unhas"><span data-en="Nails">Unhas</span></label>
+        <label><input type="checkbox" name="servico" value="Depilação"><span data-en="Waxing">Depilação</span></label>
       </div>
     </fieldset>
 
     <fieldset class="q" data-faces="geral">
-      <legend><span class="n">3</span>No geral, como correu?</legend>
+      <legend><span class="n">3</span><span data-en="Overall, how did it go?">No geral, como correu?</span></legend>
     </fieldset>
 
     <fieldset class="q">
-      <legend><span class="n">4</span>A profissional chegou à hora?</legend>
+      <legend><span class="n">4</span><span data-en="Did your therapist arrive on time?">A profissional chegou à hora?</span></legend>
       <div class="chips row">
-        <label><input type="radio" name="pontualidade" value="sim"><span>Sim</span></label>
-        <label><input type="radio" name="pontualidade" value="pouco"><span>Um pouco atrasada</span></label>
-        <label><input type="radio" name="pontualidade" value="muito"><span>Muito atrasada</span></label>
+        <label><input type="radio" name="pontualidade" value="sim"><span data-en="Yes">Sim</span></label>
+        <label><input type="radio" name="pontualidade" value="pouco"><span data-en="A little late">Um pouco atrasada</span></label>
+        <label><input type="radio" name="pontualidade" value="muito"><span data-en="Very late">Muito atrasada</span></label>
       </div>
     </fieldset>
 
     <fieldset class="q" data-faces="cuidado">
-      <legend><span class="n">5</span>Como foi tratada pela profissional?<small>Simpatia, atenção e cuidado.</small></legend>
+      <legend><span class="n">5</span><span data-en="How did your therapist treat you?">Como foi tratada pela profissional?</span><small data-en="Friendliness, attention and care.">Simpatia, atenção e cuidado.</small></legend>
     </fieldset>
 
     <fieldset class="q" data-faces="higiene">
-      <legend><span class="n">6</span>Limpeza e arrumação<small>Material limpo e o espaço arrumado no fim.</small></legend>
+      <legend><span class="n">6</span><span data-en="Cleanliness and tidiness">Limpeza e arrumação</span><small data-en="Clean equipment and the space left tidy at the end.">Material limpo e o espaço arrumado no fim.</small></legend>
     </fieldset>
 
     <fieldset class="q">
-      <legend><span class="n">7</span>Recomendaria a C'alma a uma amiga?</legend>
+      <legend><span class="n">7</span><span data-en="Would you recommend C'alma to a friend?">Recomendaria a C'alma a uma amiga?</span></legend>
       <div class="chips row">
-        <label><input type="radio" name="recomenda" value="sim"><span>Sim</span></label>
-        <label><input type="radio" name="recomenda" value="talvez"><span>Talvez</span></label>
-        <label><input type="radio" name="recomenda" value="nao"><span>Não</span></label>
+        <label><input type="radio" name="recomenda" value="sim"><span data-en="Yes">Sim</span></label>
+        <label><input type="radio" name="recomenda" value="talvez"><span data-en="Maybe">Talvez</span></label>
+        <label><input type="radio" name="recomenda" value="nao"><span data-en="No">Não</span></label>
       </div>
     </fieldset>
 
     <div class="q">
-      <label class="lbl" for="comentario"><span class="n">8</span>Quer deixar-nos uma mensagem?<small>Opcional.</small></label>
-      <textarea id="comentario" name="comentario" maxlength="1000" placeholder="O que gostou mais? O que podemos melhorar?"></textarea>
-      <label class="lbl" for="nome" style="margin-top:16px;margin-bottom:8px;font-size:16px">O seu primeiro nome <small>Opcional.</small></label>
+      <label class="lbl" for="comentario"><span class="n">8</span><span data-en="Would you like to leave us a message?">Quer deixar-nos uma mensagem?</span><small data-en="Optional.">Opcional.</small></label>
+      <textarea id="comentario" name="comentario" maxlength="1000" placeholder="O que gostou mais? O que podemos melhorar?" data-en-ph="What did you enjoy most? What could we improve?"></textarea>
+      <label class="lbl" for="nome" style="margin-top:16px;margin-bottom:8px;font-size:16px"><span data-en="Your first name">O seu primeiro nome</span> <small data-en="Optional.">Opcional.</small></label>
       <input type="text" id="nome" name="nome" maxlength="80" autocomplete="given-name">
-      <label class="check"><input type="checkbox" name="autoriza" value="1"><span>Autorizo a C'alma a partilhar o meu comentário, só com o primeiro nome.</span></label>
+      <label class="check"><input type="checkbox" name="autoriza" value="1"><span data-en="I allow C'alma to share my comment, with my first name only.">Autorizo a C'alma a partilhar o meu comentário, só com o primeiro nome.</span></label>
       <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
     </div>
 
-    <button type="submit" id="go">Enviar</button>
+    <button type="submit" id="go" data-en="Send">Enviar</button>
     <p class="err" id="err" role="alert"></p>
   </form>
 
   <div class="done" id="done" hidden>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
-    <h1>Muito obrigada.</h1>
-    <p>Recebemos a sua avaliação. Quando a sua rotina pedir outra pausa, estamos aqui.</p>
-    <a href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20novo%20momento%20C%27alma.">Marcar outro momento</a>
+    <h1 data-en="Thank you so much.">Muito obrigada.</h1>
+    <p data-en="We have received your feedback. Whenever your routine calls for another pause, we're here.">Recebemos a sua avaliação. Quando a sua rotina pedir outra pausa, estamos aqui.</p>
+    <a href="https://wa.me/258853299721?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20um%20novo%20momento%20C%27alma." data-en="Book another moment">Marcar outro momento</a>
   </div>
 
   <footer>C'alma Home Spa · Maputo</footer>
@@ -153,6 +157,11 @@ footer{text-align:center;font-size:13px;opacity:.55;margin-top:26px;}
 
 <script>
 (function(){
+  var qs = new URLSearchParams(location.search);
+  var LANG = (qs.get('lang') || '').toLowerCase();
+  if(LANG !== 'en' && LANG !== 'pt'){ LANG = /^pt/i.test(navigator.language || 'pt') ? 'pt' : 'en'; }
+  function T(pt, en){ return LANG === 'en' ? en : pt; }
+  var FACES_EN = ['Very bad','Bad','Okay','Good','Very good'];
   var FACES = [
     ['Muito mal','M8 17c1.2-1.6 2.5-2.3 4-2.3s2.8.7 4 2.3'],
     ['Mal','M8.5 16.3c1-.8 2.2-1.2 3.5-1.2s2.5.4 3.5 1.2'],
@@ -164,33 +173,53 @@ footer{text-align:center;font-size:13px;opacity:.55;margin-top:26px;}
     var name = fs.getAttribute('data-faces'), h = '<div class="faces">';
     FACES.forEach(function(f, i){
       var v = i + 1;
-      h += '<label><input type="radio" name="' + name + '" value="' + v + '"><span class="face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="' + (v >= 4 ? '#F3F5E6' : v === 3 ? '#F7F5F0' : '#FFEDE5') + '"/><circle cx="9" cy="10" r=".9" fill="currentColor"/><circle cx="15" cy="10" r=".9" fill="currentColor"/><path d="' + f[1] + '"/></svg><span>' + f[0] + '</span></span></label>';
+      h += '<label><input type="radio" name="' + name + '" value="' + v + '"><span class="face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="' + (v >= 4 ? '#F3F5E6' : v === 3 ? '#F7F5F0' : '#FFEDE5') + '"/><circle cx="9" cy="10" r=".9" fill="currentColor"/><circle cx="15" cy="10" r=".9" fill="currentColor"/><path d="' + f[1] + '"/></svg><span data-en="' + FACES_EN[i] + '">' + f[0] + '</span></span></label>';
     });
     fs.insertAdjacentHTML('beforeend', h + '</div>');
   });
 
-  var qs = new URLSearchParams(location.search);
-  var p = (qs.get('p') || '').toUpperCase().charAt(0);
-  var map = {F:'F', P:'P', A:'A', C:'C'};
-  if(map[p]){ var r = document.querySelector('input[name=profissional][value=' + p + ']'); if(r) r.checked = true; }
-  var s = qs.get('s');
-  if(s){ document.querySelectorAll('input[name=servico]').forEach(function(i){ if(i.value.toLowerCase().indexOf(s.toLowerCase()) === 0) i.checked = true; }); }
+  function applyLang(l){
+    LANG = l;
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
+    document.querySelectorAll('[data-en]').forEach(function(e){
+      if(e.dataset.pt === undefined) e.dataset.pt = e.innerHTML;
+      e.innerHTML = l === 'en' ? e.dataset.en : e.dataset.pt;
+    });
+    document.querySelectorAll('[data-en-ph]').forEach(function(e){
+      if(e.dataset.ptPh === undefined) e.dataset.ptPh = e.placeholder;
+      e.placeholder = l === 'en' ? e.dataset.enPh : e.dataset.ptPh;
+    });
+    document.title = l === 'en' ? "Your C'alma moment · Feedback" : "O seu momento C'alma · Avaliação";
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'); });
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.dataset.lang); }); });
+  applyLang(LANG);
+
+  (qs.get('p') || '').toUpperCase().split(/[,\s]+/).forEach(function(p){
+    if(/^[FPAC]$/.test(p)){ var r = document.querySelector('input[name=profissional][value=' + p + ']'); if(r) r.checked = true; }
+  });
+  (qs.get('s') || '').split(',').forEach(function(s){
+    s = s.trim().toLowerCase(); if(!s) return;
+    document.querySelectorAll('input[name=servico]').forEach(function(i){ if(i.value.toLowerCase().indexOf(s) === 0) i.checked = true; });
+  });
 
   var f = document.getElementById('f'), err = document.getElementById('err'), go = document.getElementById('go');
   f.addEventListener('submit', function(e){
     e.preventDefault(); err.textContent = '';
     var fd = new FormData(f), d = {};
     fd.forEach(function(v, k){ d[k] = v; });
-    if(!d.geral){ err.textContent = 'Falta só a pergunta 3: no geral, como correu?'; document.querySelector('[data-faces=geral]').scrollIntoView({behavior:'smooth', block:'center'}); return; }
-    d.autoriza = !!d.autoriza; d.origem = qs.get('o') || 'link';
-    go.disabled = true; go.textContent = 'A enviar…';
+    d.profissional = fd.getAll('profissional').join(',');
+    d.servico = fd.getAll('servico').join(', ');
+    if(!d.geral){ err.textContent = T('Falta só a pergunta 3: no geral, como correu?', 'Just question 3 left: overall, how did it go?'); document.querySelector('[data-faces=geral]').scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    d.autoriza = !!d.autoriza; d.origem = (qs.get('o') || 'link') + (LANG === 'en' ? ' (en)' : '');
+    go.disabled = true; go.textContent = T('A enviar…', 'Sending…');
     fetch('/api/avaliacao', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(d)})
       .then(function(r){ return r.json(); })
       .then(function(j){
         if(!j.ok) throw 0;
         f.hidden = true; document.getElementById('done').hidden = false; window.scrollTo(0, 0);
       })
-      .catch(function(){ go.disabled = false; go.textContent = 'Enviar'; err.textContent = 'Não foi possível enviar. Verifique a ligação à internet e tente de novo.'; });
+      .catch(function(){ go.disabled = false; go.textContent = T('Enviar', 'Send'); err.textContent = T('Não foi possível enviar. Verifique a ligação à internet e tente de novo.', 'We could not send your feedback. Please check your internet connection and try again.'); });
   });
 })();
 </script>

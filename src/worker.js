@@ -13,6 +13,10 @@ const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const int15 = (v) => { const n = parseInt(v, 10); return n >= 1 && n <= 5 ? n : null; };
 const pick = (v, opts) => (opts.includes(v) ? v : null);
 const clip = (v, n) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
+// Uma ou mais profissionais (ex.: "C,P") e um ou mais serviços (ex.: "Rosto, Mãos e pés")
+const listaPros = (v) => [...new Set(String(v ?? '').toUpperCase().split(/[,\s]+/).filter((k) => PROS[k]))].join(',') || null;
+const listaServ = (v) => [...new Set(String(v ?? '').split(',').map((x) => x.trim()).filter((x) => SERVICOS.includes(x)))].join(', ') || null;
+const nomesPros = (v) => String(v ?? '').split(',').map((k) => PROS[k]).filter(Boolean).join(' + ');
 
 async function sha256(t) {
   const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
@@ -28,8 +32,8 @@ async function guardar(req, env) {
   await env.DB.prepare(
     "INSERT INTO respostas (criado, profissional, servico, geral, pontualidade, cuidado, higiene, recomenda, comentario, nome, autoriza, origem) VALUES (datetime('now','+2 hours'),?,?,?,?,?,?,?,?,?,?,?)"
   ).bind(
-    PROS[d.profissional] ? d.profissional : null,
-    pick(d.servico, SERVICOS),
+    listaPros(d.profissional),
+    listaServ(d.servico),
     geral,
     pick(d.pontualidade, ['sim', 'pouco', 'muito']),
     cuidado, higiene,
@@ -52,13 +56,13 @@ function painel(rows, chave) {
   const n = rows.length;
   const notaPro = (r) => { const v = [r.geral, r.cuidado, r.higiene].filter((x) => x); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
   const porPro = Object.entries(PROS).map(([k, nome]) => {
-    const rr = rows.filter((r) => r.profissional === k);
+    const rr = rows.filter((r) => String(r.profissional ?? '').split(',').includes(k));
     const notas = rr.map(notaPro).filter((x) => x != null);
     const m = notas.length ? notas.reduce((a, b) => a + b, 0) / notas.length : null;
     const ok = rr.length >= 10 && m != null && m >= 4;
     return `<tr><td>${nome}</td><td>${rr.length}</td><td>${f1(m)}</td><td>${rr.length < 10 ? 'Menos de 10 respostas' : ok ? 'Cumpre (≥ 4,0)' : 'Abaixo de 4,0'}</td></tr>`;
   }).join('');
-  const lin = rows.map((r) => `<tr><td>${esc(r.criado.slice(0, 16).replace('T', ' '))}</td><td>${esc(PROS[r.profissional] || '—')}</td><td>${esc(r.servico || '—')}</td><td>${r.geral ?? '—'}</td><td>${esc(PONT[r.pontualidade] || '—')}</td><td>${r.cuidado ?? '—'}</td><td>${r.higiene ?? '—'}</td><td>${esc(REC[r.recomenda] || '—')}</td><td class="c">${esc(r.comentario)}</td><td>${esc(r.nome)}</td><td>${r.autoriza ? 'Sim' : 'Não'}</td></tr>`).join('');
+  const lin = rows.map((r) => `<tr><td>${esc(r.criado.slice(0, 16).replace('T', ' '))}</td><td>${esc(nomesPros(r.profissional) || '—')}</td><td>${esc(r.servico || '—')}</td><td>${r.geral ?? '—'}</td><td>${esc(PONT[r.pontualidade] || '—')}</td><td>${r.cuidado ?? '—'}</td><td>${r.higiene ?? '—'}</td><td>${esc(REC[r.recomenda] || '—')}</td><td class="c">${esc(r.comentario)}</td><td>${esc(r.nome)}</td><td>${r.autoriza ? 'Sim' : 'Não'}</td></tr>`).join('');
   return `<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Avaliações · C'alma</title>
 <style>:root{--a:#EEEBE4;--c:#9C5839;--o:#454127;--s:#B2C07A}*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,sans-serif;background:var(--a);color:var(--o);padding:28px 16px}main{max-width:1200px;margin:0 auto}h1{font-size:26px;margin:0 0 4px}p.s{opacity:.7;margin:0 0 22px}.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:26px}.k div{background:#fff;border-radius:8px;padding:16px}.k b{display:block;font-size:28px;color:var(--c)}h2{font-size:18px;margin:26px 0 10px}.t{overflow-x:auto;background:#fff;border-radius:8px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:9px 12px;border-bottom:1px solid #e6e2d8;vertical-align:top}th{font-weight:600;background:#f7f5f0;white-space:nowrap}td.c{min-width:240px}a.b{display:inline-block;background:var(--c);color:#fff;text-decoration:none;padding:10px 16px;border-radius:6px;margin-top:6px}</style></head><body><main>
 <h1>Avaliações pós-serviço</h1><p class="s">${n} respostas · notas de 1 a 5</p>
@@ -72,7 +76,7 @@ function painel(rows, chave) {
 function csv(rows) {
   const q = (v) => '"' + String(v ?? '').replace(/"/g, '""') + '"';
   const head = ['Data', 'Profissional', 'Serviço', 'Geral', 'Pontualidade', 'Cuidado', 'Higiene', 'Recomenda', 'Comentário', 'Nome', 'Autoriza partilhar', 'Origem'];
-  const body = rows.map((r) => [r.criado, PROS[r.profissional] || '', r.servico, r.geral, PONT[r.pontualidade] || '', r.cuidado, r.higiene, REC[r.recomenda] || '', r.comentario, r.nome, r.autoriza ? 'Sim' : 'Não', r.origem].map(q).join(';'));
+  const body = rows.map((r) => [r.criado, nomesPros(r.profissional), r.servico, r.geral, PONT[r.pontualidade] || '', r.cuidado, r.higiene, REC[r.recomenda] || '', r.comentario, r.nome, r.autoriza ? 'Sim' : 'Não', r.origem].map(q).join(';'));
   return '﻿' + [head.map(q).join(';'), ...body].join('\r\n');
 }
 
