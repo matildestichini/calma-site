@@ -45,7 +45,7 @@ c1 = (sec('Massages', by['massagens']['intro'][1], ''.join(item(i) for i in by['
       + sec('Body', by['corpo']['intro'][1], ''.join(item(i) for i in by['corpo']['itens'])))
 c2 = (sec('Face', 'Facials with cleansing, massage and hydration.', ''.join(item(i) for i in by['rosto']['itens']))
       + sec('Hands and feet', 'Hand and foot care, with sanitised tools at every visit.', ''.join(item(i) for i in by['maos']['itens']))
-      + sec('Nails', 'Gel polish includes the manicure or pedicure. Regular polish is added to another treatment.', ''.join(item(i, desc=False) for i in cards)))
+      + sec('Nails', 'Gel polish and gel nails include the manicure or pedicure; if they are for different people, book both. Regular polish is added to another treatment.', ''.join(item(i, desc=False) for i in cards)))
 c3 = (sec('Gel nails', 'Hands, manicure included. Overlay: gel over the natural nail to strengthen it. Extensions with tips or forms. Infill: keeps the base and refills the gel where the nail has grown, up to 4 weeks after application.', geltab)
       + sec('Nail art', 'Per nail, on gel polish or gel nails.', ''.join(item(i) for i in art))
       + sec('Add-ons', by['extras']['intro'][1], ''.join(item(i) for i in by['extras']['itens'])))

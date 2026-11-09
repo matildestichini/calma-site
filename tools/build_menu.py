@@ -45,7 +45,7 @@ c1 = (sec('Massagens', by['massagens']['intro'][0], ''.join(item(i) for i in by[
       + sec('Corpo', by['corpo']['intro'][0], ''.join(item(i) for i in by['corpo']['itens'])))
 c2 = (sec('Rosto', 'Cuidados de rosto com limpeza, massagem e hidratação.', ''.join(item(i) for i in by['rosto']['itens']))
       + sec('Mãos e pés', 'Cuidado de mãos e pés, com material higienizado em cada visita.', ''.join(item(i) for i in by['maos']['itens']))
-      + sec('Unhas', 'O gelish inclui a manicure ou a pedicure. O verniz normal junta-se a outro serviço.', ''.join(item(i, desc=False) for i in cards)))
+      + sec('Unhas', 'O gelish e o gel já incluem a manicure ou a pedicure; se forem para pessoas diferentes, marcam-se os dois. O verniz normal junta-se a outro serviço.', ''.join(item(i, desc=False) for i in cards)))
 c3 = (sec('Gel', 'Mãos, com manicure incluída. Overlay: gel sobre a unha natural, para a reforçar. Alongamento com tip ou molde. Manutenção: aproveita a base e repõe o gel onde a unha cresceu, até 4 semanas depois da aplicação.', geltab)
       + sec('Nail art', 'Por unha, sobre gelish ou gel.', ''.join(item(i) for i in art))
       + sec('Complementos', by['extras']['intro'][0], ''.join(item(i) for i in by['extras']['itens'])))

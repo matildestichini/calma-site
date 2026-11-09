@@ -1,4 +1,4 @@
-# Fonte única dos serviços do site (menu v13, 29 out 2026: descrições da Carla, sem pó sereia, remoção de gelish 15 min).  1 nov: verniz normal 300 MZN.
+# Fonte única dos serviços do site (menu v13, 29 out 2026: descrições da Carla, sem pó sereia, remoção de gelish 15 min).  1 nov: verniz normal 300 MZN. 9 nov: relaxante localizada 30 min 1.800 (substitui relaxante 30 e ombros/costas/cabeça), Brilho natural passa a Spa facial.
 # Cada serviço: id, nome (pt, en), descrição (pt, en), opções [(id, duração min, preço MZN)],
 # quem executa (A=Angélica, C=Cardósia, F=Florência, P=Percília; None = complemento, não restringe),
 # extras: pro=2 (duas profissionais), unit='nail' (preço por unha), addon=True, note (pt, en)
@@ -28,8 +28,8 @@ CATS = [
  {'id': 'massagens', 'nome': ('Massagens', 'Massages'), 'foto': 'cat-massagens.jpg',
   'intro': ('Movimentos ao seu ritmo, com óleo e marquesa de massagem levados até si.', 'At your own pace, with oils and a massage table brought to you.'),
   'itens': [
-   {'id': 'relax', 'nome': ('Massagem relaxante', 'Relaxing massage'), 'desc': ('Movimentos suaves e contínuos para relaxar o corpo e a mente, aliviar a tensão acumulada ou simplesmente preparar-se para o dia que vem.', 'Slow, flowing movements to relax body and mind, ease built-up tension or simply get ready for the day ahead.'), 'opts': [('m30', 30, 1500), ('m60', 60, 2600), ('m90', 90, 3600)], 'who': FP},
-   {'id': 'ombros', 'nome': ('Ombros, costas e cabeça', 'Shoulders, back and head'), 'desc': ('Dedicada à parte superior do corpo, com manobras focadas nas zonas onde a tensão se acumula.', 'Dedicated to the upper body, focusing on the areas where tension builds up.'), 'opts': [('m-obc', 30, 1800)], 'who': FP},
+   {'id': 'relax', 'nome': ('Massagem relaxante', 'Relaxing massage'), 'desc': ('Movimentos suaves e contínuos para relaxar o corpo e a mente, aliviar a tensão acumulada ou simplesmente preparar-se para o dia que vem.', 'Slow, flowing movements to relax body and mind, ease built-up tension or simply get ready for the day ahead.'), 'opts': [('m60', 60, 2600), ('m90', 90, 3600)], 'who': FP},
+   {'id': 'ombros', 'nome': ('Massagem relaxante localizada', 'Targeted relaxing massage'), 'desc': ('30 minutos dedicados a uma zona à sua escolha: costas, ombros e cabeça, pernas ou pés.', '30 minutes focused on one area of your choice: back, shoulders and head, legs or feet.'), 'opts': [('m-obc', 30, 1800)], 'who': FP},
    {'id': 'dren', 'nome': ('Drenagem linfática', 'Lymphatic drainage'), 'desc': ('Uma combinação de manobras rítmicas e técnicas específicas para ajudar a reduzir a sensação de inchaço e proporcionar leveza e bem-estar.', 'Rhythmic movements and specific techniques that help reduce the feeling of puffiness and leave you light and well.'), 'opts': [('dren', 60, 2800)], 'who': FP},
    {'id': 'hibrida', 'nome': ('Massagem híbrida', 'Hybrid massage'), 'desc': ('Combina técnicas de drenagem linfática com uma massagem relaxante, numa experiência que alia uma sensação de leveza ao relaxamento profundo do corpo.', 'Combines lymphatic drainage techniques with a relaxing massage, bringing together a feeling of lightness and deep relaxation.'), 'opts': [('hib', 90, 3200)], 'who': FP},
    {'id': 'lua', 'nome': ('Ritual da Lua', 'Moon Ritual'), 'desc': ('Uma combinação de massagem relaxante e aromaterapia, pensada para melhorar o seu conforto e bem-estar antes e durante a menstruação.', 'A blend of relaxing massage and aromatherapy, designed to support your comfort and wellbeing before and during your period.'), 'opts': [('lua60', 60, 3000), ('lua90', 90, 3800)], 'who': FP,
@@ -47,7 +47,7 @@ CATS = [
   'itens': [
    {'id': 'limp', 'nome': ('Limpeza de pele', 'Facial cleanse'), 'desc': ('Limpeza, esfoliação, tónico, hidratação e protetor solar.', 'Cleanse, exfoliation, toner, moisturiser and sunscreen.'), 'opts': [('r1', 30, 1600)], 'who': FPC},
    {'id': 'lift', 'nome': ('Lifting facial', 'Lifting facial'), 'desc': ('Limpeza suave, esfoliação, massagem lifting, máscara rejuvenescedora, sérum vitamínico e protetor solar.', 'Gentle cleanse, exfoliation, lifting massage, rejuvenating mask, vitamin serum and sunscreen.'), 'opts': [('r4', 45, 3800)], 'who': FPC},
-   {'id': 'brilho', 'nome': ('Brilho natural', 'Natural glow'), 'desc': ('Vapor, extração de cravos e pontos negros, massagem relaxante, máscara de revitalização, sérum vitamínico e protetor solar.', 'Steam, blackhead extraction, relaxing massage, revitalising mask, vitamin serum and sunscreen.'), 'opts': [('r3', 60, 2600)], 'who': FPC},
+   {'id': 'brilho', 'nome': ('Spa facial', 'Facial spa'), 'desc': ('Vapor, extração de cravos e pontos negros, massagem relaxante, máscara de revitalização, sérum vitamínico e protetor solar.', 'Steam, blackhead extraction, relaxing massage, revitalising mask, vitamin serum and sunscreen.'), 'opts': [('r3', 60, 2600)], 'who': FPC},
   ]},
  {'id': 'maos', 'nome': ('Mãos e pés', 'Hands and feet'), 'foto': 'cat-maos.jpg',
   'intro': ('Cuidado de mãos e pés. A esfoliação e a massagem juntam-se como complemento.', 'Hand and foot care. Exfoliation and massage can be added on.'),
@@ -56,7 +56,7 @@ CATS = [
    {'id': 'pedi', 'nome': ('Pedicure', 'Pedicure'), 'desc': ('Banho de pés, cutículas, calosidades e hidratação.', 'Foot soak, cuticles, hard skin and hydration.'), 'opts': [('pedi', 60, 1100)], 'who': ACF},
   ]},
  {'id': 'gel', 'nome': ('Unhas', 'Nails'), 'foto': 'cat-gel.jpg',
-  'intro': ('Verniz, gelish, gel e nail art. Se tiver gelish ou gel nas unhas, junte a remoção para reservarmos o tempo certo.', 'Polish, gel polish, gel nails and nail art. If you are wearing gel polish or gel nails, add removal so we can book the right amount of time.'),
+  'intro': ('Verniz, gelish, gel e nail art. O gelish e o gel já incluem a manicure ou a pedicure. Se tiver gelish ou gel nas unhas, junte a remoção para reservarmos o tempo certo.', 'Polish, gel polish, gel nails and nail art. Gel polish and gel nails already include a manicure or pedicure. If you are wearing gel polish or gel nails, add removal so we can book the right amount of time.'),
   'gel': True,
   'itens': [
    {'id': 'glm', 'nome': ('Gelish — mãos', 'Gel polish — hands'), 'desc': ('Cor de longa duração, com manicure incluída.', 'Long-lasting colour, manicure included.'), 'opts': [('glm', 60, 1300)], 'card': True, 'who': AC},

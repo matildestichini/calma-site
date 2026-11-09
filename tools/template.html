@@ -500,7 +500,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
       <details><summary>{{T:Quando é pedido um sinal?|When is a deposit required?}}</summary><p>{{T:É pedido um sinal de 30% do valor total nas reservas com mais de 2 horas, na massagem a quatro mãos (feita por duas profissionais) e nos serviços para duas ou mais clientes ao mesmo tempo. O restante paga-se no fim.|A 30% deposit is required for bookings over 2 hours, for the four-hand massage (given by two therapists) and for treatments for two or more clients at the same time. The rest is paid at the end.}}</p></details>
       <details><summary>{{T:Posso cancelar ou mudar a hora?|Can I cancel or reschedule?}}</summary><p>{{T:Sim, sem custo até 12 h antes. Nas marcações da manhã, até às 20h do dia anterior. Nas reservas com sinal, até 24 h antes. Em caso de falta, é cobrada a taxa de deslocação da zona.|Yes, free of charge up to 12 hours before. For morning appointments, until 8 pm the day before. For bookings with a deposit, up to 24 hours before. If you miss the appointment, the zone travel fee is charged.}}</p></details>
       <details><summary>{{T:Posso marcar para mais pessoas?|Can I book for more than one person?}}</summary><p>{{T:Sim. Amigas ou família na mesma morada podem receber os seus cuidados seguidos ou, conforme a disponibilidade, ao mesmo tempo. Estas reservas pedem um sinal de 30%.|Yes. Friends or family at the same address can be treated one after another or, depending on availability, at the same time. These bookings require a 30% deposit.}}</p></details>
-      <details><summary>{{T:Podem atender na varanda, no jardim ou junto à piscina?|Can you treat me on the balcony, in the garden or by the pool?}}</summary><p>{{T:Sim, desde que o espaço esteja à sombra e garanta privacidade. Nas massagens, pedimos um local resguardado. No rosto, o Brilho natural é feito no interior, por causa do vapor; a limpeza de pele e o lifting facial podem ser feitos no exterior. Mãos e pés precisam de uma superfície estável.|Yes, as long as the space is in the shade and private. For massages, please choose a sheltered spot. The Natural glow facial is done indoors because of the steam; the facial cleanse and lifting facial can be done outdoors. Hands and feet need a stable surface.}}</p></details>
+      <details><summary>{{T:Podem atender na varanda, no jardim ou junto à piscina?|Can you treat me on the balcony, in the garden or by the pool?}}</summary><p>{{T:Sim, desde que o espaço esteja à sombra e garanta privacidade. Nas massagens, pedimos um local resguardado. No rosto, o Spa facial é feito no interior, por causa do vapor; a limpeza de pele e o lifting facial podem ser feitos no exterior. Mãos e pés precisam de uma superfície estável.|Yes, as long as the space is in the shade and private. For massages, please choose a sheltered spot. The Facial spa facial is done indoors because of the steam; the facial cleanse and lifting facial can be done outdoors. Hands and feet need a stable surface.}}</p></details>
       <details><summary>{{T:Fazem eventos?|Do you do events?}}</summary><p>{{T:Sim: despedidas de solteira, aniversários entre amigas, um momento spa em grupo ou eventos de empresa. Peça com 48 h de antecedência e diga-nos o número de pessoas, os serviços, o local e a duração. Enviamos uma proposta.|Yes: bridal showers, birthdays with friends, a group spa moment or corporate events. Ask 48 hours ahead and tell us the number of people, treatments, place and duration. We will send you a proposal.}}</p></details>
       <details><summary>{{T:Atendem menores?|Do you treat under-18s?}}</summary><p>{{T:Sim, com uma pessoa responsável presente. A menores de 16 anos não fazemos drenagem linfática nem cutilagem.|Yes, with a parent or guardian present. We do not offer lymphatic drainage or cuticle work to under-16s.}}</p></details>
       <details><summary>{{T:Como é feita a depilação?|How does waxing work?}}</summary><p>{{T:Com cera, por zona, no conforto da sua casa. A profissional leva tudo o que é preciso e trabalha sempre com luvas. Pode juntar várias zonas na mesma visita.|With wax, by area, in the comfort of your home. Your therapist brings everything needed and always wears gloves. You can combine several areas in one visit.}}</p></details>
@@ -749,7 +749,7 @@ function setWaLinks(){
     var pessoas = +el('f-pessoas').value, zona = el('f-zona').value;
     list.querySelectorAll('details.cat').forEach(function(d){ d.querySelector('.count').textContent = d.querySelectorAll('input[type=checkbox]:checked').length || ''; });
 
-    var sub = 0, dur = 0, duasPro = false, gel = false, remov = false, wax = false;
+    var sub = 0, dur = 0, duasPro = false, gel = false, remov = false, wax = false, gelM = false, gelP = false, mani = false, pedi = false;
     var allowed = ['A','C','F','P'], constrained = false;
     sel.forEach(function(s){
       var it = s.it; sub += it.p * s.q * pessoas; dur += it.d * s.q;
@@ -757,6 +757,10 @@ function setWaLinks(){
       if(/^(glm|glp|bg-|pg-|sg)/.test(it.id)) gel = true;
       if(/^rem/.test(it.id)) remov = true;
       if(/^d-/.test(it.id)) wax = true;
+      if(/^(glm|bg-|pg-|sg)/.test(it.id)) gelM = true;
+      if(it.id === 'glp') gelP = true;
+      if(it.id === 'mani') mani = true;
+      if(it.id === 'pedi') pedi = true;
       if(it.who){ constrained = true; allowed = allowed.filter(function(k){ return it.who.indexOf(k) >= 0; }); }
     });
 
@@ -801,6 +805,8 @@ function setWaLinks(){
     if(sel.length && zona === '1' && fee > 0){ warn.push(L('Faltam ' + fmt(CALMA.ticket - sub) + ' para a deslocação ficar incluída.', 'Add ' + fmt(CALMA.ticket - sub) + ' more for free travel.')); }
     if(zona === '3' && sel.length && dur < 60 && pessoas < 2){ warn.push(L('Na Zona 3, cada visita tem pelo menos 60 min de serviço ou 2 pessoas.', 'In Zone 3, each visit needs at least 60 min of treatment or 2 people.')); block = true; }
     if(gel && !remov) warn.push(L('Tem gelish ou gel nas unhas? Junte a remoção para reservarmos o tempo certo.', 'Wearing gel polish or gel nails? Add removal so we book the right time.'));
+    if(gelM && mani) warn.push(L('O gelish e o gel já incluem a manicure. Se a manicure for para outra pessoa, mantenha os dois serviços.', 'Gel polish and gel nails already include a manicure. If the manicure is for someone else, keep both treatments.'));
+    if(gelP && pedi) warn.push(L('O gelish nos pés já inclui a pedicure. Se a pedicure for para outra pessoa, mantenha os dois serviços.', 'Gel polish on feet already includes a pedicure. If the pedicure is for someone else, keep both treatments.'));
     if(duasPro) warn.push(L('A massagem a quatro mãos é confirmada manualmente.', 'Four-hand massages are confirmed manually.'));
     if(sinal) warn.push(L('Esta reserva pede um sinal de 30%, pago na marcação.', 'This booking requires a 30% deposit when booking.'));
     var d = el('f-data').value, hv = hora.value;
