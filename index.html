@@ -462,7 +462,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
   <div class="wrap">
     <div class="zones-head">
       <div><span class="eyebrow"><span class="pt">Zonas e deslocação</span><span class="en" lang="en">Areas and travel</span></span><h2><span class="pt">Onde chegamos</span><span class="en" lang="en">Where we go</span></h2></div>
-      <p class="lead"><span class="pt">Na Zona 1, a deslocação está incluída nos serviços por visita de valor igual ou superior a 2.500 MZN; abaixo deste valor, aplica-se uma taxa de 300 MZN. Na Zona 2, a taxa é de 500 MZN e, na Zona 3, de 700 MZN. Confirmamos sempre a zona e o preço total antes de agendar.</span><span class="en" lang="en">In Zone 1, travel is included for visits of 2,500 MZN or more; below that, a 300 MZN fee applies. In Zone 2 the fee is 500 MZN and in Zone 3, 700 MZN. We always confirm your zone and the total price before booking.</span></p>
+      <p class="lead"><span class="pt">Na Zona 1, a deslocação está incluída nos serviços por visita de valor igual ou superior a 2.500 MZN; abaixo deste valor, aplica-se uma taxa de 300 MZN. Na Zona 2, a taxa é de 500 MZN e, na Zona 3, de 700 MZN. Fora destas zonas, a deslocação é calculada caso a caso. Confirmamos sempre a zona e o preço total antes de agendar.</span><span class="en" lang="en">In Zone 1, travel is included for visits of 2,500 MZN or more; below that, a 300 MZN fee applies. In Zone 2 the fee is 500 MZN and in Zone 3, 700 MZN. Outside these zones, travel is quoted case by case. We always confirm your zone and the total price before booking.</span></p>
     </div>
     <div class="zone-cards">
       <article class="zone">
@@ -487,7 +487,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
     <ul class="zone-notes">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><span class="pt">Valor mínimo por visita: 1.000 MZN em serviços.</span><span class="en" lang="en">Minimum per visit: 1,000 MZN in treatments.</span></span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M14.5 15c2.4-.3 4.6.9 5.5 3.5"/></svg><span><span class="pt">Na Zona 1, os serviços de várias pessoas na mesma morada somam para a deslocação incluída.</span><span class="en" lang="en">In Zone 1, treatments for several people at the same address count towards free travel.</span></span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg><span><span class="pt">Matola, KaTembe e KaNyaka ainda não fazem parte da área de atendimento.</span><span class="en" lang="en">Matola, KaTembe and KaNyaka are not yet covered.</span></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 10.5L20 4l-6.5 16.5-2.3-7.7z"/></svg><span><span class="pt">Fora das Zonas 1, 2 e 3, como na Matola, na KaTembe ou na KaNyaka, a deslocação é calculada caso a caso. Envie-nos a morada e indicamos o valor antes de confirmar.</span><span class="en" lang="en">Outside Zones 1, 2 and 3, such as Matola, KaTembe or KaNyaka, travel is quoted case by case. Send us your address and we confirm the fee before booking.</span></span></li>
     </ul>
   </div>
 </section>
@@ -550,7 +550,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
               <select id="f-pessoas"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
             </label>
             <label for="f-zona"><span class="pt">Zona</span><span class="en" lang="en">Zone</span>
-              <select id="f-zona"><option value="" data-pt="Escolha a zona" data-en="Choose your zone">Escolha a zona</option><option value="1" data-pt="Zona 1 · Centro" data-en="Zone 1 · Centre">Zona 1 · Centro</option><option value="2" data-pt="Zona 2" data-en="Zone 2">Zona 2</option><option value="3" data-pt="Zona 3" data-en="Zone 3">Zona 3</option><option value="0" data-pt="Não sei a minha zona" data-en="I don’t know my zone">Não sei a minha zona</option></select>
+              <select id="f-zona"><option value="" data-pt="Escolha a zona" data-en="Choose your zone">Escolha a zona</option><option value="1" data-pt="Zona 1 · Centro" data-en="Zone 1 · Centre">Zona 1 · Centro</option><option value="2" data-pt="Zona 2" data-en="Zone 2">Zona 2</option><option value="3" data-pt="Zona 3" data-en="Zone 3">Zona 3</option><option value="4" data-pt="Fora das zonas 1, 2 e 3" data-en="Outside Zones 1, 2 and 3">Fora das zonas 1, 2 e 3</option><option value="0" data-pt="Não sei a minha zona" data-en="I don’t know my zone">Não sei a minha zona</option></select>
             </label>
             <label for="f-bairro" class="wide"><span class="pt">Bairro ou ponto de referência</span><span class="en" lang="en">Neighbourhood or landmark</span>
               <input id="f-bairro" type="text" autocomplete="address-level3" data-ph-pt="Ex.: Sommerschield, perto do Parque dos Continuadores" data-ph-en="E.g. Sommerschield, near Parque dos Continuadores" placeholder="Ex.: Sommerschield, perto do Parque dos Continuadores">
@@ -585,7 +585,7 @@ footer{background:var(--olive);color:var(--alabaster);padding-block:72px 32px;}
         <ul class="policy">
           <li><span class="pt">Paga no fim, por POS, M-Pesa ou transferência. Não aceitamos numerário.</span><span class="en" lang="en">Pay at the end by card (POS), M-Pesa or transfer. No cash.</span></li>
           <li><span class="pt">Valor mínimo por visita: 1.000 MZN em serviços.</span><span class="en" lang="en">Minimum per visit: 1,000 MZN in treatments.</span></li>
-          <li><span class="pt">Deslocação: Zona 1, 300 MZN, incluída a partir de 2.500 MZN; Zona 2, 500 MZN; Zona 3, 700 MZN.</span><span class="en" lang="en">Travel: Zone 1, 300 MZN, included from 2,500 MZN; Zone 2, 500 MZN; Zone 3, 700 MZN.</span></li>
+          <li><span class="pt">Deslocação: Zona 1, 300 MZN, incluída a partir de 2.500 MZN; Zona 2, 500 MZN; Zona 3, 700 MZN; fora destas zonas, calculada caso a caso.</span><span class="en" lang="en">Travel: Zone 1, 300 MZN, included from 2,500 MZN; Zone 2, 500 MZN; Zone 3, 700 MZN; outside these zones, quoted case by case.</span></li>
           <li><span class="pt">Sinal de 30% nas reservas de mais de 2 h, com duas profissionais ou para mais de uma pessoa.</span><span class="en" lang="en">30% deposit for bookings over 2 hours, with two therapists or for more than one person.</span></li>
           <li><span class="pt">Cancelamento sem custo até 12 h antes (nas marcações da manhã, até às 20h do dia anterior; 24 h nas reservas com sinal).</span><span class="en" lang="en">Free cancellation up to 12 hours before (for morning appointments, until 8 pm the day before; 24 hours for bookings with a deposit).</span></li>
         </ul>
@@ -791,7 +791,7 @@ function setWaLinks(){
     else hint.textContent = L('A escolha depende da disponibilidade. Confirmamos antes da visita.', 'Your choice depends on availability. We confirm before the visit.');
 
     var fee = null;
-    if(sel.length && zona && zona !== '0') fee = (zona === '1' && sub >= CALMA.ticket) ? 0 : ZF[zona];
+    if(sel.length && ZF[zona] !== undefined) fee = (zona === '1' && sub >= CALMA.ticket) ? 0 : ZF[zona];
     var total = sub + (fee || 0);
     var totalMin = dur * (duasPro ? 1 : pessoas);
     var sinal = sel.length && (pessoas > 1 || duasPro || totalMin > 120);
@@ -804,7 +804,7 @@ function setWaLinks(){
       ul.insertAdjacentHTML('beforeend', '<li><span>' + nm + q + '</span><span>' + fmt(s.it.p * s.q * pessoas) + '</span></li>');
     });
     el('sum-sub').textContent = sel.length ? fmt(sub) : '—';
-    el('sum-fee').textContent = !sel.length ? '—' : (fee === null ? (zona === '0' ? L('a confirmar', 'to be confirmed') : L('escolha a zona', 'choose your zone')) : (fee === 0 ? L('incluída', 'included') : fmt(fee)));
+    el('sum-fee').textContent = !sel.length ? '—' : (fee === null ? ((zona === '0' || zona === '4') ? L('a confirmar', 'to be confirmed') : L('escolha a zona', 'choose your zone')) : (fee === 0 ? L('incluída', 'included') : fmt(fee)));
     el('sum-total').textContent = sel.length ? fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : '') : '—';
     el('sum-sinal-row').hidden = !sinal;
     if(sinal) el('sum-sinal').textContent = fmt(Math.round(total * 0.3 / 10) * 10);
@@ -816,6 +816,7 @@ function setWaLinks(){
     if(gel && !remov) warn.push(L('Tem gelish ou gel nas unhas? Junte a remoção para reservarmos o tempo certo.', 'Wearing gel polish or gel nails? Add removal so we book the right time.'));
     if(gelM && mani) warn.push(L('O gelish e o gel já incluem a manicure. Se a manicure for para outra pessoa, mantenha os dois serviços.', 'Gel polish and gel nails already include a manicure. If the manicure is for someone else, keep both treatments.'));
     if(gelP && pedi) warn.push(L('O gelish nos pés já inclui a pedicure. Se a pedicure for para outra pessoa, mantenha os dois serviços.', 'Gel polish on feet already includes a pedicure. If the pedicure is for someone else, keep both treatments.'));
+    if(sel.length && zona === '4') warn.push(L('Fora das zonas 1, 2 e 3, a deslocação é calculada caso a caso. Envie a morada no pedido e confirmamos o valor antes de marcar.', 'Outside Zones 1, 2 and 3, travel is quoted case by case. Include your address and we confirm the fee before booking.'));
     if(duasPro) warn.push(L('A massagem a quatro mãos é confirmada manualmente.', 'Four-hand massages are confirmed manually.'));
     if(sinal) warn.push(L('Esta reserva pede um sinal de 30%, pago na marcação.', 'This booking requires a 30% deposit when booking.'));
     var d = el('f-data').value, hv = hora.value;
@@ -835,7 +836,7 @@ function setWaLinks(){
     if(sel.length) lines.push(L('Serviços: ', 'Treatments: ') + sel.map(function(s){ return s.it.n[LANG === 'en' ? 1 : 0] + (s.q > 1 ? ' × ' + s.q : ''); }).join('; '));
     lines.push(L('Profissional: ', 'Therapist: ') + proName);
     lines.push(L('Pessoas: ', 'People: ') + pessoas);
-    lines.push(L('Zona: ', 'Zone: ') + (zona === '' ? L('por indicar', 'not specified') : zona === '0' ? L('não sei', 'not sure') : zona) + (el('f-bairro').value ? ' · ' + el('f-bairro').value : ''));
+    lines.push(L('Zona: ', 'Zone: ') + (zona === '' ? L('por indicar', 'not specified') : zona === '0' ? L('não sei', 'not sure') : zona === '4' ? L('fora das zonas 1, 2 e 3', 'outside Zones 1, 2 and 3') : zona) + (el('f-bairro').value ? ' · ' + el('f-bairro').value : ''));
     if(d || hv) lines.push(L('Quando: ', 'When: ') + (d ? d.split('-').reverse().join('/') : '') + (hv ? (L(' às ', ' at ')) + hv : ''));
     if(sel.length) lines.push(L('Valor estimado: ', 'Estimated total: ') + fmt(total) + (fee === null ? L(' + deslocação', ' + travel') : ''));
     if(LANG === 'en') lines.push('Language: English');
